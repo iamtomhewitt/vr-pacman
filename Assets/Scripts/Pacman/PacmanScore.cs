@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PacmanScore : MonoBehaviour 
+namespace Pacman
 {
-    public TextMesh[] scoreTexts;
-
-    public int score = 0;
-
-    public void SetScoreText(int scoreToAdd)
+    public class PacmanScore : MonoBehaviour
     {
-        score += scoreToAdd;
+        public TextMesh scoreText;
+        public int score = 0;
 
-        for (int i = 0; i < scoreTexts.Length; i++)
+        public void AddScore(int scoreToAdd)
         {
-            scoreTexts[i].text  = "SCORE "+score.ToString();
+            score += scoreToAdd;
+            scoreText.text = score.ToString();
         }
     }
 }

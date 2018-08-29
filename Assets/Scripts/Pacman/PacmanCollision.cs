@@ -1,99 +1,120 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Manager;
+using Ghosts;
 
-public class PacmanCollision : MonoBehaviour 
+namespace Pacman
 {
-    public GameObject[] lives;
-
-    public bool godMode;
-    public bool dead;
-
-    public int currentLives = 3;
-
-    PacmanScore pacmanScore;
-
-    PacmanAudio pacmanAudio;
-
-    GameManager gameManager;
-
-    void Start()
+    public class PacmanCollision : MonoBehaviour
     {
-        pacmanScore = GetComponent<PacmanScore>();
+        public GameObject[] lifeSprites;
 
-        pacmanAudio = GetComponent<PacmanAudio>();
+        public bool godMode;
+        public bool dead;
 
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-    }
+        public int currentLives = 3;
 
-    void OnCollisionEnter(Collision other)
-    { 
-        switch (other.gameObject.tag)
+        PacmanScore pacmanScore;
+
+        void Start()
         {
-            case "Food":
-                other.gameObject.SetActive(false);
-                pacmanScore.SetScoreText(10);
-                pacmanAudio.eatFood.Play();
-                //pacmanAudio.eatFoodTimer = 0f;
-
-                if (gameManager.numberOfFood <= 1)
-                    gameManager.ResetLevelAfterGameComplete();
-                break;
-
-            case "Powerup":
-                other.gameObject.SetActive(false);
-                gameManager.MakeGhostsEdible();
-                break;
-
-            case "Cherry":
-                pacmanAudio.eatFruit.Play();
-                Destroy(other.gameObject);
-                pacmanScore.SetScoreText(100);
-                break;
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (godMode)
-        {
-            return;
+            pacmanScore = GetComponent<PacmanScore>();
         }
 
-        switch (other.gameObject.tag)
+        void OnCollisionEnter(Collision other)
+        { 
+            switch (other.gameObject.tag)
+            {
+                case "Food":
+                    other.gameObject.SetActive(false);
+                    pacmanScore.AddScore(10);
+                    AudioManager.instance.Play("Eat Food");
+
+                    GameManager.instance.CountFood();
+
+                    if (GameManager.instance.numberOfFood <= 0)
+                        GameController.instance.TriggerLevelComplete();
+                    break;
+
+                case "Powerup":
+                    other.gameObject.SetActive(false);
+                    AudioManager.instance.Play("Ghost Edible");
+                    GameManager.instance.MakeGhostsEdible();
+                    break;
+
+                case "Cherry":
+                    AudioManager.instance.Play("Eat Fruit");
+                    Destroy(other.gameObject);
+                    pacmanScore.AddScore(100);
+                    break;
+            }
+        }
+
+
+        void OnTriggerEnter(Collider other)
         {
-            case "Ghost":   
-                // If we have activated a powerup then the ghost can be eaten
-                if (other.gameObject.GetComponent<Ghost>().canBeEaten)
-                {
-                    other.gameObject.GetComponent<Ghost>().eaten = true;
-                    pacmanAudio.eatenGhost.Play();
-                    pacmanScore.SetScoreText(200);
-                }
-                // Otherwise we have died
-                else
-                { 
-                    dead = true;
+            if (godMode)
+            {
+                return;
+            }
 
-                    // Pause all the sounds
-                    pacmanAudio.PauseAllSounds(); 
+            switch (other.gameObject.tag)
+            {
+                case "Ghost":   
+                    Ghost ghost = other.GetComponent<Ghost>();
 
-                    currentLives--;
+                    if (ghost.runningHome)
+                        return;
 
-                    // If we have lives
-                    if (currentLives > -1)
+                    if (ghost.edible)
                     {
-                        // Set the lives graphics
-                        lives[currentLives].SetActive(false);
-                        gameManager.PlayDeathSequence(2f);
+                        GameManager.instance.RunHome(ghost);
+                        AudioManager.instance.Play("Eat Ghost");
+                        pacmanScore.AddScore(200);
                     }
                     else
-                    {
-                        gameManager.GameOver();
+                    { 
+                        StartCoroutine(Die());
                     }
+                    break;
+            }
+        }
+
+        IEnumerator Die()
+        {
+            dead = true;
+            currentLives--;
+
+            AudioManager.instance.PauseAllSounds();
+            GameManager.instance.StopMovingEntities();
+
+            yield return new WaitForSeconds(1f);
+            AudioManager.instance.Play("Pacman Death");
+            yield return new WaitForSeconds(AudioManager.instance.GetSound("Pacman Death").clip.length+1f);
+
+            GameManager.instance.ResetEntityPositions();
+            dead = false;
+
+            if (currentLives < 0)
+            {
+                bool newHighscore = false;
+                if (pacmanScore.score > HighscoreManager.instance.LoadLocalHighscore())
+                {
+                    HighscoreManager.instance.SaveLocalHighscore(pacmanScore.score);
+                    newHighscore = true;
                 }
-                break;
+
+                GameController.instance.TriggerGameOver(newHighscore);
+            }
+            else
+            {
+                lifeSprites[currentLives].SetActive(false);
+                GameController.instance.statusText.text = "READY?";
+                yield return new WaitForSeconds(2f);
+                GameController.instance.statusText.text = "";
+                GameManager.instance.StartMovingEntities();
+            }
         }
     }
-
 }

@@ -2,28 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PacmanMovement : MonoBehaviour 
+namespace Pacman
 {
-    public float speed;
-    public float originalSpeed;
-
-	void Start () 
+    public class PacmanMovement : MonoBehaviour
     {
-        originalSpeed = speed;
-        speed = 0f;
-	}
+        public bool useAccelerometer;
 
-    void Update()
-    {
-        // Stop us from moving up or down - tried with a Rigidbody but this didnt work
-        if (transform.position.y < 0 || transform.position.y > 0)
+        [Space()]
+        public float speed;
+        public float originalSpeed;
+        public float accelerometerSensitivity;
+
+        void Start()
         {
-            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+            if (!SystemInfo.supportsGyroscope)
+            {
+                useAccelerometer = true;
+            }
+            originalSpeed = speed;
+            speed = 0f;
+        }
+
+        void Update()
+        {
+            if (useAccelerometer)
+            {
+                transform.Rotate(0f, Input.acceleration.x * accelerometerSensitivity, 0f);
+                transform.position += transform.forward * speed * Time.deltaTime;
+            }
+            else
+            {
+                Vector3 direction = Camera.main.transform.forward;
+                direction.y = 0f;
+                transform.position += direction * speed * Time.deltaTime;
+            }
         }
     }
-	
-	void FixedUpdate () 
-    {
-        transform.position += Camera.main.transform.forward * speed * Time.deltaTime;
-	}
 }
