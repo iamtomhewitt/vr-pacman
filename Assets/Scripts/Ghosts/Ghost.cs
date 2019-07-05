@@ -16,9 +16,6 @@ namespace Ghosts
         public float flashingSpeed;
         public float eatenSpeed;
 
-        [Header("Flash Settings")]
-        public float howLongToFlash;
-
         [Header("Pathfinding")]
         public Transform[] pathNodes;
         public int currentNode;
@@ -75,12 +72,12 @@ namespace Ghosts
             edible  = true;
             speed   = flashingSpeed;
 
-            StartCoroutine(Flash(Color.blue, Color.white, howLongToFlash));
+            StartCoroutine(Flash(Color.blue, Color.white));
         }
 
-        IEnumerator Flash(Color one, Color two, float flashTime)
+        IEnumerator Flash(Color one, Color two)
         {
-            StartCoroutine(WaitUntilInEdible(flashTime));
+            StartCoroutine(WaitUntilInEdible());
             while (edible)
             {
                 bodyColour.material.color = one;
@@ -94,10 +91,10 @@ namespace Ghosts
             ChangeToOriginalColour();
         }
 
-        IEnumerator WaitUntilInEdible(float time)
+        IEnumerator WaitUntilInEdible()
         {
             // Wait until we are not able to be eaten again
-            yield return new WaitForSeconds(time);        
+            yield return new WaitForSeconds(Constants.POWERUP_DURATION);        
 
             edible                  = false;
             startedFlashCoroutine   = false;
