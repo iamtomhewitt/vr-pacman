@@ -12,7 +12,6 @@ namespace Pacman
         public float speed;
         public float originalSpeed;
 		public float boostSpeed;
-		public float boostTime;
         public float accelerometerSensitivity;
 
 		public static PacmanMovement instance;
@@ -49,9 +48,12 @@ namespace Pacman
 
 		public IEnumerator BoostSpeed()
 		{
+			print(System.DateTime.Now);
 			speed = boostSpeed;
-			yield return new WaitForSeconds(boostTime);
+			yield return new WaitForSeconds(Constants.POWERUP_DURATION);
 			speed = originalSpeed;
+			print(System.DateTime.Now);
+
 		}
 	}
 }
