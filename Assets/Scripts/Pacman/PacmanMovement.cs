@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,9 +11,18 @@ namespace Pacman
         [Space()]
         public float speed;
         public float originalSpeed;
+		public float boostSpeed;
+		public float boostTime;
         public float accelerometerSensitivity;
 
-        void Start()
+		public static PacmanMovement instance;
+
+		private void Awake()
+		{
+			instance = this;
+		}
+
+		void Start()
         {
             if (!SystemInfo.supportsGyroscope)
             {
@@ -28,7 +37,7 @@ namespace Pacman
             if (useAccelerometer)
             {
                 transform.Rotate(0f, Input.acceleration.x * accelerometerSensitivity, 0f);
-                transform.position += transform.forward * speed * Time.deltaTime;
+                transform.position += Camera.main.transform.forward * speed * Time.deltaTime;
             }
             else
             {
@@ -37,5 +46,12 @@ namespace Pacman
                 transform.position += direction * speed * Time.deltaTime;
             }
         }
-    }
+
+		public IEnumerator BoostSpeed()
+		{
+			speed = boostSpeed;
+			yield return new WaitForSeconds(boostTime);
+			speed = originalSpeed;
+		}
+	}
 }

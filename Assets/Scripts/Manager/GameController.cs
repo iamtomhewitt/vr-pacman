@@ -7,7 +7,6 @@ namespace Manager
 {
     public class GameController : MonoBehaviour
     {
-        PacmanData pacman;
         public TextMesh statusText;
         public GameObject ghostHome;
 
@@ -28,11 +27,7 @@ namespace Manager
 
         void Start()
         {
-            pacman = new PacmanData(GameObject.FindObjectOfType<PacmanCollision>(), 
-                                    GameObject.FindObjectOfType<PacmanMovement>(), 
-                                    GameObject.FindObjectOfType<PacmanScore>());
             ghostHome.SetActive(false);
-
             StartCoroutine(StartGame());
         }
 
