@@ -48,12 +48,9 @@ namespace Pacman
 
 		public IEnumerator BoostSpeed()
 		{
-			print(System.DateTime.Now);
 			speed = boostSpeed;
 			yield return new WaitForSeconds(Constants.POWERUP_DURATION);
 			speed = originalSpeed;
-			print(System.DateTime.Now);
-
 		}
 	}
 }
