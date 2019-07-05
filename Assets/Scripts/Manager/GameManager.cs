@@ -21,7 +21,6 @@ namespace Manager
 
         public static GameManager instance;
 
-        PacmanData pacman;
         Ghost[] ghosts;
         GameObject[] powerups;
 
@@ -43,9 +42,6 @@ namespace Manager
             foods       = GameObject.FindGameObjectsWithTag("Food");
             ghosts      = GameObject.FindObjectsOfType<Ghost>();
             powerups    = GameObject.FindGameObjectsWithTag("Powerup");
-            pacman      = new PacmanData(GameObject.FindObjectOfType<PacmanCollision>(), 
-                                         GameObject.FindObjectOfType<PacmanMovement>(), 
-                                         GameObject.FindObjectOfType<PacmanScore>());
 
             CountFood();
             
@@ -153,7 +149,7 @@ namespace Manager
         /// </summary>
         public void StartMovingEntities()
         {
-            pacman.movement.speed = pacman.movement.originalSpeed;
+			PacmanMovement.instance.speed = PacmanMovement.instance.originalSpeed;
 
             // Reset the Ghosts speed and their path node
             for (int i = 0; i < ghosts.Length; i++)
@@ -176,7 +172,7 @@ namespace Manager
                 ghosts[i].speed = 0f;
             }
 
-            pacman.movement.speed = 0f;
+			PacmanMovement.instance.speed = 0f;
 
             AudioManager.instance.Pause("Ghost Move");
         }
@@ -195,8 +191,8 @@ namespace Manager
                 ghosts[i].currentNode = 0;
             }
 
-            // Reset pacmans position
-            pacman.movement.transform.position = new Vector3(0f, 0f, -3.43f);
+			// Reset pacmans position
+			PacmanMovement.instance.transform.position = new Vector3(0f, 0f, -3.43f);
         }
 
 

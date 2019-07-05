@@ -15,20 +15,20 @@ namespace Pacman
 
         public int currentLives = 3;
 
-        PacmanScore pacmanScore;
+		private static PacmanCollision instance;
 
-        void Start()
-        {
-            pacmanScore = GetComponent<PacmanScore>();
-        }
+		private void Awake()
+		{
+			instance = this;
+		}
 
-        void OnCollisionEnter(Collision other)
+		void OnCollisionEnter(Collision other)
         { 
             switch (other.gameObject.tag)
             {
                 case "Food":
                     other.gameObject.SetActive(false);
-                    pacmanScore.AddScore(10);
+                    PacmanScore.instance.AddScore(10);
                     AudioManager.instance.Play("Eat Food");
 
                     GameManager.instance.CountFood();
@@ -41,12 +41,13 @@ namespace Pacman
                     other.gameObject.SetActive(false);
                     AudioManager.instance.Play("Ghost Edible");
                     GameManager.instance.MakeGhostsEdible();
+					StartCoroutine(PacmanMovement.instance.BoostSpeed());
                     break;
 
                 case "Cherry":
                     AudioManager.instance.Play("Eat Fruit");
                     Destroy(other.gameObject);
-                    pacmanScore.AddScore(100);
+					PacmanScore.instance.AddScore(100);
                     break;
             }
         }
@@ -71,7 +72,7 @@ namespace Pacman
                     {
                         GameManager.instance.RunHome(ghost);
                         AudioManager.instance.Play("Eat Ghost");
-                        pacmanScore.AddScore(200);
+						PacmanScore.instance.AddScore(200);
                     }
                     else
                     { 
@@ -99,9 +100,9 @@ namespace Pacman
             if (currentLives < 0)
             {
                 bool newHighscore = false;
-                if (pacmanScore.score > HighscoreManager.instance.LoadLocalHighscore())
+                if (PacmanScore.instance.score > HighscoreManager.instance.LoadLocalHighscore())
                 {
-                    HighscoreManager.instance.SaveLocalHighscore(pacmanScore.score);
+                    HighscoreManager.instance.SaveLocalHighscore(PacmanScore.instance.score);
                     newHighscore = true;
                 }
 
