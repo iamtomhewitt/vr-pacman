@@ -30,7 +30,7 @@ namespace Pacman
             if (!SystemInfo.supportsGyroscope)
             {
                 useAccelerometer = true;
-				Input.gyro.enabled = false;     // Sanity check
+				Input.gyro.enabled = false;				// Sanity check
 				cardboardHead.trackPosition = false;
 				cardboardHead.trackRotation = false;
             }
@@ -52,6 +52,9 @@ namespace Pacman
                 direction.y = 0f;
                 transform.position += direction * speed * Time.deltaTime;
             }
+
+			// Even though rigidbody is checked to lock the y-pos, just ensure here
+			transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
         }
 
 		public IEnumerator BoostSpeed()
