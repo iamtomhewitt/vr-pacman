@@ -7,12 +7,16 @@ namespace Pacman
     public class PacmanMovement : MonoBehaviour
     {
         public bool useAccelerometer;
+		public bool debug;
 
         [Space()]
         public float speed;
         public float originalSpeed;
 		public float boostSpeed;
         public float accelerometerSensitivity;
+
+		[Space()]
+		public CardboardHead cardboardHead;
 
 		public static PacmanMovement instance;
 
@@ -26,7 +30,11 @@ namespace Pacman
             if (!SystemInfo.supportsGyroscope)
             {
                 useAccelerometer = true;
+				Input.gyro.enabled = false;				// Sanity check
+				cardboardHead.trackPosition = false;
+				cardboardHead.trackRotation = false;
             }
+
             originalSpeed = speed;
             speed = 0f;
         }
@@ -36,7 +44,7 @@ namespace Pacman
             if (useAccelerometer)
             {
                 transform.Rotate(0f, Input.acceleration.x * accelerometerSensitivity, 0f);
-                transform.position += Camera.main.transform.forward * speed * Time.deltaTime;
+                transform.position += transform.forward * speed * Time.deltaTime;
             }
             else
             {
@@ -44,6 +52,9 @@ namespace Pacman
                 direction.y = 0f;
                 transform.position += direction * speed * Time.deltaTime;
             }
+
+			// Even though rigidbody is checked to lock the y-pos, just ensure here
+			transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
         }
 
 		public IEnumerator BoostSpeed()
@@ -51,6 +62,14 @@ namespace Pacman
 			speed = boostSpeed;
 			yield return new WaitForSeconds(Constants.POWERUP_DURATION);
 			speed = originalSpeed;
+		}
+
+		private void OnGUI()
+		{
+			if (debug)
+			{
+				GUI.Label(new Rect(0, 0, 200, 100), "Use accelerometer: " + useAccelerometer);
+			}
 		}
 	}
 }
