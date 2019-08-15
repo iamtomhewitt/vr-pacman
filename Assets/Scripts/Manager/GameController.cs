@@ -75,6 +75,7 @@ namespace Manager
                 statusText.text += "\nNEW HIGHSCORE!";
             AudioManager.instance.PauseAllSounds(); 
             yield return new WaitForSeconds(5f);
+			Screen.orientation = ScreenOrientation.Portrait;
             SceneManager.LoadScene("Main Menu");
         }
 

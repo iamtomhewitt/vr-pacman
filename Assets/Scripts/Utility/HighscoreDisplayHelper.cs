@@ -9,7 +9,7 @@ namespace Utility
 {
     public class HighscoreDisplayHelper : MonoBehaviour
     {
-        public Text[] highscoreEntries;
+        public HighscoreEntry[] highscoreEntries;
         public Text localHighscoreText;
         public Text statusText;
 
@@ -19,7 +19,7 @@ namespace Utility
 
             for (int i = 0; i < highscoreEntries.Length; i++)
             {
-                highscoreEntries[i].text = i + 1 + ". Fetching...";
+                highscoreEntries[i].Populate(i + 1 + ".", "Fetching...", "Fetching...");
             }
 
             InvokeRepeating("RefreshHighscores", 0f, 15f);
@@ -30,11 +30,11 @@ namespace Utility
         {
             for (int i = 0; i < highscoreEntries.Length; i++)
             {
-                highscoreEntries[i].text = i + 1 + ". ";
+				highscoreEntries[i].Populate(i + 1 + ".", "", "");
 
                 if (highscoreList.Length > i)
                 {
-                    highscoreEntries[i].text += highscoreList[i].username + " - " + highscoreList[i].score;
+                    highscoreEntries[i].Populate(i + 1 + ".", highscoreList[i].username, highscoreList[i].score.ToString());
                 }
             }
         }

@@ -41,5 +41,15 @@ namespace Utility
         {
             Application.Quit();
         }
-    }
+
+		public void RotateScreenLandscape()
+		{
+			Screen.orientation = ScreenOrientation.LandscapeLeft;
+		}
+
+		public void RotateScreenPortrait()
+		{
+			Screen.orientation = ScreenOrientation.Portrait;
+		}
+	}
 }
