@@ -4,6 +4,7 @@
 Temp/
 Library/
 
+
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
@@ -30,3 +31,12 @@ obj/
 ehthumbs.db
 Thumbs.db
 /Library/*
+
+# Other folders
+Releases/
+Test Builds/
+Screenshots/
+Logs/
+
+.vs/vr-pacman/v15/Server/
+.vs/vr-pacman/DesignTimeBuild/
