@@ -2,6 +2,7 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 using Pacman;
+using Utility;
 
 namespace Manager
 {
@@ -75,8 +76,11 @@ namespace Manager
                 statusText.text += "\nNEW HIGHSCORE!";
             AudioManager.instance.PauseAllSounds(); 
             yield return new WaitForSeconds(5f);
-			Screen.orientation = ScreenOrientation.Portrait;
-            SceneManager.LoadScene("Main Menu");
+			Debug.Log("Deactivating VR");
+			yield return GameObject.FindObjectOfType<Utilities>().DeActivateVRRoutine();
+			Debug.Log("Done");
+
+			SceneManager.LoadScene("Main Menu");
         }
 
         public void TriggerGameOver(bool newHighscore)
