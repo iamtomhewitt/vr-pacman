@@ -51,5 +51,37 @@ namespace Utility
 		{
 			Screen.orientation = ScreenOrientation.Portrait;
 		}
+
+		/// <summary>
+		/// Used to activate VR mode with Google VR.
+		/// </summary>
+		public void ActivateVR()
+		{
+			StartCoroutine(ActivateVRRoutine());
+		}
+
+		private IEnumerator ActivateVRRoutine()
+		{
+			UnityEngine.XR.XRSettings.LoadDeviceByName("Cardboard");
+			yield return null;
+			UnityEngine.XR.XRSettings.enabled = true;
+		}
+
+		/// <summary>
+		/// Used to deactivate VR mode with Google VR.
+		/// Also makes the screen portrait.
+		/// </summary>
+		public void DeActivateVR()
+		{
+			StartCoroutine(DeActivateVRRoutine());
+		}
+
+		public IEnumerator DeActivateVRRoutine()
+		{
+			UnityEngine.XR.XRSettings.LoadDeviceByName("");
+			yield return null;
+			UnityEngine.XR.XRSettings.enabled = false;
+			Screen.orientation = ScreenOrientation.Portrait;
+		}
 	}
 }

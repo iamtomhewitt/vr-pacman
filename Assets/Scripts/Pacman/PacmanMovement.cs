@@ -15,9 +15,6 @@ namespace Pacman
 		public float boostSpeed;
         public float accelerometerSensitivity;
 
-		[Space()]
-		public CardboardHead cardboardHead;
-
 		public static PacmanMovement instance;
 
 		private void Awake()
@@ -31,8 +28,6 @@ namespace Pacman
             {
                 useAccelerometer = true;
 				Input.gyro.enabled = false;				// Sanity check
-				cardboardHead.trackPosition = false;
-				cardboardHead.trackRotation = false;
             }
 
             originalSpeed = speed;
@@ -50,7 +45,7 @@ namespace Pacman
             {
                 Vector3 direction = Camera.main.transform.forward;
                 direction.y = 0f;
-                transform.position += direction * speed * Time.deltaTime;
+				transform.position += direction * speed * Time.deltaTime;
             }
 
 			// Even though rigidbody is checked to lock the y-pos, just ensure here
