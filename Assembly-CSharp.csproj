@@ -227,6 +227,7 @@
     <Compile Include="Assets\Scripts\Manager\GameController.cs" />
     <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Manager\HighscoreManager.cs" />
+    <Compile Include="Assets\Scripts\Pacman\MinimapPacmanIcon.cs" />
     <Compile Include="Assets\Scripts\Pacman\PacmanCollision.cs" />
     <Compile Include="Assets\Scripts\Pacman\PacmanMovement.cs" />
     <Compile Include="Assets\Scripts\Pacman\PacmanScore.cs" />
@@ -235,7 +236,6 @@
     <Compile Include="Assets\Scripts\Utility\HighscoreDisplayHelper.cs" />
     <Compile Include="Assets\Scripts\Utility\HighscoreEntry.cs" />
     <Compile Include="Assets\Scripts\Utility\LevelBuilder.cs" />
-    <Compile Include="Assets\Scripts\Utility\MatchTransform.cs" />
     <Compile Include="Assets\Scripts\Utility\Rotate.cs" />
     <Compile Include="Assets\Scripts\Utility\Utilities.cs" />
     <None Include="Assets\Graphics\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
@@ -527,6 +527,9 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="Google.ProtocolBuffers">
+      <HintPath>C:/Git/vr-pacman/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Advertisements">
       <HintPath>C:/Git/vr-pacman/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
@@ -541,9 +544,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>C:/Git/vr-pacman/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.ProtocolBuffers">
-      <HintPath>C:/Git/vr-pacman/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
