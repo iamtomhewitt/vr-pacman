@@ -7,6 +7,7 @@ public class HardwareHelper : MonoBehaviour
 {
     public GameObject accelerometerControls;
     public GameObject gyroscopeControls;
+	public GameObject[] gameObjectsToHide;
 
     public bool useGyro;
 	public bool makeNewSceneLandscape;
@@ -24,8 +25,11 @@ public class HardwareHelper : MonoBehaviour
 		if (makeNewSceneLandscape)
 			Screen.orientation = ScreenOrientation.LandscapeLeft;
 
-        accelerometerControls.SetActive(false);
-        gyroscopeControls.SetActive(false);
+		foreach (GameObject g in gameObjectsToHide)
+		{
+			g.SetActive(false);
+		}
+
         GameObject.FindObjectOfType<Utilities>().LoadSceneWithCountdown(scene);
     }
 }
