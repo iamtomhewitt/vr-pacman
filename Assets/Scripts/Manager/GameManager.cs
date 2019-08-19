@@ -155,7 +155,11 @@ namespace Manager
             for (int i = 0; i < ghosts.Length; i++)
             {
                 ghosts[i].speed = ghosts[i].movingSpeed;
-                ghosts[i].currentNode = 0;
+
+				foreach (GhostPath path in GameObject.FindObjectsOfType<GhostPath>())
+				{
+					path.ResetCurrentWaypointIndex();
+				}
             }
 
             AudioManager.instance.Play("Ghost Move");
@@ -187,9 +191,12 @@ namespace Manager
             {
                 ghosts[i].gameObject.transform.position = new Vector3((-1.5f + i), 0f, -1.5f);
 
-                // We reset the current node here to stop the Ghosts immediately looking at the first node when pacman dies
-                ghosts[i].currentNode = 0;
-            }
+				// We reset the current node here to stop the Ghosts immediately looking at the first node when pacman dies
+				foreach (GhostPath path in GameObject.FindObjectsOfType<GhostPath>())
+				{
+					path.ResetCurrentWaypointIndex();
+				}
+			}
 
 			// Reset pacmans position
 			PacmanMovement.instance.transform.position = new Vector3(0f, 0f, -3.43f);

@@ -5,20 +5,23 @@ using UnityEngine;
 
 public class GhostPath : MonoBehaviour
 {
-	public Transform start;
-	public Transform end;
 	public List<Transform> waypoints;
 
-	int currentWaypointIndex = 0;
+	private int currentWaypointIndex = 0;
 
-	public Transform GetWaypoint()
+	public Transform GetCurrentWaypoint()
 	{
 		return waypoints[currentWaypointIndex];
 	}
 
 	public void SetNextWaypoint()
 	{
-		currentWaypointIndex++;
+		currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
+	}
+
+	public void ResetCurrentWaypointIndex()
+	{
+		currentWaypointIndex = 0;
 	}
 }
 
@@ -45,14 +48,6 @@ public class GhostPathEditor : Editor
 				{
 					ghostPath.waypoints.Add(child);
 				}
-				else if (child.name.Contains("Start"))
-				{
-					ghostPath.start = child;
-				}
-				else if (child.name.Contains("End"))
-				{
-					ghostPath.end = child;
-				}
 			}
 		}
 
@@ -67,6 +62,11 @@ public class GhostPathEditor : Editor
 					child.transform.name = name;
 				}
 			}
+		}
+
+		if (GUILayout.Button("Reset"))
+		{
+			ghostPath.waypoints.Clear();
 		}
 	}
 }
