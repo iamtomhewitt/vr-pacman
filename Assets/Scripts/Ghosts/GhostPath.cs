@@ -7,6 +7,7 @@ public class GhostPath : MonoBehaviour
 {
 	public List<Transform> waypoints;
 
+	private bool used;
 	private int currentWaypointIndex = 0;
 
 	public Transform GetCurrentWaypoint()
@@ -22,6 +23,16 @@ public class GhostPath : MonoBehaviour
 	public void ResetCurrentWaypointIndex()
 	{
 		currentWaypointIndex = 0;
+	}
+
+	public bool isUsed()
+	{
+		return used;
+	}
+
+	public void SetUsed(bool used)
+	{
+		this.used = used;
 	}
 }
 
