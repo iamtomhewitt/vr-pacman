@@ -75,7 +75,7 @@ namespace Manager
             ghost.edible                    = false;
             ghost.eaten                     = true;
             ghost.runningHome               = true;
-            ghost.bodyColour.enabled        = false;
+            ghost.GetBodyColour().enabled   = false;
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Manager
             ghost.eaten                     = false;
             ghost.edible                    = false;
             ghost.runningHome               = false;
-            ghost.bodyColour.enabled        = true;
+            ghost.GetBodyColour().enabled	= true;
             ghost.speed                     = ghost.movingSpeed;
             ghost.ChangeToOriginalColour();
 

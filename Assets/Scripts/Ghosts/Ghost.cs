@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Manager;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Ghosts
 {
@@ -16,21 +18,21 @@ namespace Ghosts
 		public float flashingSpeed;
 		public float eatenSpeed;
 
-		public GhostPath ghostPath;
-		private Rigidbody rb;
-
 		public Material originalColour;
 
-		[HideInInspector]
-		public MeshRenderer bodyColour;
+		private GhostPath path;
+		private Rigidbody rb;
+		private MeshRenderer bodyColour;
 
-		[HideInInspector]
-		public CapsuleCollider capsuleCollider;
+		[SerializeField]
+		private string debugColour;
 
 		void Start()
 		{
 			rb = GetComponent<Rigidbody>();
-			capsuleCollider = GetComponent<CapsuleCollider>();
+
+			path = GetRandomPath();
+			Debug("has selected path: " + path.gameObject.name);
 
 			bodyColour = GameObject.Find(gameObject.name + "/Model/Body").GetComponent<MeshRenderer>();
 		}
@@ -43,13 +45,13 @@ namespace Ghosts
 		void Move()
 		{
 			// If we are not at the current node
-			if (transform.position != ghostPath.GetCurrentWaypoint().position)
+			if (transform.position != path.GetCurrentWaypoint().position)
 			{
 				// Calculate moving from where we are to the next node
-				Vector3 p = Vector3.MoveTowards(transform.position, ghostPath.GetCurrentWaypoint().position, speed);
+				Vector3 p = Vector3.MoveTowards(transform.position, path.GetCurrentWaypoint().position, speed);
 
 				// Look at the next node
-				transform.LookAt(ghostPath.GetCurrentWaypoint().position);
+				transform.LookAt(path.GetCurrentWaypoint().position);
 
 				// Move towards the current node
 				rb.MovePosition(p);
@@ -57,7 +59,7 @@ namespace Ghosts
 			else
 			{
 				// Increase the count i.e the next node
-				ghostPath.SetNextWaypoint();
+				path.SetNextWaypoint();
 			}
 		}
 
@@ -109,7 +111,43 @@ namespace Ghosts
 			if (o.name == "Ghost Home")
 			{
 				GameManager.instance.ResetGhost(this);
+				SelectNewPath();
 			}
+		}
+
+		public MeshRenderer GetBodyColour()
+		{
+			return this.bodyColour;
+		}
+
+		/// <summary>
+		/// Randomly selects a GhostPath to use as the waypoint path from the paths in the scene.
+		/// Selects a path that is currently not being used by another ghost.
+		/// </summary>
+		private GhostPath GetRandomPath()
+		{
+			List<GhostPath> allPaths = new List<GhostPath>(GameObject.FindObjectsOfType<GhostPath>());
+			IEnumerable<GhostPath> unusedPaths = allPaths.Where(x => !x.isUsed());
+
+			GhostPath path = unusedPaths.ElementAt(Random.Range(0, unusedPaths.Count()));
+
+			path.SetUsed(true);
+			return path;
+		}
+
+		public void SelectNewPath()
+		{
+			path.SetUsed(false);
+			path = GetRandomPath();
+			Debug("has selected a new path: " + path.transform.name);
+		}
+
+		/// <summary>
+		/// Custom method for printing to the console with specified transform name colour.
+		/// </summary>
+		private void Debug(string message)
+		{
+			print("<color=" + debugColour + "><b>" + transform.name + "</b></color> " + message);
 		}
 	}
 }
