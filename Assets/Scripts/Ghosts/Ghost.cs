@@ -1,121 +1,153 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Manager;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Ghosts
 {
-    public class Ghost : MonoBehaviour
-    {
-        public bool edible = false;
-        public bool eaten = false;
-        public bool runningHome = false;
-        bool startedFlashCoroutine = false;
+	public class Ghost : MonoBehaviour
+	{
+		public bool edible = false;
+		public bool eaten = false;
+		public bool runningHome = false;
+		private bool startedFlashCoroutine = false;
 
-        public float speed;
-        public float movingSpeed;
-        public float flashingSpeed;
-        public float eatenSpeed;
+		public float speed;
+		public float movingSpeed;
+		public float flashingSpeed;
+		public float eatenSpeed;
 
-        [Header("Pathfinding")]
-        public Transform[] pathNodes;
-        public int currentNode;
+		public Material originalColour;
 
-        [Space()]
-        public Material originalColour;
+		private GhostPath path;
+		private Rigidbody rb;
+		private MeshRenderer bodyColour;
 
-        [HideInInspector]
-        public MeshRenderer bodyColour;
+		[SerializeField]
+		private string debugColour;
 
-        Rigidbody rb;
+		void Start()
+		{
+			rb = GetComponent<Rigidbody>();
 
-        [HideInInspector]
-        public CapsuleCollider capsuleCollider;
+			path = GetRandomPath();
+			Debug("has selected path: " + path.gameObject.name);
 
-        void Start()
-        {
-            rb              = GetComponent<Rigidbody>();
-            capsuleCollider = GetComponent<CapsuleCollider>();
+			bodyColour = GameObject.Find(gameObject.name + "/Model/Body").GetComponent<MeshRenderer>();
+		}
 
-            bodyColour = GameObject.Find(gameObject.name + "/Model/Body").GetComponent<MeshRenderer>();
+		void FixedUpdate()
+		{
+			Move();
+		}
 
-            //InvokeRepeating("CheckToResetGhost", 5f, .1f);
-        }
+		void Move()
+		{
+			// If we are not at the current node
+			if (transform.position != path.GetCurrentWaypoint().position)
+			{
+				// Calculate moving from where we are to the next node
+				Vector3 p = Vector3.MoveTowards(transform.position, path.GetCurrentWaypoint().position, speed);
 
-        void FixedUpdate()
-        {
-            Move();
-        }
+				// Look at the next node
+				transform.LookAt(path.GetCurrentWaypoint().position);
 
-        void Move()
-        {
-            // If we are not at the current node
-            if (transform.position != pathNodes[currentNode].position)
-            {
-                // Calculate moving from where we are to the next node
-                Vector3 p = Vector3.MoveTowards(transform.position, pathNodes[currentNode].position, speed);
+				// Move towards the current node
+				rb.MovePosition(p);
+			}
+			else
+			{
+				// Increase the count i.e the next node
+				path.SetNextWaypoint();
+			}
+		}
 
-                // Look at the next node
-                transform.LookAt(pathNodes[currentNode].position);
+		public void BecomeEdible()
+		{
+			edible = true;
+			speed = flashingSpeed;
 
-                // Move towards the current node
-                rb.MovePosition(p);
-            }
-            else
-            {
-                // Increase the count i.e the next node
-                currentNode = (currentNode + 1) % pathNodes.Length;
-            }
-        }
+			StartCoroutine(Flash(Color.blue, Color.white));
+		}
 
-        public void BecomeEdible()
-        {
-            edible  = true;
-            speed   = flashingSpeed;
+		IEnumerator Flash(Color one, Color two)
+		{
+			StartCoroutine(WaitUntilInEdible());
+			while (edible)
+			{
+				bodyColour.material.color = one;
+				yield return new WaitForSeconds(.2f);
+				bodyColour.material.color = two;
+				yield return new WaitForSeconds(.2f);
+			}
 
-            StartCoroutine(Flash(Color.blue, Color.white));
-        }
+			// Bit of leeway so coroutines dont overlap and lose colour
+			yield return new WaitForSeconds(.1f);
+			ChangeToOriginalColour();
+		}
 
-        IEnumerator Flash(Color one, Color two)
-        {
-            StartCoroutine(WaitUntilInEdible());
-            while (edible)
-            {
-                bodyColour.material.color = one;
-                yield return new WaitForSeconds(.2f);
-                bodyColour.material.color = two;
-                yield return new WaitForSeconds(.2f);
-            }
+		IEnumerator WaitUntilInEdible()
+		{
+			// Wait until we are not able to be eaten again
+			yield return new WaitForSeconds(Constants.POWERUP_DURATION);
 
-            // Bit of leeway so coroutines dont overlap and lose colour
-            yield return new WaitForSeconds(.1f);
-            ChangeToOriginalColour();
-        }
+			edible = false;
+			startedFlashCoroutine = false;
 
-        IEnumerator WaitUntilInEdible()
-        {
-            // Wait until we are not able to be eaten again
-            yield return new WaitForSeconds(Constants.POWERUP_DURATION);        
+			if (!runningHome)
+				speed = movingSpeed;
 
-            edible                  = false;
-            startedFlashCoroutine   = false;
+			AudioManager.instance.Pause("Ghost Edible");
+		}
 
-            if (!runningHome)   
-                speed               = movingSpeed;
+		public void ChangeToOriginalColour()
+		{
+			bodyColour.material = originalColour;
+		}
 
-            AudioManager.instance.Pause("Ghost Edible");
-        }
+		void OnTriggerEnter(Collider o)
+		{
+			if (o.name == "Ghost Home")
+			{
+				GameManager.instance.ResetGhost(this);
+				SelectNewPath();
+			}
+		}
 
-        public void ChangeToOriginalColour()
-        {
-            bodyColour.material = originalColour;
-        }
+		public MeshRenderer GetBodyColour()
+		{
+			return this.bodyColour;
+		}
 
-        void OnTriggerEnter(Collider o)
-        {
-            if (o.name == "Ghost Home")
-            {
-                GameManager.instance.ResetGhost(this);
-            }
-        }
-    }
+		/// <summary>
+		/// Randomly selects a GhostPath to use as the waypoint path from the paths in the scene.
+		/// Selects a path that is currently not being used by another ghost.
+		/// </summary>
+		private GhostPath GetRandomPath()
+		{
+			List<GhostPath> allPaths = new List<GhostPath>(GameObject.FindObjectsOfType<GhostPath>());
+			IEnumerable<GhostPath> unusedPaths = allPaths.Where(x => !x.isUsed());
+
+			GhostPath path = unusedPaths.ElementAt(Random.Range(0, unusedPaths.Count()));
+
+			path.SetUsed(true);
+			return path;
+		}
+
+		public void SelectNewPath()
+		{
+			path.SetUsed(false);
+			path = GetRandomPath();
+			Debug("has selected a new path: " + path.transform.name);
+		}
+
+		/// <summary>
+		/// Custom method for printing to the console with specified transform name colour.
+		/// </summary>
+		private void Debug(string message)
+		{
+			print("<color=" + debugColour + "><b>" + transform.name + "</b></color> " + message);
+		}
+	}
 }

@@ -223,6 +223,7 @@
     <Compile Include="Assets\Graphics\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
     <Compile Include="Assets\Graphics\ImageEffects\Scripts\Vortex.cs" />
     <Compile Include="Assets\Scripts\Ghosts\Ghost.cs" />
+    <Compile Include="Assets\Scripts\Ghosts\GhostPath.cs" />
     <Compile Include="Assets\Scripts\Manager\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameController.cs" />
     <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
