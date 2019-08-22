@@ -90,5 +90,10 @@ namespace Manager
             public AudioSource source;
         }
     }
+
+	public class SoundNames
+	{
+		public const string GHOST_EDIBLE = "Ghost Edible";
+	}
 }
 

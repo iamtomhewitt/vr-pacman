@@ -83,12 +83,7 @@ namespace Manager
         /// </summary>
         public void ResetGhost(Ghost ghost)
         {
-            ghost.eaten                     = false;
-            ghost.edible                    = false;
-            ghost.runningHome               = false;
-            ghost.GetBodyColour().enabled	= true;
-            ghost.speed                     = ghost.movingSpeed;
-            ghost.ChangeToOriginalColour();
+			ghost.Reset();
 
             if (!AllGhostsRunningHome())
             {
@@ -114,6 +109,7 @@ namespace Manager
         /// <returns><c>true</c>, if ghosts running home was alled, <c>false</c> otherwise.</returns>
         public bool AllGhostsRunningHome()
         {
+			// TODO use a LINQ method?
             if (!ghosts[0].runningHome &&
                 !ghosts[1].runningHome &&
                 !ghosts[2].runningHome &&
@@ -138,9 +134,11 @@ namespace Manager
             {
                 Ghost g = ghosts[i];
 
-                // Only want to become edible if we are not running home
-                if (!g.runningHome)
-                    g.BecomeEdible();
+				// Only want to become edible if we are not running home
+				if (!g.runningHome)
+				{
+					g.BecomeEdible();
+				}
             }
         }
 
