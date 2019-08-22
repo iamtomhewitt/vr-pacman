@@ -48,33 +48,6 @@ The first way is usually preferred, but it depends on the project.
 
 Don't use ```com.fpsgame.hud.healthbar```, instead use ```FpsGame.Hud.Healthbar```
 
-## Instance Variables
-
-If a GameObject is only present once in a scene, then the following instance method should be used
-
-```c#
-// GameManager.cs
-
-public static GameManager instance;
-
-void Awake()
-{
-    if (instance == null)
-    {
-        instance = this;
-    }
-    else
-    {
-        Destroy(this.gameObject);
-        return;
-    }
-}
-```
-It would be then used in another script:
-```c#
-GameManager.instance.DoSomething();
-```
-
 ## Braces
 
 Braces should follow the One True Brace Style, and always start on a new line, for example: 
@@ -158,7 +131,7 @@ private int SOME_VARIABLE = 5;
 
 ## Variables
 
-Written in the ```lowerCamelCase``` form. Variables should be self describing:
+Written in the ```lowerCamelCase``` form. Variables should be self describing. They should be prefixed with ```public``` or ```private```
 
 ```c#
 private String username = "";
@@ -167,6 +140,33 @@ private String newCustomerId = "";
 ```
 
 Do not use public variables unless absolutely necessary. Variables should be private with a public ```Get()``` and ```Set()``` method.
+
+If a GameObject is only present once in a scene, then the following instance method should be used
+
+```c#
+// GameManager.cs
+
+public static GameManager instance;
+
+void Awake()
+{
+    if (instance == null)
+    {
+        instance = this;
+    }
+    else
+    {
+        Destroy(this.gameObject);
+        return;
+    }
+}
+```
+It would be then used in another script:
+```c#
+GameManager.instance.DoSomething();
+```
+
+Variables that need to be private but need to be shown in Inspector should use the ```[SerializeField]``` before a variable. For the other way around, use ```[HideInInspector]```
 
 ## Conditions
 
