@@ -6,14 +6,14 @@ namespace Pacman
 {
     public class PacmanMovement : MonoBehaviour
     {
-        public bool useAccelerometer;
-		public bool debug;
+		[SerializeField] private bool useAccelerometer;
+		[SerializeField] private bool debug = false;
 
         [Space()]
-        public float speed;
-        public float originalSpeed;
-		public float boostSpeed;
-        public float accelerometerSensitivity;
+		[SerializeField] private float speed;
+		[SerializeField] private float originalSpeed;
+		[SerializeField] private float boostSpeed;
+		[SerializeField] private float accelerometerSensitivity;
 
 		public static PacmanMovement instance;
 
@@ -22,7 +22,7 @@ namespace Pacman
 			instance = this;
 		}
 
-		void Start()
+		private void Start()
         {
             if (!SystemInfo.supportsGyroscope)
             {
@@ -34,7 +34,7 @@ namespace Pacman
             speed = 0f;
         }
 
-        void Update()
+        private void Update()
         {
             if (useAccelerometer)
             {
@@ -52,7 +52,15 @@ namespace Pacman
 			transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
         }
 
-		public IEnumerator BoostSpeed()
+		/// <summary>
+		/// Boosts Pacmans speed for an amount of time.
+		/// </summary>
+		public void BoostSpeed()
+		{
+			StartCoroutine(BoostSpeedRoutine());
+		}
+
+		public IEnumerator BoostSpeedRoutine()
 		{
 			speed = boostSpeed;
 			yield return new WaitForSeconds(Constants.POWERUP_DURATION);
@@ -65,6 +73,22 @@ namespace Pacman
 			{
 				GUI.Label(new Rect(0, 0, 200, 100), "Use accelerometer: " + useAccelerometer);
 			}
+		}
+		
+		/// <summary>
+		/// Resets the speed to the original movement speed.
+		/// </summary>
+		public void Reset()
+		{
+			speed = originalSpeed;
+		}
+
+		/// <summary>
+		/// Stops Pacman moving.
+		/// </summary>
+		public void Stop()
+		{
+			speed = 0f;
 		}
 	}
 }

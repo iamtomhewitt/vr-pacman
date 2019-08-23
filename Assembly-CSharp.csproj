@@ -225,11 +225,12 @@
     <Compile Include="Assets\Scripts\Ghosts\Ghost.cs" />
     <Compile Include="Assets\Scripts\Ghosts\GhostPath.cs" />
     <Compile Include="Assets\Scripts\Manager\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\GameController.cs" />
-    <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\GameEventManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\GameObjectManager.cs" />
     <Compile Include="Assets\Scripts\Manager\HighscoreManager.cs" />
     <Compile Include="Assets\Scripts\Pacman\MinimapPacmanIcon.cs" />
     <Compile Include="Assets\Scripts\Pacman\PacmanCollision.cs" />
+    <Compile Include="Assets\Scripts\Pacman\PacmanHud.cs" />
     <Compile Include="Assets\Scripts\Pacman\PacmanMovement.cs" />
     <Compile Include="Assets\Scripts\Pacman\PacmanScore.cs" />
     <Compile Include="Assets\Scripts\Utility\Constants.cs" />

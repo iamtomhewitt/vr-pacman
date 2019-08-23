@@ -99,7 +99,7 @@ public bool AllGhostsRunningHome()
 ## Classes
 
 Written in the ```UpperCamelCase``` form.
-See the Camel Case Definition section for classes which have acronyms.
+See the Camel Case Definition section for classes which have acronyms. 
 
 ## Methods
 
@@ -131,12 +131,15 @@ private int SOME_VARIABLE = 5;
 
 ## Variables
 
-Written in the ```lowerCamelCase``` form. Variables should be self describing. They should be prefixed with ```public``` or ```private```
+Written in the ```lowerCamelCase``` form. Variables should be self describing. They should be prefixed with ```public``` or ```private```, and ordered in the following way in a class: ``` public <Type>, public <primative>, private <Type>, private <primative>```. For example:
 
 ```c#
-private String username = "";
-private String primaryAddress = "";
-private String newCustomerId = "";
+public GameObject readyText;
+public int numberOfFood;
+public bool canStartGame;
+
+private Ghost[] ghosts;
+private bool spawnedCherry;
 ```
 
 Do not use public variables unless absolutely necessary. Variables should be private with a public ```Get()``` and ```Set()``` method.

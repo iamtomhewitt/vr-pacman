@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// A script to control the pacman icon on the minimap.
-/// </summary>
-public class MinimapPacmanIcon : MonoBehaviour
+namespace Pacman
 {
-	public Transform pacman;
-	public Vector3 transformOffset;
-	public Vector3 rotationOffset;
-
-	void Update()
+	/// <summary>
+	/// A script to control the pacman icon on the minimap.
+	/// </summary>
+	public class MinimapPacmanIcon : MonoBehaviour
 	{
-		transform.position = pacman.position + transformOffset;
-		transform.rotation = Quaternion.Euler(rotationOffset.x, pacman.rotation.eulerAngles.y + rotationOffset.y, rotationOffset.z);
+		public Transform pacman;
+		public Vector3 transformOffset;
+		public Vector3 rotationOffset;
+
+		private void Update()
+		{
+			transform.position = pacman.position + transformOffset;
+			transform.rotation = Quaternion.Euler(rotationOffset.x, pacman.rotation.eulerAngles.y + rotationOffset.y, rotationOffset.z);
+		}
 	}
 }
