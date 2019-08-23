@@ -98,12 +98,15 @@ namespace Manager
 
 	public class SoundNames
 	{
-		public const string GHOST_EDIBLE = "Ghost Edible";
 		public const string FOOD = "Eat Food";
 		public const string EAT_FRUIT = "Eat Fruit";
 		public const string EAT_GHOST = "Eat Ghost";
+		public const string GHOST_EDIBLE = "Ghost Edible";
 		public const string GHOST_MOVE = "Ghost Move";
+		public const string GHOST_RUN = "Ghost Run";
 		public const string PACMAN_DEATH = "Pacman Death";
+		public const string INTRO_MUSIC = "Intro Music";
+		public const string LEVEL_COMPLETE = "Level Complete";
 	}
 }
 

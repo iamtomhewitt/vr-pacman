@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Manager;
 using Ghosts;
+using Utility;
 
 namespace Pacman
 {
@@ -109,7 +110,7 @@ namespace Pacman
                 bool newHighscore = false;
 				int score = PacmanScore.instance.GetScore();
 
-                if (score > HighscoreManager.instance.LoadLocalHighscore())
+                if (score > HighscoreManager.instance.GetLocalHighscore())
                 {
                     HighscoreManager.instance.SaveLocalHighscore(score);
                     newHighscore = true;

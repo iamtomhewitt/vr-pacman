@@ -31,11 +31,11 @@ namespace Manager
         private IEnumerator StartGame()
         {
 			PacmanHud.instance.SetStatusText("READY?");
-            AudioManager.instance.Play("Intro Music");
-            yield return new WaitForSeconds(AudioManager.instance.GetSound("Intro Music").clip.length);
+            AudioManager.instance.Play(SoundNames.INTRO_MUSIC);
+            yield return new WaitForSeconds(AudioManager.instance.GetSound(SoundNames.INTRO_MUSIC).clip.length);
 			PacmanHud.instance.SetStatusText("");
 			GameObjectManager.instance.StartMovingEntities();
-			AudioManager.instance.Play("Ghost Move");
+			AudioManager.instance.Play(SoundNames.GHOST_MOVE);
 			GameObjectManager.instance.ActivateGhostHome();
         }
         
@@ -46,10 +46,10 @@ namespace Manager
         {
             GameObjectManager.instance.StopMovingEntities();
 
-			AudioManager.instance.Pause("Ghost Move");
-			AudioManager.instance.Play("Level Complete");
+			AudioManager.instance.Pause(SoundNames.GHOST_MOVE);
+			AudioManager.instance.Play(SoundNames.LEVEL_COMPLETE);
 
-            yield return new WaitForSeconds(AudioManager.instance.GetSound("Level Complete").clip.length);
+            yield return new WaitForSeconds(AudioManager.instance.GetSound(SoundNames.LEVEL_COMPLETE).clip.length);
 
             GameObjectManager.instance.ActivateFood();
             GameObjectManager.instance.ActivatePowerups();
@@ -60,7 +60,7 @@ namespace Manager
 			PacmanHud.instance.SetStatusText("");
 
             GameObjectManager.instance.StartMovingEntities();
-			AudioManager.instance.Play("Ghost Move");
+			AudioManager.instance.Play(SoundNames.GHOST_MOVE);
 		}
 
 		/// <summary>

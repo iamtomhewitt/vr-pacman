@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Manager;
+using Utility;
 
 namespace Ghosts
 {
@@ -23,8 +24,7 @@ namespace Ghosts
 		private Rigidbody rb;
 		private MeshRenderer bodyColour;
 
-		[SerializeField]
-		private string debugColour;
+		[SerializeField] private string debugColour;
 
 		private void Start()
 		{
@@ -132,7 +132,7 @@ namespace Ghosts
 
 		public void RunHome()
 		{
-			AudioManager.instance.Play("Ghost Run");
+			AudioManager.instance.Play(SoundNames.GHOST_RUN);
 
             speed = eatenSpeed;
             edible = false;

@@ -6,37 +6,30 @@ using UnityEngine.UI;
 
 namespace Utility
 {
+	/// <summary>
+	/// A set of utility methods to be called anywhere in the game.
+	/// </summary>
     public class Utilities : MonoBehaviour
-    {
-        public int startTime;
-        public Text countdownText;
-
+    { 
+		/// <summary>
+		/// Loads a specific scene.
+		/// </summary>
         public void LoadScene(string name)
         {
             SceneManager.LoadScene(name);
         }
-
-        public void LoadSceneWithCountdown(string name)
-        {
-            StartCoroutine(Countdown(name));
-        }
-
-        IEnumerator Countdown(string name)
-        {
-            for (int i = startTime; i >= 0; i--)
-            {
-                countdownText.text = "PUT ON YOUR VR HEADSET\n"+i.ToString();
-                yield return new WaitForSeconds(1f);
-            }
-
-            SceneManager.LoadScene(name);
-        }
-
+		
+		/// <summary>
+		/// Opens a URL on the internet.
+		/// </summary>
         public void OpenURL(string url)
         {
             Application.OpenURL(url);
         }
 
+		/// <summary>
+		/// Exits the game.
+		/// </summary>
         public void Quit()
         {
             Application.Quit();
