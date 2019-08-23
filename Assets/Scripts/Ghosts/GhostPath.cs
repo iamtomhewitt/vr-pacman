@@ -1,38 +1,42 @@
-﻿using System.Collections;
+﻿using Ghosts;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class GhostPath : MonoBehaviour
+namespace Ghosts
 {
-	public List<Transform> waypoints;
-
-	private bool used;
-	private int currentWaypointIndex = 0;
-
-	public Transform GetCurrentWaypoint()
+	public class GhostPath : MonoBehaviour
 	{
-		return waypoints[currentWaypointIndex];
-	}
+		public List<Transform> waypoints;
 
-	public void SetNextWaypoint()
-	{
-		currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
-	}
+		private bool used;
+		private int currentWaypointIndex = 0;
 
-	public void ResetCurrentWaypointIndex()
-	{
-		currentWaypointIndex = 0;
-	}
+		public Transform GetCurrentWaypoint()
+		{
+			return waypoints[currentWaypointIndex];
+		}
 
-	public bool isUsed()
-	{
-		return used;
-	}
+		public void SetNextWaypoint()
+		{
+			currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
+		}
 
-	public void SetUsed(bool used)
-	{
-		this.used = used;
+		public void ResetCurrentWaypointIndex()
+		{
+			currentWaypointIndex = 0;
+		}
+
+		public bool isUsed()
+		{
+			return used;
+		}
+
+		public void SetUsed(bool used)
+		{
+			this.used = used;
+		}
 	}
 }
 
