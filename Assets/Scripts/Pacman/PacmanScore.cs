@@ -6,8 +6,8 @@ namespace Pacman
 {
     public class PacmanScore : MonoBehaviour
     {
-        public TextMesh scoreText;
-        public int score = 0;
+		[SerializeField] private TextMesh scoreText;
+        [SerializeField] private int score = 0;
 
 		public static PacmanScore instance;
 
@@ -21,5 +21,10 @@ namespace Pacman
             score += scoreToAdd;
             scoreText.text = score.ToString();
         }
+
+		public int GetScore()
+		{
+			return score;
+		}
     }
 }

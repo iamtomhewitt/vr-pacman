@@ -10,14 +10,14 @@ namespace Ghosts
 	{
 		public Material originalColour;
 
-		public bool edible = false;
-		public bool eaten = false;
-		public bool runningHome = false;
+		[SerializeField] private bool edible = false;
+		[SerializeField] private bool eaten = false;
+		[SerializeField] private bool runningHome = false;
 
-		public float speed;
-		public float movingSpeed;
-		public float flashingSpeed;
-		public float eatenSpeed;
+		[SerializeField] private float speed;
+		[SerializeField] private float movingSpeed;
+		[SerializeField] private float flashingSpeed;
+		[SerializeField] private float eatenSpeed;
 
 		private GhostPath path;
 		private Rigidbody rb;
@@ -85,7 +85,7 @@ namespace Ghosts
 			speed = flashingSpeed;
 
 			yield return StartCoroutine(Flash(Color.blue, Color.white));
-			ChangeToOriginalColour();
+			bodyColour.material = originalColour;
 
 			edible = false;
 			if (!runningHome)
@@ -120,24 +120,50 @@ namespace Ghosts
 			yield return new WaitForSeconds(.1f);
 		}
 
-		public void ChangeToOriginalColour()
-		{
-			bodyColour.material = originalColour;
-		}
-
 		public void Reset()
 		{
 			eaten = false;
 			edible = false;
 			runningHome = false;
-			GetBodyColour().enabled = true;
+			bodyColour.enabled = true;
 			speed = movingSpeed;
-			ChangeToOriginalColour();
+			bodyColour.material = originalColour;
 		}
 
-		public MeshRenderer GetBodyColour()
+		public void RunHome()
 		{
-			return this.bodyColour;
+			AudioManager.instance.Play("Ghost Run");
+
+            speed = eatenSpeed;
+            edible = false;
+            eaten = true;
+            runningHome = true;
+            bodyColour.enabled = false;
+		}
+
+		public void SetSpeed(float speed)
+		{
+			this.speed = speed;
+		}
+
+		public float GetMovingSpeed()
+		{
+			return movingSpeed;
+		}
+
+		public void StopMoving()
+		{
+			speed = 0f;
+		}
+
+		public bool IsRunningHome()
+		{
+			return runningHome;
+		}
+
+		public bool IsEdible()
+		{
+			return edible;
 		}
 
 		/// <summary>

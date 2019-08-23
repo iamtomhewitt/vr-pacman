@@ -6,12 +6,14 @@ using Ghosts;
 
 namespace Pacman
 {
+	/// <summary>
+	/// Methods for when Pacman collides with something.
+	/// </summary>
     public class PacmanCollision : MonoBehaviour
     {
         public GameObject[] lifeSprites;
 
         public bool godMode;
-        public bool dead;
 
         public int currentLives = 3;
 
@@ -22,38 +24,39 @@ namespace Pacman
 			instance = this;
 		}
 
-		void OnCollisionEnter(Collision other)
+		private void OnCollisionEnter(Collision other)
         { 
             switch (other.gameObject.tag)
             {
                 case "Food":
                     other.gameObject.SetActive(false);
-                    PacmanScore.instance.AddScore(10);
-                    AudioManager.instance.Play("Eat Food");
+                    PacmanScore.instance.AddScore(Constants.FOOD_SCORE);
+                    AudioManager.instance.Play(SoundNames.FOOD);
+                    GameObjectManager.instance.CountFood();
 
-                    GameManager.instance.CountFood();
-
-                    if (GameManager.instance.numberOfFood <= 0)
-                        GameController.instance.TriggerLevelComplete();
+					if (GameObjectManager.instance.GetNumberOfFood() <= 0)
+					{
+						GameEventManager.instance.CompleteLevel();
+					}
                     break;
 
                 case "Powerup":
                     other.gameObject.SetActive(false);
-                    AudioManager.instance.Play("Ghost Edible");
-                    GameManager.instance.MakeGhostsEdible();
-					StartCoroutine(PacmanMovement.instance.BoostSpeed());
+                    AudioManager.instance.Play(SoundNames.GHOST_EDIBLE);
+                    GameObjectManager.instance.MakeGhostsEdible();
+					PacmanMovement.instance.BoostSpeed();
                     break;
 
                 case "Cherry":
-                    AudioManager.instance.Play("Eat Fruit");
+                    AudioManager.instance.Play(SoundNames.EAT_FRUIT);
                     Destroy(other.gameObject);
-					PacmanScore.instance.AddScore(100);
+					PacmanScore.instance.AddScore(Constants.FRUIT_EATEN_SCORE);
                     break;
             }
         }
 
 
-        void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
             if (godMode)
             {
@@ -65,14 +68,16 @@ namespace Pacman
                 case "Ghost":   
                     Ghost ghost = other.GetComponent<Ghost>();
 
-                    if (ghost.runningHome)
-                        return;
+					if (ghost.IsRunningHome())
+					{
+						return;
+					}
 
-                    if (ghost.edible)
+                    if (ghost.IsEdible())
                     {
-                        GameManager.instance.RunHome(ghost);
-                        AudioManager.instance.Play("Eat Ghost");
-						PacmanScore.instance.AddScore(200);
+                        ghost.RunHome();
+                        AudioManager.instance.Play(SoundNames.EAT_GHOST);
+						PacmanScore.instance.AddScore(Constants.GHOST_EATEN_SCORE);
                     }
                     else
                     { 
@@ -82,40 +87,42 @@ namespace Pacman
             }
         }
 
-        IEnumerator Die()
+		/// <summary>
+		/// Routine called when a Ghost collides with Pacman.
+		/// </summary>
+        private IEnumerator Die()
         {
-            dead = true;
             currentLives--;
 
             AudioManager.instance.PauseAllSounds();
-            GameManager.instance.StopMovingEntities();
+            GameObjectManager.instance.StopMovingEntities();
+			AudioManager.instance.Pause(SoundNames.GHOST_MOVE);
 
-            yield return new WaitForSeconds(1f);
-            AudioManager.instance.Play("Pacman Death");
-            yield return new WaitForSeconds(AudioManager.instance.GetSound("Pacman Death").clip.length+1f);
+			yield return new WaitForSeconds(1f);
+            AudioManager.instance.Play(SoundNames.PACMAN_DEATH);
+			yield return new WaitForSeconds(AudioManager.instance.GetSound(SoundNames.PACMAN_DEATH).clip.length + 1f);
 
-            GameManager.instance.ResetEntityPositions();
-            dead = false;
+            GameObjectManager.instance.ResetEntityPositions();
 
             if (currentLives < 0)
             {
                 bool newHighscore = false;
-                if (PacmanScore.instance.score > HighscoreManager.instance.LoadLocalHighscore())
+				int score = PacmanScore.instance.GetScore();
+
+                if (score > HighscoreManager.instance.LoadLocalHighscore())
                 {
-                    HighscoreManager.instance.SaveLocalHighscore(PacmanScore.instance.score);
+                    HighscoreManager.instance.SaveLocalHighscore(score);
                     newHighscore = true;
                 }
 
-                GameController.instance.TriggerGameOver(newHighscore);
+                GameEventManager.instance.GameOver(newHighscore);
             }
             else
             {
                 lifeSprites[currentLives].SetActive(false);
-                GameController.instance.statusText.text = "READY?";
-                yield return new WaitForSeconds(2f);
-                GameController.instance.statusText.text = "";
-                GameManager.instance.StartMovingEntities();
-            }
+				GameEventManager.instance.RespawnPacman();                
+				AudioManager.instance.Play(SoundNames.GHOST_MOVE);
+			}
         }
     }
 }
