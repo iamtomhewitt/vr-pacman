@@ -130,6 +130,11 @@ namespace Ghosts
 			bodyColour.material = originalColour;
 		}
 
+		public void ResetPosition(int offset)
+		{
+			transform.position = new Vector3((-1.5f + offset), 0f, -1.5f);
+		}
+
 		public void RunHome()
 		{
 			AudioManager.instance.Play(SoundNames.GHOST_RUN);

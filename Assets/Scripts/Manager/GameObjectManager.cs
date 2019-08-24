@@ -1,30 +1,25 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using Pacman;
 using Ghosts;
 
 namespace Manager
 {
-    /// <summary>
-    /// Manages the objects within the game scene, such as Pacman and the Ghosts.
-    /// Any events such as game over, or starting the game, that does not involve objects, should be implemented in GameEventManager.
-    /// </summary>
-    public class GameObjectManager : MonoBehaviour
+	/// <summary>
+	/// Manages the objects within the game scene, such as Pacman and the Ghosts.
+	/// Any events such as game over, or starting the game, that does not involve objects, should be implemented in GameEventManager.
+	/// </summary>
+	public class GameObjectManager : MonoBehaviour
     {
         public GameObject cherry;
 		public GameObject ghostHome;
-
-        public int foodCount;
-
-        public bool canStartGame;
 
         private GameObject[] foods;
         private GameObject[] powerups;
         private Ghost[] ghosts;
 
-        private bool spawnedCherry;
+		private int foodCount;
+		private bool spawnedCherry;
 
         public static GameObjectManager instance;
 
@@ -69,7 +64,9 @@ namespace Manager
         /// </summary>
         public void MakeGhostsEdible()
         {
-            for (int i = 0; i < ghosts.Length; i++)
+			AudioManager.instance.Play(SoundNames.GHOST_EDIBLE);
+
+			for (int i = 0; i < ghosts.Length; i++)
             {
                 Ghost g = ghosts[i];
 
@@ -86,20 +83,20 @@ namespace Manager
         /// </summary>
         public void StartMovingEntities()
         {
-			PacmanMovement.instance.Reset();
+			PacmanMovement.instance.ResetSpeed();
 
             // Reset the Ghosts speed and their path node
             for (int i = 0; i < ghosts.Length; i++)
             {
 				Ghost g = ghosts[i];
 				g.SetSpeed(g.GetMovingSpeed());
-
-				foreach (GhostPath path in GameObject.FindObjectsOfType<GhostPath>())
-				{
-					path.ResetCurrentWaypointIndex();
-				}
             }
-        }
+
+			foreach (GhostPath path in GameObject.FindObjectsOfType<GhostPath>())
+			{
+				path.ResetCurrentWaypointIndex();
+			}
+		}
 
         /// <summary>
         /// Stops moving Pacman and the Ghosts.
@@ -119,22 +116,20 @@ namespace Manager
         /// </summary>
         public void ResetEntityPositions()
         {
-            // Reset the positions of the Ghosts
             for (int i = 0; i < ghosts.Length; i++)
             {
-                ghosts[i].gameObject.transform.position = new Vector3((-1.5f + i), 0f, -1.5f);
+				ghosts[i].ResetPosition(i);		
+			}
 
-				// We reset the current node here to stop the Ghosts immediately looking at the first node when pacman dies
-				foreach (GhostPath path in GameObject.FindObjectsOfType<GhostPath>())
-				{
-					path.ResetCurrentWaypointIndex();
-				}
+			// We reset the current node here to stop the Ghosts immediately looking at the first node when pacman dies
+			foreach (GhostPath path in GameObject.FindObjectsOfType<GhostPath>())
+			{
+				path.ResetCurrentWaypointIndex();
 			}
 
 			// Reset pacmans position
-			PacmanMovement.instance.transform.position = new Vector3(0f, 0f, -3.43f);
+			PacmanMovement.instance.ResetPosition();
         }
-
 
         /// <summary>
         /// Activates the food.
@@ -192,7 +187,7 @@ namespace Manager
 
         public int GetNumberOfFood()
         {
-            return this.foodCount;
+            return foodCount;
         }
     }
 }

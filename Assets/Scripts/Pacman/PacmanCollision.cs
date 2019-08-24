@@ -12,8 +12,6 @@ namespace Pacman
 	/// </summary>
     public class PacmanCollision : MonoBehaviour
     {
-        public GameObject[] lifeSprites;
-
         public bool godMode;
 
         public int currentLives = 3;
@@ -43,7 +41,6 @@ namespace Pacman
 
                 case "Powerup":
                     other.gameObject.SetActive(false);
-                    AudioManager.instance.Play(SoundNames.GHOST_EDIBLE);
                     GameObjectManager.instance.MakeGhostsEdible();
 					PacmanMovement.instance.BoostSpeed();
                     break;
@@ -120,7 +117,7 @@ namespace Pacman
             }
             else
             {
-                lifeSprites[currentLives].SetActive(false);
+				PacmanHud.instance.RemoveLife(currentLives);
 				GameEventManager.instance.RespawnPacman();                
 				AudioManager.instance.Play(SoundNames.GHOST_MOVE);
 			}

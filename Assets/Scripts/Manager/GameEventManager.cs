@@ -8,6 +8,9 @@ namespace Manager
 {
     public class GameEventManager : MonoBehaviour
     {
+		private const string READY = "READY?";
+		private const string GAME_OVER = "GAME OVER";
+
 		public static GameEventManager instance;
 
         private void Awake()
@@ -30,12 +33,12 @@ namespace Manager
 
         private IEnumerator StartGame()
         {
-			PacmanHud.instance.SetStatusText("READY?");
+			PacmanHud.instance.SetStatusText(READY);
             AudioManager.instance.Play(SoundNames.INTRO_MUSIC);
             yield return new WaitForSeconds(AudioManager.instance.GetSound(SoundNames.INTRO_MUSIC).clip.length);
 			PacmanHud.instance.SetStatusText("");
-			GameObjectManager.instance.StartMovingEntities();
 			AudioManager.instance.Play(SoundNames.GHOST_MOVE);
+			GameObjectManager.instance.StartMovingEntities();
 			GameObjectManager.instance.ActivateGhostHome();
         }
         
@@ -55,7 +58,7 @@ namespace Manager
             GameObjectManager.instance.ActivatePowerups();
             GameObjectManager.instance.ResetEntityPositions();
 
-			PacmanHud.instance.SetStatusText("READY?");
+			PacmanHud.instance.SetStatusText(READY);
             yield return new WaitForSeconds(1.5f);
 			PacmanHud.instance.SetStatusText("");
 
@@ -68,11 +71,11 @@ namespace Manager
 		/// </summary>
         private IEnumerator GameOverRoutine(bool newHighscore)
         {
-			PacmanHud.instance.SetStatusText("GAME OVER");
+			PacmanHud.instance.SetStatusText(GAME_OVER);
 
 			if (newHighscore)
 			{
-				PacmanHud.instance.SetStatusText("GAME OVER\nNEW HIGHSCORE!");
+				PacmanHud.instance.SetStatusText(GAME_OVER+"\nNEW HIGHSCORE!");
 			}
 
             AudioManager.instance.PauseAllSounds(); 
@@ -80,7 +83,7 @@ namespace Manager
             yield return new WaitForSeconds(5f);
 			yield return GameObject.FindObjectOfType<Utilities>().DeActivateVRRoutine();
 
-			SceneManager.LoadScene("Main Menu");
+			SceneManager.LoadScene(Constants.MAIN_MENU_SCENE);
         }
 
 		/// <summary>
@@ -88,7 +91,7 @@ namespace Manager
 		/// </summary>
 		private IEnumerator RespawnRoutine()
 		{
-			PacmanHud.instance.SetStatusText("READY?");
+			PacmanHud.instance.SetStatusText(READY);
 			yield return new WaitForSeconds(2f);
 			PacmanHud.instance.SetStatusText("");
 			GameObjectManager.instance.StartMovingEntities();

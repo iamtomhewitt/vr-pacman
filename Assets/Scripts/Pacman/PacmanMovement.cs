@@ -79,9 +79,17 @@ namespace Pacman
 		/// <summary>
 		/// Resets the speed to the original movement speed.
 		/// </summary>
-		public void Reset()
+		public void ResetSpeed()
 		{
 			speed = originalSpeed;
+		}
+
+		/// <summary>
+		/// Resets the position of Pacman to the start.
+		/// </summary>
+		public void ResetPosition()
+		{
+			transform.position = new Vector3(0f, 0f, -3.43f);
 		}
 
 		/// <summary>

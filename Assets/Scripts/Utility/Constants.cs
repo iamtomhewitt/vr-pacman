@@ -14,5 +14,6 @@ namespace Utility
 		public const string GHOST_HOME = "Ghost Home";
 		public const string ALREADY_UPLOADED_KEY = "hasUploadedHighscore";
 		public const string PLAYER_PREFS_HIGHSCORE_KEY = "LocalHighscore";
+		public const string MAIN_MENU_SCENE = "Main Menu";
 	}
 }
