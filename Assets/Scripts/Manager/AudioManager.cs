@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 
 namespace Manager
 {
-    public class AudioManager : MonoBehaviour 
+	public class AudioManager : MonoBehaviour 
     {
         public Sound[] sounds;
 

@@ -1,15 +1,13 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace Utility
 {
 	/// <summary>
 	/// A set of utility methods to be called anywhere in the game.
 	/// </summary>
-    public class Utilities : MonoBehaviour
+	public class Utilities : MonoBehaviour
     { 
 		/// <summary>
 		/// Loads a specific scene.

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Pacman
 {
@@ -9,7 +7,10 @@ namespace Pacman
 	/// </summary>
 	public class PacmanHud : MonoBehaviour
 	{
+		public GameObject[] lifeSprites;
+
 		[SerializeField] private TextMesh statusText;
+		[SerializeField] private TextMesh scoreText;
 
 		public static PacmanHud instance;
 
@@ -21,6 +22,16 @@ namespace Pacman
 		public void SetStatusText(string message)
 		{
 			statusText.text = message;
+		}
+
+		public void SetScoreText(string message)
+		{
+			scoreText.text = message;
+		}
+
+		public void RemoveLife(int index)
+		{
+			lifeSprites[index].SetActive(false);
 		}
 	}
 }

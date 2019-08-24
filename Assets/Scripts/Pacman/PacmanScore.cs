@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Pacman
 {
-    public class PacmanScore : MonoBehaviour
+	public class PacmanScore : MonoBehaviour
     {
-		[SerializeField] private TextMesh scoreText;
         [SerializeField] private int score = 0;
 
 		public static PacmanScore instance;
@@ -19,7 +16,7 @@ namespace Pacman
 		public void AddScore(int scoreToAdd)
         {
             score += scoreToAdd;
-            scoreText.text = score.ToString();
+			PacmanHud.instance.SetScoreText(score.ToString());
         }
 
 		public int GetScore()

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Manager;
@@ -9,7 +8,7 @@ namespace Utility
 	/// <summary>
 	/// A helper class to display highscores in the scene.
 	/// </summary>
-    public class HighscoreDisplayHelper : MonoBehaviour
+	public class HighscoreDisplayHelper : MonoBehaviour
     {
         public HighscoreEntry[] highscoreEntries;
         public Text localHighscoreText;

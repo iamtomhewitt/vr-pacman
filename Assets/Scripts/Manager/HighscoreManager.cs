@@ -1,13 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System;
 using Utility;
 using UnityEngine.Networking;
 
 namespace Manager
 {
-    public class HighscoreManager : MonoBehaviour
+	public class HighscoreManager : MonoBehaviour
     {
         private Highscore[] highscoresList;
 
@@ -44,7 +42,7 @@ namespace Manager
                 Debug.Log("New highscore of " + score + "! Saving...");
                 PlayerPrefs.SetInt(Constants.PLAYER_PREFS_HIGHSCORE_KEY, score);
 
-                // Player has got a new highscore, which obvs hasnt been uploaded yet, so set it to false
+                // Player has got a new highscore, which hasn't been uploaded yet, so set it to false (0)
                 PlayerPrefs.SetInt(Constants.ALREADY_UPLOADED_KEY, 0);
             }
         }
@@ -92,11 +90,9 @@ namespace Manager
 		/// </summary>
         public IEnumerator DownloadHighscores()
         {
-            HighscoreDisplayHelper displayHelper = GameObject.FindObjectOfType<HighscoreDisplayHelper>();
-
             if (Application.internetReachability == NetworkReachability.NotReachable)
             {
-                displayHelper.ShowNoInternetConnection();
+				FindObjectOfType<HighscoreDisplayHelper>().ShowNoInternetConnection();
                 yield break;
             }
 
@@ -105,7 +101,7 @@ namespace Manager
 
 			if (!request.downloadHandler.text.StartsWith("ERROR"))
 			{
-				highscoresList = this.ToHighScoreList(request.downloadHandler.text);
+				highscoresList = ToHighScoreList(request.downloadHandler.text);
 			}
 			else
 			{
