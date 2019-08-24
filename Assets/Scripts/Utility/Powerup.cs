@@ -3,11 +3,14 @@ using System.Collections;
 
 namespace Utility
 {
-    public class Rotate : MonoBehaviour 
+	/// <summary>
+	/// The powerup that makes the Ghosts flash.
+	/// </summary>
+    public class Powerup : MonoBehaviour 
     {
         public Vector3 speed;
 
-        void Update()
+        private void Update()
         {
             transform.Rotate(speed);
         }
