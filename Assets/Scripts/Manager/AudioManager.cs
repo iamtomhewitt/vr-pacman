@@ -1,17 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 
 namespace Manager
 {
-    public class AudioManager : MonoBehaviour 
+	public class AudioManager : MonoBehaviour 
     {
         public Sound[] sounds;
 
         public static AudioManager instance;
 
-        void Awake()
+        private void Awake()
         {
             if (instance == null)
             {
@@ -40,15 +38,20 @@ namespace Manager
         {
             Sound s = GetSound(name);
 
-            if (s != null)
-                s.source.Play();
+			if (s != null)
+			{
+				s.source.Play();
+			}
         }
 
         public void Pause(string name)
         {
             Sound s = GetSound(name);
 
-            if (s != null) s.source.Pause();
+			if (s != null)
+			{
+				s.source.Pause();
+			}
         }
 
         public void PauseAllSounds()
@@ -90,5 +93,18 @@ namespace Manager
             public AudioSource source;
         }
     }
+
+	public class SoundNames
+	{
+		public const string FOOD = "Eat Food";
+		public const string EAT_FRUIT = "Eat Fruit";
+		public const string EAT_GHOST = "Eat Ghost";
+		public const string GHOST_EDIBLE = "Ghost Edible";
+		public const string GHOST_MOVE = "Ghost Move";
+		public const string GHOST_RUN = "Ghost Run";
+		public const string PACMAN_DEATH = "Pacman Death";
+		public const string INTRO_MUSIC = "Intro Music";
+		public const string LEVEL_COMPLETE = "Level Complete";
+	}
 }
 
