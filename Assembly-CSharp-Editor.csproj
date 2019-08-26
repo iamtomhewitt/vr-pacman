@@ -73,6 +73,7 @@
     <Compile Include="Assets\GoogleVR\Editor\GvrEditorSettings.cs" />
     <Compile Include="Assets\GoogleVR\Editor\GvrHeadsetEditor.cs" />
     <Compile Include="Assets\GoogleVR\Editor\InstantPreviewEditor.cs" />
+    <Compile Include="Assets\Scripts\Editor\GhostPathEditor.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Git/vr-pacman/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
