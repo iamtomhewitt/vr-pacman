@@ -1,121 +1,204 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Manager;
+using Utility;
 
 namespace Ghosts
 {
-    public class Ghost : MonoBehaviour
-    {
-        public bool edible = false;
-        public bool eaten = false;
-        public bool runningHome = false;
-        bool startedFlashCoroutine = false;
+	public class Ghost : MonoBehaviour
+	{
+		public Material originalColour;
 
-        public float speed;
-        public float movingSpeed;
-        public float flashingSpeed;
-        public float eatenSpeed;
+		[SerializeField] private bool edible = false;
+		[SerializeField] private bool eaten = false;
+		[SerializeField] private bool runningHome = false;
 
-        [Header("Pathfinding")]
-        public Transform[] pathNodes;
-        public int currentNode;
+		[SerializeField] private float speed;
+		[SerializeField] private float movingSpeed;
+		[SerializeField] private float flashingSpeed;
+		[SerializeField] private float eatenSpeed;
 
-        [Space()]
-        public Material originalColour;
+		private GhostPath path;
+		private Rigidbody rb;
+		private MeshRenderer bodyColour;
 
-        [HideInInspector]
-        public MeshRenderer bodyColour;
+		[SerializeField] private string debugColour;
 
-        Rigidbody rb;
+		private void Start()
+		{
+			rb = GetComponent<Rigidbody>();
 
-        [HideInInspector]
-        public CapsuleCollider capsuleCollider;
+			path = GetRandomPath();
+			Debug("has selected path: " + path.gameObject.name);
 
-        void Start()
-        {
-            rb              = GetComponent<Rigidbody>();
-            capsuleCollider = GetComponent<CapsuleCollider>();
+			bodyColour = GameObject.Find(gameObject.name + "/Model/Body").GetComponent<MeshRenderer>();
+		}
 
-            bodyColour = GameObject.Find(gameObject.name + "/Model/Body").GetComponent<MeshRenderer>();
+		private void FixedUpdate()
+		{
+			Move();
+		}
 
-            //InvokeRepeating("CheckToResetGhost", 5f, .1f);
-        }
+		private void OnTriggerEnter(Collider o)
+		{
+			if (o.name == Constants.GHOST_HOME)
+			{
+				Reset();
+				SelectNewPath();
+			}
+		}
 
-        void FixedUpdate()
-        {
-            Move();
-        }
+		private void Move()
+		{
+			// If we are not at the current node
+			if (transform.position != path.GetCurrentWaypoint().position)
+			{
+				// Calculate moving from where we are to the next node
+				Vector3 p = Vector3.MoveTowards(transform.position, path.GetCurrentWaypoint().position, speed);
 
-        void Move()
-        {
-            // If we are not at the current node
-            if (transform.position != pathNodes[currentNode].position)
-            {
-                // Calculate moving from where we are to the next node
-                Vector3 p = Vector3.MoveTowards(transform.position, pathNodes[currentNode].position, speed);
+				// Look at the next node
+				transform.LookAt(path.GetCurrentWaypoint().position);
 
-                // Look at the next node
-                transform.LookAt(pathNodes[currentNode].position);
+				// Move towards the current node
+				rb.MovePosition(p);
+			}
+			else
+			{
+				// Increase the count i.e the next node
+				path.SetNextWaypoint();
+			}
+		}
 
-                // Move towards the current node
-                rb.MovePosition(p);
-            }
-            else
-            {
-                // Increase the count i.e the next node
-                currentNode = (currentNode + 1) % pathNodes.Length;
-            }
-        }
+		/// <summary>
+		/// Makes the Ghost able to be eaten by Pacman for a specified amount of time.
+		/// </summary>
+		public void BecomeEdible()
+		{
+			StartCoroutine(BecomeEdibleRoutine());
+		}
 
-        public void BecomeEdible()
-        {
-            edible  = true;
-            speed   = flashingSpeed;
+		private IEnumerator BecomeEdibleRoutine()
+		{
+			edible = true;
+			speed = flashingSpeed;
 
-            StartCoroutine(Flash(Color.blue, Color.white));
-        }
+			yield return StartCoroutine(Flash(Color.blue, Color.white));
+			bodyColour.material = originalColour;
 
-        IEnumerator Flash(Color one, Color two)
-        {
-            StartCoroutine(WaitUntilInEdible());
-            while (edible)
-            {
-                bodyColour.material.color = one;
-                yield return new WaitForSeconds(.2f);
-                bodyColour.material.color = two;
-                yield return new WaitForSeconds(.2f);
-            }
+			edible = false;
+			if (!runningHome)
+			{
+				speed = movingSpeed;
+			}
 
-            // Bit of leeway so coroutines dont overlap and lose colour
-            yield return new WaitForSeconds(.1f);
-            ChangeToOriginalColour();
-        }
+			AudioManager.instance.Pause(SoundNames.GHOST_EDIBLE);
+		}
 
-        IEnumerator WaitUntilInEdible()
-        {
-            // Wait until we are not able to be eaten again
-            yield return new WaitForSeconds(Constants.POWERUP_DURATION);        
+		/// <summary>
+		/// Makes the Ghost flash between two colours for a certain amount of time.
+		/// </summary>
+		private IEnumerator Flash(Color one, Color two)
+		{
+			float flashTimer = 0;
+			float timeBetweenFlash = .2f;
 
-            edible                  = false;
-            startedFlashCoroutine   = false;
+			do
+			{
+				bodyColour.material.color = one;
+				yield return new WaitForSeconds(timeBetweenFlash);
 
-            if (!runningHome)   
-                speed               = movingSpeed;
+				bodyColour.material.color = two;
+				yield return new WaitForSeconds(timeBetweenFlash);
 
-            AudioManager.instance.Pause("Ghost Edible");
-        }
+				flashTimer += timeBetweenFlash * 2;
+			}
+			while (flashTimer < Constants.POWERUP_DURATION);
 
-        public void ChangeToOriginalColour()
-        {
-            bodyColour.material = originalColour;
-        }
+			// Wait for a little in case of overlap
+			yield return new WaitForSeconds(.1f);
+		}
 
-        void OnTriggerEnter(Collider o)
-        {
-            if (o.name == "Ghost Home")
-            {
-                GameManager.instance.ResetGhost(this);
-            }
-        }
-    }
+		public void Reset()
+		{
+			eaten = false;
+			edible = false;
+			runningHome = false;
+			bodyColour.enabled = true;
+			speed = movingSpeed;
+			bodyColour.material = originalColour;
+		}
+
+		public void ResetPosition(int offset)
+		{
+			transform.position = new Vector3((-1.5f + offset), 0f, -1.5f);
+		}
+
+		public void RunHome()
+		{
+			AudioManager.instance.Play(SoundNames.GHOST_RUN);
+
+            speed = eatenSpeed;
+            edible = false;
+            eaten = true;
+            runningHome = true;
+            bodyColour.enabled = false;
+		}
+
+		public void SetSpeed(float speed)
+		{
+			this.speed = speed;
+		}
+
+		public float GetMovingSpeed()
+		{
+			return movingSpeed;
+		}
+
+		public void StopMoving()
+		{
+			speed = 0f;
+		}
+
+		public bool IsRunningHome()
+		{
+			return runningHome;
+		}
+
+		public bool IsEdible()
+		{
+			return edible;
+		}
+
+		/// <summary>
+		/// Randomly selects a GhostPath to use as the waypoint path from the paths in the scene.
+		/// Selects a path that is currently not being used by another ghost.
+		/// </summary>
+		private GhostPath GetRandomPath()
+		{
+			List<GhostPath> allPaths = new List<GhostPath>(GameObject.FindObjectsOfType<GhostPath>());
+			IEnumerable<GhostPath> unusedPaths = allPaths.Where(x => !x.isUsed());
+
+			GhostPath path = unusedPaths.ElementAt(Random.Range(0, unusedPaths.Count()));
+
+			path.SetUsed(true);
+			return path;
+		}
+
+		private void SelectNewPath()
+		{
+			path.SetUsed(false);
+			path = GetRandomPath();
+			Debug("has selected a new path: " + path.transform.name);
+		}
+
+		/// <summary>
+		/// Custom method for printing to the console with specified transform name colour.
+		/// </summary>
+		private void Debug(string message)
+		{
+			print("<color=" + debugColour + "><b>" + transform.name + "</b></color> " + message);
+		}
+	}
 }

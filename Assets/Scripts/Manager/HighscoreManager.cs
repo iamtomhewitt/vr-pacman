@@ -1,103 +1,122 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System;
 using Utility;
+using UnityEngine.Networking;
 
 namespace Manager
 {
-    public class HighscoreManager : MonoBehaviour
+	public class HighscoreManager : MonoBehaviour
     {
-        public Highscore[] highscoresList;
+        private Highscore[] highscoresList;
 
-        private int localHighscore;
-
-        private const string playerPrefsKey = "LocalHighscore";
-        private const string uploadedKey    = "hasUploadedHighscore";
         private const string privateCode    = "YHc0fAncbE-2ieJokE0NIAB9ZEzv8l10WovytuLwzMAw";
         private const string publicCode     = "5ad0d623d6024519e0be327e";
         private const string url            = "http://dreamlo.com/lb/";
 
         public static HighscoreManager instance;
 
-        public void SaveLocalHighscore(int score)
+		private void Awake()
+		{
+			if (instance)
+			{
+				DestroyImmediate(this.gameObject);
+			}
+			else
+			{
+				DontDestroyOnLoad(this.gameObject);
+				instance = this;
+			}
+
+			//UploadNewHighscore("Tom (The Developer)", 4500);
+		}
+
+		/// <summary>
+		/// Saves the highscore to PlayerPrefs.
+		/// </summary>
+		public void SaveLocalHighscore(int score)
         {
-            int currentHighscore = LoadLocalHighscore();
+            int currentHighscore = GetLocalHighscore();
 
             if (score > currentHighscore)
             {
-                print("New highscore of " + score + "! Saving...");
-                PlayerPrefs.SetInt(playerPrefsKey, score);
+                Debug.Log("New highscore of " + score + "! Saving...");
+                PlayerPrefs.SetInt(Constants.PLAYER_PREFS_HIGHSCORE_KEY, score);
 
-                // Player has got a new highscore, which obvs hasnt been uploaded yet
-                PlayerPrefs.SetInt(uploadedKey, 0);
+                // Player has got a new highscore, which hasn't been uploaded yet, so set it to false (0)
+                PlayerPrefs.SetInt(Constants.ALREADY_UPLOADED_KEY, 0);
             }
         }
 
-
-        public int LoadLocalHighscore()
+        public int GetLocalHighscore()
         {
-            return PlayerPrefs.GetInt(playerPrefsKey);
+            return PlayerPrefs.GetInt(Constants.PLAYER_PREFS_HIGHSCORE_KEY);
         }
 
-
-        public void AddNewHighscore(string username, int score)
+		/// <summary>
+		/// Uploads a new highscore to Dreamlo.
+		/// </summary>
+        public void UploadNewHighscore(string username, int score)
         {
-            StartCoroutine(UploadNewHighscore(username, score));
+            StartCoroutine(UploadNewHighscoreRoutine(username, score));
         }
 
-        IEnumerator UploadNewHighscore(string username, int score)
+		/// <summary>
+		/// Routine for uploading a highscore to Dreamlo.
+		/// </summary>
+        private IEnumerator UploadNewHighscoreRoutine(string username, int score)
         {
             string id = System.DateTime.Now.ToString("MMddyyyyhhmmss");
+			UnityWebRequest request = UnityWebRequest.Post(url + privateCode + "/add/" + UnityWebRequest.EscapeURL(id+username) + "/" + score, "");
+            yield return request.SendWebRequest();
 
-            WWW www = new WWW(url + privateCode + "/add/" + WWW.EscapeURL(id+username) + "/" + score);
-            yield return www;
-
-            if (string.IsNullOrEmpty(www.error))
-            {
-                print("Upload successful!");
-                PlayerPrefs.SetInt(uploadedKey, 1);
+			if (!request.downloadHandler.text.StartsWith("ERROR"))
+			{
+                Debug.Log("Upload successful! " + request.responseCode);
+                PlayerPrefs.SetInt(Constants.ALREADY_UPLOADED_KEY, 1);
             }
             else
             {
-                print("Error uploading: " + www.error);
+                Debug.Log("Error uploading: " + request.error);
             }
         }
 
+		public Highscore[] GetHighscoresList()
+		{
+			return highscoresList;
+		}
 
-        public void DownloadHighscores()
+		/// <summary>
+		/// Downloads the highscores from Dreamlo.
+		/// </summary>
+        public IEnumerator DownloadHighscores()
         {
-            StartCoroutine(DownloadHighscoresFromWebsite());
-        }
-
-        IEnumerator DownloadHighscoresFromWebsite()
-        {
-            HighscoreDisplayHelper displayHelper = GameObject.FindObjectOfType<HighscoreDisplayHelper>();
-
             if (Application.internetReachability == NetworkReachability.NotReachable)
             {
-                displayHelper.NoInternetConnection();
+				FindObjectOfType<HighscoreDisplayHelper>().ShowNoInternetConnection();
                 yield break;
             }
 
-            WWW www = new WWW(url + publicCode + "/pipe/0/10");
-            yield return www;
+			UnityWebRequest request = UnityWebRequest.Get(url + publicCode + "/pipe/0/10");
+			yield return request.SendWebRequest();
 
-            if (string.IsNullOrEmpty(www.error))
-            {
-                FormatHighscores(www.text);
-                displayHelper.OnHighscoresDownloaded(highscoresList);
-            }
-            else
-                print("Error downloading: " + www.error);
+			if (!request.downloadHandler.text.StartsWith("ERROR"))
+			{
+				highscoresList = ToHighScoreList(request.downloadHandler.text);
+			}
+			else
+			{
+				Debug.Log("Error downloading: " + request.error);
+			}
         }
 
-
-        void FormatHighscores(string textStream)
+		/// <summary>
+		/// Coverts a text stream into an array of Highscores.
+		/// </summary>
+        private Highscore[] ToHighScoreList(string textStream)
         {
             string[] entries = textStream.Split(new char[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
 
-            highscoresList = new Highscore[entries.Length];
+			Highscore[] list = new Highscore[entries.Length];
 
             for (int i = 0; i < entries.Length; i++)
             {
@@ -109,38 +128,23 @@ namespace Manager
                 // Replace with spaces
                 string username = usr.Replace('+', ' ');
 
-                // Get the date from the username. The day will always be 14 in length
-                //string date = DateTime.ParseExact(username.Substring(0, 14), "MMddyyyyhhmmss", null).ToString();
-
                 // Dont want the date included in the username, so substring itself to show only the username
                 username = username.Substring(14, (username.Length-14));
 
                 int score = int.Parse(entryInfo[1]);
 
-                highscoresList[i] = new Highscore(username, score);
+                list[i] = new Highscore(username, score);
 
                 //print(highscoresList[i].username + ": " + highscoresList[i].score + " Date: "+date);
             }
-        }
 
-
-        void Awake()
-        {
-            if (instance)
-            {
-                DestroyImmediate(this.gameObject);
-            }
-            else
-            {
-                DontDestroyOnLoad(this.gameObject);
-                instance = this;
-            }
-
-            //AddNewHighscore("Tom (The Developer)", 4500);
+			return list;
         }
     }
 
-
+	/// <summary>
+	/// Data class for a highscore entry.
+	/// </summary>
     public struct Highscore
     {
         public string username;
