@@ -339,9 +339,6 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>C:/Git/vr-pacman/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Git/vr-pacman/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Git/vr-pacman/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -371,9 +368,6 @@
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Git/vr-pacman/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Git/vr-pacman/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>C:/Git/vr-pacman/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>

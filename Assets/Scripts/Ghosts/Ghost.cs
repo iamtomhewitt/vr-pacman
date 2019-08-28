@@ -14,6 +14,7 @@ namespace Ghosts
 		[SerializeField] private bool edible = false;
 		[SerializeField] private bool eaten = false;
 		[SerializeField] private bool runningHome = false;
+		[SerializeField] private bool debug = false;
 
 		[SerializeField] private float speed;
 		[SerializeField] private float movingSpeed;
@@ -46,6 +47,7 @@ namespace Ghosts
 			if (o.name == Constants.GHOST_HOME)
 			{
 				Reset();
+				AudioManager.instance.StopGhostRunSound();
 				SelectNewPath();
 			}
 		}
@@ -120,7 +122,7 @@ namespace Ghosts
 			yield return new WaitForSeconds(.1f);
 		}
 
-		public void Reset()
+		private void Reset()
 		{
 			eaten = false;
 			edible = false;
@@ -198,7 +200,10 @@ namespace Ghosts
 		/// </summary>
 		private void Debug(string message)
 		{
-			print("<color=" + debugColour + "><b>" + transform.name + "</b></color> " + message);
+			if (debug)
+			{
+				print("<color=" + debugColour + "><b>" + transform.name + "</b></color> " + message);
+			}
 		}
 	}
 }
