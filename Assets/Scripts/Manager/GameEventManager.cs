@@ -120,6 +120,6 @@ namespace Manager
 		{
 			StartCoroutine(RespawnRoutine());
 		}
-    }
+	}
 }
 
