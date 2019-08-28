@@ -21,11 +21,13 @@ namespace Ghosts
 		[SerializeField] private float flashingSpeed;
 		[SerializeField] private float eatenSpeed;
 
+		[SerializeField] private string debugColour;
+
 		private GhostPath path;
 		private Rigidbody rb;
 		private MeshRenderer bodyColour;
 
-		[SerializeField] private string debugColour;
+		private Coroutine flashRoutine;
 
 		private void Start()
 		{
@@ -86,10 +88,12 @@ namespace Ghosts
 			edible = true;
 			speed = flashingSpeed;
 
-			yield return StartCoroutine(Flash(Color.blue, Color.white));
+			flashRoutine = StartCoroutine(Flash(Color.blue, Color.white));
+			yield return flashRoutine;
 			bodyColour.material = originalColour;
 
 			edible = false;
+
 			if (!runningHome)
 			{
 				speed = movingSpeed;
@@ -130,6 +134,8 @@ namespace Ghosts
 			bodyColour.enabled = true;
 			speed = movingSpeed;
 			bodyColour.material = originalColour;
+
+			StopCoroutine(flashRoutine);
 		}
 
 		public void ResetPosition(int offset)
