@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System;
+using System.Linq;
+using Ghosts;
 
 namespace Manager
 {
@@ -73,6 +75,17 @@ namespace Manager
             }
             return s;
         }
+
+		/// <summary>
+		/// Stops the Ghost run home sound if there are no ghosts running home.
+		/// </summary>
+		public void StopGhostRunSound()
+		{
+			if (FindObjectsOfType<Ghost>().Where(ghost => ghost.IsRunningHome()).Count() == 0)
+			{
+				Pause(SoundNames.GHOST_RUN);
+			}
+		}
 
         [System.Serializable]
         public class Sound

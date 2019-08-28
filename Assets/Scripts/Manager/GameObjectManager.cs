@@ -49,17 +49,6 @@ namespace Manager
         }
 
         /// <summary>
-        /// Resets all Ghosts.
-        /// </summary>
-        public void ResetGhosts()
-        {
-            for (int i = 0; i < ghosts.Length; i++)
-            { 
-                ghosts[i].Reset();                 
-            }
-        }
-
-        /// <summary>
         /// Makes all Ghosts edible.
         /// </summary>
         public void MakeGhostsEdible()
