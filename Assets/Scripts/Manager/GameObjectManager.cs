@@ -53,8 +53,6 @@ namespace Manager
         /// </summary>
         public void MakeGhostsEdible()
         {
-			AudioManager.instance.Play(SoundNames.GHOST_EDIBLE);
-
 			for (int i = 0; i < ghosts.Length; i++)
             {
                 Ghost g = ghosts[i];
