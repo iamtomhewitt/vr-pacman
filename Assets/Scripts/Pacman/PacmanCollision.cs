@@ -41,7 +41,8 @@ namespace Pacman
 
                 case "Powerup":
                     other.gameObject.SetActive(false);
-                    GameObjectManager.instance.MakeGhostsEdible();
+					AudioManager.instance.PlayForDuration(SoundNames.GHOST_EDIBLE, Constants.POWERUP_DURATION);
+					GameObjectManager.instance.MakeGhostsEdible();
 					PacmanMovement.instance.BoostSpeed();
                     break;
 
@@ -52,8 +53,7 @@ namespace Pacman
                     break;
             }
         }
-
-
+	
         private void OnTriggerEnter(Collider other)
         {
             if (godMode)
