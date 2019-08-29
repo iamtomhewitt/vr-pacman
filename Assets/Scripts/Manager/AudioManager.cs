@@ -2,79 +2,115 @@
 using System;
 using System.Linq;
 using Ghosts;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Manager
 {
-	public class AudioManager : MonoBehaviour 
-    {
-        public Sound[] sounds;
+	public class AudioManager : MonoBehaviour
+	{
+		public Sound[] sounds;
 
-        public static AudioManager instance;
+		public static AudioManager instance;
 
-        private void Awake()
-        {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(this.gameObject);
-                return;
-            }
+		private Coroutine durationRoutine;
 
-            // Don't need this here as audio only present on game scene FOR NOW
-            //DontDestroyOnLoad(this.gameObject);
+		private void Awake()
+		{
+			if (instance == null)
+			{
+				instance = this;
+			}
+			else
+			{
+				Destroy(this.gameObject);
+				return;
+			}
 
-            foreach (Sound s in sounds)
-            {
-                s.source = this.gameObject.AddComponent<AudioSource>();
-                s.source.clip = s.clip;
-                s.source.volume = s.volume;
-                s.source.pitch = s.pitch;
-                s.source.loop = s.loop;
-            }
-        }
+			// Don't need this here as audio only present on game scene FOR NOW
+			//DontDestroyOnLoad(this.gameObject);
 
-        public void Play(string name)
-        {
-            Sound s = GetSound(name);
+			foreach (Sound s in sounds)
+			{
+				s.source = this.gameObject.AddComponent<AudioSource>();
+				s.source.clip = s.clip;
+				s.source.volume = s.volume;
+				s.source.pitch = s.pitch;
+				s.source.loop = s.loop;
+			}
+		}
+
+		public void Play(string name)
+		{
+			Sound s = GetSound(name);
 
 			if (s != null)
 			{
 				s.source.Play();
 			}
-        }
+		}
 
-        public void Pause(string name)
-        {
-            Sound s = GetSound(name);
+		/// <summary>
+		/// Plays a sound which loops for a specified duration.
+		/// </summary>
+		public void PlayForDuration(string name, float duration)
+		{
+			Stop(name);
+
+			if (durationRoutine != null)
+			{
+				StopCoroutine(durationRoutine);
+			}
+
+			durationRoutine = StartCoroutine(PlayForDurationRoutine(name, duration));
+		}
+
+		private IEnumerator PlayForDurationRoutine(string name, float duration)
+		{
+			Play(name);
+			yield return new WaitForSeconds(duration);
+			Stop(name);
+		}
+
+		public void Pause(string name)
+		{
+			Sound s = GetSound(name);
 
 			if (s != null)
 			{
 				s.source.Pause();
 			}
-        }
+		}
 
-        public void PauseAllSounds()
-        {
-            foreach (Sound s in sounds)
-            {
-                s.source.Pause();
-            }
-        }
+		public void Stop(string name)
+		{
+			Sound s = GetSound(name);
 
-        public Sound GetSound(string name)
-        {
-            Sound s = Array.Find(sounds, sound => sound.name == name);
+			if (s != null)
+			{
+				s.source.Stop();
+			}
+		}
 
-            if (s == null)
-            {
-                print("WARNING! Sound: '" + name + "' was not found.");
-                return null;
-            }
-            return s;
-        }
+		public void PauseAllSounds()
+		{
+			foreach (Sound s in sounds)
+			{
+				s.source.Pause();
+			}
+		}
+
+		public Sound GetSound(string name)
+		{
+			Sound s = Array.Find(sounds, sound => sound.name == name);
+
+			if (s == null)
+			{
+				print("WARNING! Sound: '" + name + "' was not found.");
+				return null;
+			}
+			return s;
+		}
 
 		/// <summary>
 		/// Stops the Ghost run home sound if there are no ghosts running home.
@@ -87,25 +123,25 @@ namespace Manager
 			}
 		}
 
-        [System.Serializable]
-        public class Sound
-        {
-            public string name;
+		[System.Serializable]
+		public class Sound
+		{
+			public string name;
 
-            public AudioClip clip;
+			public AudioClip clip;
 
-            [Range(0f,1f)]
-            public float volume;
+			[Range(0f, 1f)]
+			public float volume;
 
-            [Range(0.5f, 3f)]
-            public float pitch;
+			[Range(0.5f, 3f)]
+			public float pitch;
 
-            public bool loop;
+			public bool loop;
 
-            [HideInInspector]
-            public AudioSource source;
-        }
-    }
+			[HideInInspector]
+			public AudioSource source;
+		}
+	}
 
 	public class SoundNames
 	{

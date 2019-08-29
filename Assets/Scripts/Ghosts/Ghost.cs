@@ -80,6 +80,11 @@ namespace Ghosts
 		/// </summary>
 		public void BecomeEdible()
 		{
+			if (flashRoutine != null)
+			{
+				StopCoroutine(flashRoutine);
+			}
+
 			StartCoroutine(BecomeEdibleRoutine());
 		}
 
@@ -98,8 +103,6 @@ namespace Ghosts
 			{
 				speed = movingSpeed;
 			}
-
-			AudioManager.instance.Pause(SoundNames.GHOST_EDIBLE);
 		}
 
 		/// <summary>
@@ -109,6 +112,10 @@ namespace Ghosts
 		{
 			float flashTimer = 0;
 			float timeBetweenFlash = .2f;
+
+			// Calculate a duration that will line up with the sound effect, using Constants.POWERUP_DURATION
+			// will cause the timer to go 0.5 seconds over
+			float duration = Constants.POWERUP_DURATION - (timeBetweenFlash * 3);
 
 			do
 			{
@@ -120,7 +127,7 @@ namespace Ghosts
 
 				flashTimer += timeBetweenFlash * 2;
 			}
-			while (flashTimer < Constants.POWERUP_DURATION);
+			while (flashTimer < duration);
 
 			// Wait for a little in case of overlap
 			yield return new WaitForSeconds(.1f);
