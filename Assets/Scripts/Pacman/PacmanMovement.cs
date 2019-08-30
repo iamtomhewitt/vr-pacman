@@ -16,6 +16,8 @@ namespace Pacman
 		[SerializeField] private float boostSpeed;
 		[SerializeField] private float accelerometerSensitivity;
 
+		private Debugger debugger;
+
 		public static PacmanMovement instance;
 
 		private void Awake()
@@ -25,6 +27,8 @@ namespace Pacman
 
 		private void Start()
         {
+			debugger = GetComponent<Debugger>();
+
             if (!SystemInfo.supportsGyroscope)
             {
                 useAccelerometer = true;
@@ -58,6 +62,7 @@ namespace Pacman
 		/// </summary>
 		public void BoostSpeed()
 		{
+			debugger.Info("boosting speed");
 			StartCoroutine(BoostSpeedRoutine());
 		}
 
@@ -81,6 +86,7 @@ namespace Pacman
 		/// </summary>
 		public void ResetSpeed()
 		{
+			debugger.Info("resetting speed");
 			speed = originalSpeed;
 		}
 
@@ -89,6 +95,7 @@ namespace Pacman
 		/// </summary>
 		public void ResetPosition()
 		{
+			debugger.Info("resetting position");
 			transform.position = new Vector3(0f, 0f, -3.43f);
 		}
 
@@ -97,6 +104,7 @@ namespace Pacman
 		/// </summary>
 		public void Stop()
 		{
+			debugger.Info("stopping");
 			speed = 0f;
 		}
 	}
