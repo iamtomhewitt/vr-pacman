@@ -22,6 +22,7 @@ namespace Manager
 
 		private int foodCount;
 		private bool spawnedCherry;
+		private Debugger debugger;
 
         public static GameObjectManager instance;
 
@@ -33,8 +34,9 @@ namespace Manager
         private void Start()
         {
             foods = GameObject.FindGameObjectsWithTag("Food");
-            ghosts = GameObject.FindObjectsOfType<Ghost>();
-            powerups = GameObject.FindGameObjectsWithTag("Powerup");
+			powerups = GameObject.FindGameObjectsWithTag("Powerup");
+			ghosts = FindObjectsOfType<Ghost>();
+			debugger = GetComponent<Debugger>();
 
 			ghostHome.SetActive(false);
 
@@ -72,6 +74,8 @@ namespace Manager
         /// </summary>
         public void StartMovingEntities()
         {
+			debugger.Info("moving everything");
+
 			PacmanMovement.instance.ResetSpeed();
 
             // Reset the Ghosts speed and their path node
@@ -92,7 +96,9 @@ namespace Manager
         /// </summary>
         public void StopMovingEntities()
         {
-            for (int i = 0; i < ghosts.Length; i++)
+			debugger.Info("stopping everything");
+
+			for (int i = 0; i < ghosts.Length; i++)
             {
                 ghosts[i].StopMoving();
             }
@@ -105,7 +111,9 @@ namespace Manager
         /// </summary>
         public void ResetEntityPositions()
         {
-            for (int i = 0; i < ghosts.Length; i++)
+			debugger.Info("resetting positions");
+
+			for (int i = 0; i < ghosts.Length; i++)
             {
 				ghosts[i].ResetPosition(i);		
 			}
@@ -151,6 +159,7 @@ namespace Manager
 		{
 			yield return new WaitForSeconds(3f);
 			ghostHome.SetActive(true);
+			debugger.Info("ghost home activated");
 		}
 
 		/// <summary>
@@ -162,8 +171,9 @@ namespace Manager
             {
                 Instantiate(cherry, cherrySpawn.position, cherrySpawn.rotation);
                 spawnedCherry = true;
-            }
-            if (foodCount <= 1)
+				debugger.Info("spawned cherry");
+			}
+			if (foodCount <= 1)
             {
                 spawnedCherry = false;
             }
