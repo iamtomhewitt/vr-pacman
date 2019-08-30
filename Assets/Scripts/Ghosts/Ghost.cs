@@ -14,27 +14,26 @@ namespace Ghosts
 		[SerializeField] private bool edible = false;
 		[SerializeField] private bool eaten = false;
 		[SerializeField] private bool runningHome = false;
-		[SerializeField] private bool debug = false;
 
 		[SerializeField] private float speed;
 		[SerializeField] private float movingSpeed;
 		[SerializeField] private float flashingSpeed;
 		[SerializeField] private float eatenSpeed;
 
-		[SerializeField] private string debugColour;
-
 		private GhostPath path;
 		private Rigidbody rb;
 		private MeshRenderer bodyColour;
+		private Debugger debugger;
 
 		private Coroutine flashRoutine;
 
 		private void Start()
 		{
 			rb = GetComponent<Rigidbody>();
+			debugger = GetComponent<Debugger>();
 
 			path = GetRandomPath();
-			Debug("has selected path: " + path.gameObject.name);
+			debugger.Info("has selected path: " + path.gameObject.name);
 
 			bodyColour = GameObject.Find(gameObject.name + "/Model/Body").GetComponent<MeshRenderer>();
 		}
@@ -80,6 +79,8 @@ namespace Ghosts
 		/// </summary>
 		public void BecomeEdible()
 		{
+			debugger.Info("has become edible");
+
 			if (flashRoutine != null)
 			{
 				StopCoroutine(flashRoutine);
@@ -155,6 +156,8 @@ namespace Ghosts
 
 		public void RunHome()
 		{
+			debugger.Info("is running home");
+
 			AudioManager.instance.Play(SoundNames.GHOST_RUN);
 
             speed = eatenSpeed;
@@ -208,18 +211,7 @@ namespace Ghosts
 		{
 			path.SetUsed(false);
 			path = GetRandomPath();
-			Debug("has selected a new path: " + path.transform.name);
-		}
-
-		/// <summary>
-		/// Custom method for printing to the console with specified transform name colour.
-		/// </summary>
-		private void Debug(string message)
-		{
-			if (debug)
-			{
-				print("<color=" + debugColour + "><b>" + transform.name + "</b></color> " + message);
-			}
+			debugger.Info("has selected a new path: " + path.transform.name);
 		}
 	}
 }
