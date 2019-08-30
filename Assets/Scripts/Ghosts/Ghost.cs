@@ -142,7 +142,10 @@ namespace Ghosts
 			speed = movingSpeed;
 			bodyColour.material = originalColour;
 
-			StopCoroutine(flashRoutine);
+			if (flashRoutine != null)
+			{
+				StopCoroutine(flashRoutine);
+			}
 		}
 
 		public void ResetPosition(int offset)
