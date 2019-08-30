@@ -18,6 +18,8 @@ namespace Manager
         private GameObject[] powerups;
         private Ghost[] ghosts;
 
+		[SerializeField] private Transform cherrySpawn;
+
 		private int foodCount;
 		private bool spawnedCherry;
 
@@ -158,7 +160,7 @@ namespace Manager
         {
             if ((foodCount <= 80 && foodCount >= 40) && !spawnedCherry)
             {
-                Instantiate(cherry, new Vector3(0f, -0.303f, -9.26f), Quaternion.Euler(new Vector3(0f, 90f, 0f)));
+                Instantiate(cherry, cherrySpawn.position, cherrySpawn.rotation);
                 spawnedCherry = true;
             }
             if (foodCount <= 1)
