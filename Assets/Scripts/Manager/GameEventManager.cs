@@ -11,6 +11,8 @@ namespace Manager
 		private const string READY = "READY?";
 		private const string GAME_OVER = "GAME OVER";
 
+		private Debugger debugger;
+
 		public static GameEventManager instance;
 
         private void Awake()
@@ -28,11 +30,14 @@ namespace Manager
 
         private void Start()
         {
+			debugger = GetComponent<Debugger>();
             StartCoroutine(StartGame());
         }
 
         private IEnumerator StartGame()
         {
+			debugger.Info("starting game");
+
 			PacmanHud.instance.SetStatusText(READY);
             AudioManager.instance.Play(SoundNames.INTRO_MUSIC);
             yield return new WaitForSeconds(AudioManager.instance.GetSound(SoundNames.INTRO_MUSIC).clip.length);
@@ -47,7 +52,9 @@ namespace Manager
 		/// </summary>
         private IEnumerator CompleteLevelRoutine()
         {
-            GameObjectManager.instance.StopMovingEntities();
+			debugger.Info("completed level");
+
+			GameObjectManager.instance.StopMovingEntities();
 
 			AudioManager.instance.Pause(SoundNames.GHOST_MOVE);
 			AudioManager.instance.Play(SoundNames.LEVEL_COMPLETE);
@@ -71,6 +78,8 @@ namespace Manager
 		/// </summary>
         private IEnumerator GameOverRoutine(bool newHighscore)
         {
+			debugger.Info("game over");
+
 			PacmanHud.instance.SetStatusText(GAME_OVER);
 
 			if (newHighscore)
@@ -91,6 +100,8 @@ namespace Manager
 		/// </summary>
 		private IEnumerator RespawnRoutine()
 		{
+			debugger.Info("respawning");
+
 			PacmanHud.instance.SetStatusText(READY);
 			yield return new WaitForSeconds(2f);
 			PacmanHud.instance.SetStatusText("");
@@ -120,6 +131,6 @@ namespace Manager
 		{
 			StartCoroutine(RespawnRoutine());
 		}
-    }
+	}
 }
 

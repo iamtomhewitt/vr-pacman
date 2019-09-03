@@ -23,15 +23,17 @@ namespace Ghosts
 		private GhostPath path;
 		private Rigidbody rb;
 		private MeshRenderer bodyColour;
+		private Debugger debugger;
 
-		[SerializeField] private string debugColour;
+		private Coroutine flashRoutine;
 
 		private void Start()
 		{
 			rb = GetComponent<Rigidbody>();
+			debugger = GetComponent<Debugger>();
 
 			path = GetRandomPath();
-			Debug("has selected path: " + path.gameObject.name);
+			debugger.Info("has selected path: " + path.gameObject.name);
 
 			bodyColour = GameObject.Find(gameObject.name + "/Model/Body").GetComponent<MeshRenderer>();
 		}
@@ -46,6 +48,7 @@ namespace Ghosts
 			if (o.name == Constants.GHOST_HOME)
 			{
 				Reset();
+				AudioManager.instance.StopGhostRunSound();
 				SelectNewPath();
 			}
 		}
@@ -76,6 +79,13 @@ namespace Ghosts
 		/// </summary>
 		public void BecomeEdible()
 		{
+			debugger.Info("has become edible");
+
+			if (flashRoutine != null)
+			{
+				StopCoroutine(flashRoutine);
+			}
+
 			StartCoroutine(BecomeEdibleRoutine());
 		}
 
@@ -84,16 +94,16 @@ namespace Ghosts
 			edible = true;
 			speed = flashingSpeed;
 
-			yield return StartCoroutine(Flash(Color.blue, Color.white));
+			flashRoutine = StartCoroutine(Flash(Color.blue, Color.white));
+			yield return flashRoutine;
 			bodyColour.material = originalColour;
 
 			edible = false;
+
 			if (!runningHome)
 			{
 				speed = movingSpeed;
 			}
-
-			AudioManager.instance.Pause(SoundNames.GHOST_EDIBLE);
 		}
 
 		/// <summary>
@@ -103,6 +113,10 @@ namespace Ghosts
 		{
 			float flashTimer = 0;
 			float timeBetweenFlash = .2f;
+
+			// Calculate a duration that will line up with the sound effect, using Constants.POWERUP_DURATION
+			// will cause the timer to go 0.5 seconds over
+			float duration = Constants.POWERUP_DURATION - (timeBetweenFlash * 3);
 
 			do
 			{
@@ -114,13 +128,13 @@ namespace Ghosts
 
 				flashTimer += timeBetweenFlash * 2;
 			}
-			while (flashTimer < Constants.POWERUP_DURATION);
+			while (flashTimer < duration);
 
 			// Wait for a little in case of overlap
 			yield return new WaitForSeconds(.1f);
 		}
 
-		public void Reset()
+		private void Reset()
 		{
 			eaten = false;
 			edible = false;
@@ -128,6 +142,11 @@ namespace Ghosts
 			bodyColour.enabled = true;
 			speed = movingSpeed;
 			bodyColour.material = originalColour;
+
+			if (flashRoutine != null)
+			{
+				StopCoroutine(flashRoutine);
+			}
 		}
 
 		public void ResetPosition(int offset)
@@ -137,6 +156,8 @@ namespace Ghosts
 
 		public void RunHome()
 		{
+			debugger.Info("is running home");
+
 			AudioManager.instance.Play(SoundNames.GHOST_RUN);
 
             speed = eatenSpeed;
@@ -190,15 +211,7 @@ namespace Ghosts
 		{
 			path.SetUsed(false);
 			path = GetRandomPath();
-			Debug("has selected a new path: " + path.transform.name);
-		}
-
-		/// <summary>
-		/// Custom method for printing to the console with specified transform name colour.
-		/// </summary>
-		private void Debug(string message)
-		{
-			print("<color=" + debugColour + "><b>" + transform.name + "</b></color> " + message);
+			debugger.Info("has selected a new path: " + path.transform.name);
 		}
 	}
 }

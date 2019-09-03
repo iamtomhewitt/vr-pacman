@@ -18,8 +18,11 @@ namespace Manager
         private GameObject[] powerups;
         private Ghost[] ghosts;
 
+		[SerializeField] private Transform cherrySpawn;
+
 		private int foodCount;
 		private bool spawnedCherry;
+		private Debugger debugger;
 
         public static GameObjectManager instance;
 
@@ -31,8 +34,9 @@ namespace Manager
         private void Start()
         {
             foods = GameObject.FindGameObjectsWithTag("Food");
-            ghosts = GameObject.FindObjectsOfType<Ghost>();
-            powerups = GameObject.FindGameObjectsWithTag("Powerup");
+			powerups = GameObject.FindGameObjectsWithTag("Powerup");
+			ghosts = FindObjectsOfType<Ghost>();
+			debugger = GetComponent<Debugger>();
 
 			ghostHome.SetActive(false);
 
@@ -49,23 +53,10 @@ namespace Manager
         }
 
         /// <summary>
-        /// Resets all Ghosts.
-        /// </summary>
-        public void ResetGhosts()
-        {
-            for (int i = 0; i < ghosts.Length; i++)
-            { 
-                ghosts[i].Reset();                 
-            }
-        }
-
-        /// <summary>
         /// Makes all Ghosts edible.
         /// </summary>
         public void MakeGhostsEdible()
         {
-			AudioManager.instance.Play(SoundNames.GHOST_EDIBLE);
-
 			for (int i = 0; i < ghosts.Length; i++)
             {
                 Ghost g = ghosts[i];
@@ -83,6 +74,8 @@ namespace Manager
         /// </summary>
         public void StartMovingEntities()
         {
+			debugger.Info("moving everything");
+
 			PacmanMovement.instance.ResetSpeed();
 
             // Reset the Ghosts speed and their path node
@@ -103,7 +96,9 @@ namespace Manager
         /// </summary>
         public void StopMovingEntities()
         {
-            for (int i = 0; i < ghosts.Length; i++)
+			debugger.Info("stopping everything");
+
+			for (int i = 0; i < ghosts.Length; i++)
             {
                 ghosts[i].StopMoving();
             }
@@ -116,7 +111,9 @@ namespace Manager
         /// </summary>
         public void ResetEntityPositions()
         {
-            for (int i = 0; i < ghosts.Length; i++)
+			debugger.Info("resetting positions");
+
+			for (int i = 0; i < ghosts.Length; i++)
             {
 				ghosts[i].ResetPosition(i);		
 			}
@@ -162,6 +159,7 @@ namespace Manager
 		{
 			yield return new WaitForSeconds(3f);
 			ghostHome.SetActive(true);
+			debugger.Info("ghost home activated");
 		}
 
 		/// <summary>
@@ -171,10 +169,11 @@ namespace Manager
         {
             if ((foodCount <= 80 && foodCount >= 40) && !spawnedCherry)
             {
-                Instantiate(cherry, new Vector3(0f, -0.303f, -9.26f), Quaternion.Euler(new Vector3(0f, 90f, 0f)));
+                Instantiate(cherry, cherrySpawn.position, cherrySpawn.rotation);
                 spawnedCherry = true;
-            }
-            if (foodCount <= 1)
+				debugger.Info("spawned cherry");
+			}
+			if (foodCount <= 1)
             {
                 spawnedCherry = false;
             }
