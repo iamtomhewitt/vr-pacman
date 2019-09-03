@@ -40,3 +40,4 @@ Logs/
 
 .vs/vr-pacman/v15/Server/
 .vs/vr-pacman/DesignTimeBuild/
+/.vscode/settings.json
