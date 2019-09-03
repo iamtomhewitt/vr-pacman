@@ -12,11 +12,18 @@ namespace Pacman
 		[SerializeField] private TextMesh statusText;
 		[SerializeField] private TextMesh scoreText;
 
+		private Debugger debugger;
+
 		public static PacmanHud instance;
 
 		private void Awake()
 		{
 			instance = this;
+		}
+
+		private void Start()
+		{
+			debugger = GetComponent<Debugger>();
 		}
 
 		public void SetStatusText(string message)
@@ -31,6 +38,7 @@ namespace Pacman
 
 		public void RemoveLife(int index)
 		{
+			debugger.Info("removing life from HUD");
 			lifeSprites[index].SetActive(false);
 		}
 	}
