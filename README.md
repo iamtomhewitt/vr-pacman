@@ -1,5 +1,9 @@
 # VR Pacman
 
+<p align="center">
+  <img src="https://github.com/iamtomhewitt/vr-pacman/raw/develop/github.png">
+</p>
+
 This project is my Unity3D game on Google Play. It is a virtual reality version of the arcade game Pacman, in first person, targeted for mobile devices using a Google Cardboard or similar.  
 
 ## Fixing Problems
