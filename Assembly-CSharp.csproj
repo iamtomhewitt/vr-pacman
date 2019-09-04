@@ -240,6 +240,7 @@
     <Compile Include="Assets\Scripts\Utility\Debugger.cs" />
     <Compile Include="Assets\Scripts\Utility\Highscore\HighscoreDisplayHelper.cs" />
     <Compile Include="Assets\Scripts\Utility\Highscore\HighscoreEntry.cs" />
+    <Compile Include="Assets\Scripts\Utility\JsonHelper.cs" />
     <Compile Include="Assets\Scripts\Utility\Powerup.cs" />
     <Compile Include="Assets\Scripts\Utility\Utilities.cs" />
     <None Include="Assets\Graphics\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

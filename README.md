@@ -1,10 +1,21 @@
 # VR Pacman
 
+<p align="center">
+  <img src="https://github.com/iamtomhewitt/vr-pacman/raw/develop/github.png">
+</p>
+
+This project is my Unity3D game on Google Play. It is a virtual reality version of the arcade game Pacman, in first person, targeted for mobile devices using a Google Cardboard or similar.  
+
 ## Fixing Problems
 
-Issues are currently tracked via Bitbucket under the [Issues](https://github.com/iamtomhewitt/bugzilla-live/issues) page for the Bugzilla Live repository. 
-Choose an issue, create a new branch for it and code it.
-When you are done create a pull request and I will review the code before it can be merged into the develop branch, and then master.
+Issues are currently tracked under the [Issues](https://github.com/iamtomhewitt/vr-pacman/issues) tab.  
+
+Choose an issue, create a new branch for it and code it. Make sure to update the [Issue Management Project](https://github.com/iamtomhewitt/vr-pacman/projects/1) so the issues can be tracked effectively.  
+
+When you are done create a pull request and I will review the code before it can be merged into the develop branch.
+Once we are ready, the develop branch will be merged into the 'beta' branch, where a beta build will be created from it and uploaded to Google Play.
+After the beta has ended, or another one comes along, then the beta branch will be merged into master. The beta in Google Play will then be promoted to production.
+Add beta and production git tags to the branches so it can be easily identified.
 
 # Code Style
 
