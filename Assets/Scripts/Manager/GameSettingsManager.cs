@@ -2,32 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSettingsManager : MonoBehaviour
+namespace Manager
 {
-	[SerializeField] private float accelerometerSensitivity;
-
-	public static GameSettingsManager instance;
-
-	private void Awake()
+	public class GameSettingsManager : MonoBehaviour
 	{
-		if (instance)
+		[SerializeField] private float accelerometerSensitivity;
+
+		public static GameSettingsManager instance;
+
+		private void Awake()
 		{
-			DestroyImmediate(this.gameObject);
+			if (instance)
+			{
+				DestroyImmediate(this.gameObject);
+			}
+			else
+			{
+				DontDestroyOnLoad(this.gameObject);
+				instance = this;
+			}
 		}
-		else
+
+		public void SetAccelerometerSensitivity(float sensitivity)
 		{
-			DontDestroyOnLoad(this.gameObject);
-			instance = this;
+			accelerometerSensitivity = sensitivity;
 		}
-	}
 
-	public void SetAccelerometerSensitivity(float sensitivity)
-	{
-		accelerometerSensitivity = sensitivity;
-	}
-
-	public float GetAccelerometerSensitivity()
-	{
-		return accelerometerSensitivity;
+		public float GetAccelerometerSensitivity()
+		{
+			return accelerometerSensitivity;
+		}
 	}
 }
