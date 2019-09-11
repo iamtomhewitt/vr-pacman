@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Utility;
+using Manager;
 
 namespace Pacman
 {
-    public class PacmanMovement : MonoBehaviour
+	public class PacmanMovement : MonoBehaviour
     {
 		[SerializeField] private bool useAccelerometer;
 		[SerializeField] private bool debug = false;
@@ -39,6 +39,11 @@ namespace Pacman
 
             originalSpeed = speed;
             speed = 0f;
+
+			if (GameSettingsManager.instance)
+			{
+				accelerometerSensitivity = GameSettingsManager.instance.GetAccelerometerSensitivity();
+			}
         }
 
         private void Update()
