@@ -181,7 +181,8 @@ namespace Manager
 
         public int CountFood()
         {
-            return GameObject.FindGameObjectsWithTag("Food").Length;
+            foodCount = GameObject.FindGameObjectsWithTag("Food").Length;
+			return foodCount;
         }
 
         public int GetNumberOfFood()
