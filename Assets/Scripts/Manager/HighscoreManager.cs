@@ -68,8 +68,7 @@ namespace Manager
 		/// </summary>
         private IEnumerator UploadNewHighscoreRoutine(string username, int score)
         {
-			string id = System.DateTime.Now.ToString("MMddyyyyhhmmss");
-			UnityWebRequest request = UnityWebRequest.Post(url + privateCode + "/add/" + UnityWebRequest.EscapeURL(id+username) + "/" + score, "");
+			UnityWebRequest request = UnityWebRequest.Post(url + privateCode + "/add/" + UnityWebRequest.EscapeURL(username) + "/" + score, "");
             yield return request.SendWebRequest();
 
 			if (!request.downloadHandler.text.StartsWith("ERROR"))
