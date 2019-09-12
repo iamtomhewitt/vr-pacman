@@ -68,7 +68,7 @@ namespace Manager
 		/// </summary>
         private IEnumerator UploadNewHighscoreRoutine(string username, int score)
         {
-            string id = System.DateTime.Now.ToString("MMddyyyyhhmmss");
+			string id = System.DateTime.Now.ToString("MMddyyyyhhmmss");
 			UnityWebRequest request = UnityWebRequest.Post(url + privateCode + "/add/" + UnityWebRequest.EscapeURL(id+username) + "/" + score, "");
             yield return request.SendWebRequest();
 
@@ -79,7 +79,9 @@ namespace Manager
             }
             else
             {
-                Debug.Log("Error uploading: " + request.error);
+                Debug.Log("Error uploading: " + request.downloadHandler.text);
+				FindObjectOfType<HighscoreDisplayHelper>().ClearEntries();
+				FindObjectOfType<HighscoreDisplayHelper>().DisplayError("Could not upload score. Please try again later.\n\n" + request.downloadHandler.text);
             }
         }
 
@@ -95,7 +97,7 @@ namespace Manager
         {
             if (Application.internetReachability == NetworkReachability.NotReachable)
             {
-				FindObjectOfType<HighscoreDisplayHelper>().ShowNoInternetConnection();
+				FindObjectOfType<HighscoreDisplayHelper>().DisplayError("No internet connection.");
                 yield break;
             }
 
@@ -110,7 +112,8 @@ namespace Manager
 			}
 			else
 			{
-				Debug.Log("Error downloading: " + request.error);
+				Debug.Log("Error downloading: " + request.downloadHandler.text);
+				FindObjectOfType<HighscoreDisplayHelper>().DisplayError("Could not download highscores. Please try again later.\n\n" + request.downloadHandler.text);
 			}
         }
 
