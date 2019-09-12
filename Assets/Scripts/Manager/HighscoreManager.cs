@@ -95,7 +95,7 @@ namespace Manager
         {
             if (Application.internetReachability == NetworkReachability.NotReachable)
             {
-				FindObjectOfType<HighscoreDisplayHelper>().ShowNoInternetConnection();
+				FindObjectOfType<HighscoreDisplayHelper>().DisplayError("No internet connection.");
                 yield break;
             }
 
@@ -110,7 +110,8 @@ namespace Manager
 			}
 			else
 			{
-				Debug.Log("Error downloading: " + request.error);
+				Debug.Log("Error downloading: " + request.downloadHandler.text);
+				FindObjectOfType<HighscoreDisplayHelper>().DisplayError("Could not download highscores. Please try again later.\n\n" + request.downloadHandler.text);
 			}
         }
 

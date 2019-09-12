@@ -31,24 +31,34 @@ namespace Utility
 		/// </summary>
         public void PopulateEntries(Highscore[] highscoreList)
         {
-            for (int i = 0; i < highscoreEntries.Length; i++)
-            {
-				highscoreEntries[i].Populate(i + 1 + ".", "", "");
+			if (highscoreList == null)
+			{
+				for (int i = 0; i < highscoreEntries.Length; i++)
+				{
+					highscoreEntries[i].Populate("", "", "");
+				}
+			}
+			else
+			{
+				for (int i = 0; i < highscoreEntries.Length; i++)
+				{
+					highscoreEntries[i].Populate(i + 1 + ".", "", "");
 
-                if (highscoreList.Length > i)
-                {
-                    highscoreEntries[i].Populate(i + 1 + ".", highscoreList[i].username, highscoreList[i].score.ToString());
-                }
-            }
+					if (highscoreList.Length > i)
+					{
+						highscoreEntries[i].Populate(i + 1 + ".", highscoreList[i].username, highscoreList[i].score.ToString());
+					}
+				}
+			}
         }
 		
 		/// <summary>
 		/// Updates the status text.
 		/// </summary>
-        public void ShowNoInternetConnection()
-        {
-            statusText.text = "No Internet Connection.";
-        }
+        public void DisplayError(string message)
+		{
+			statusText.text = message;
+		}
 		
 		/// <summary>
 		/// Invoked every x seconds in the start menu to pull new highscores.
