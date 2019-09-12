@@ -33,10 +33,7 @@ namespace Utility
         {
 			if (highscoreList == null)
 			{
-				for (int i = 0; i < highscoreEntries.Length; i++)
-				{
-					highscoreEntries[i].Populate("", "", "");
-				}
+				ClearEntries();
 			}
 			else
 			{
@@ -105,5 +102,13 @@ namespace Utility
 				placeholderText.text = "Uploaded!";
 			}
         }
+
+		public void ClearEntries()
+		{
+			for (int i = 0; i < highscoreEntries.Length; i++)
+			{
+				highscoreEntries[i].Populate("", "", "");
+			}
+		}
     }
 }
