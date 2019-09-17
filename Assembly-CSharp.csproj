@@ -229,6 +229,7 @@
     <Compile Include="Assets\Scripts\Manager\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameEventManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameObjectManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\GameSettingsManager.cs" />
     <Compile Include="Assets\Scripts\Manager\HighscoreManager.cs" />
     <Compile Include="Assets\Scripts\Pacman\MinimapPacmanIcon.cs" />
     <Compile Include="Assets\Scripts\Pacman\PacmanCollision.cs" />
@@ -240,6 +241,7 @@
     <Compile Include="Assets\Scripts\Utility\Debugger.cs" />
     <Compile Include="Assets\Scripts\Utility\Highscore\HighscoreDisplayHelper.cs" />
     <Compile Include="Assets\Scripts\Utility\Highscore\HighscoreEntry.cs" />
+    <Compile Include="Assets\Scripts\Utility\JsonHelper.cs" />
     <Compile Include="Assets\Scripts\Utility\Powerup.cs" />
     <Compile Include="Assets\Scripts\Utility\Utilities.cs" />
     <None Include="Assets\Graphics\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
