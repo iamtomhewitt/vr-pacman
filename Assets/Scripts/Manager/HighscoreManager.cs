@@ -12,8 +12,8 @@ namespace Manager
 
 		private Leaderboard leaderboard;
 
-        private const string privateCode    = "YHc0fAncbE-2ieJokE0NIAB9ZEzv8l10WovytuLwzMAw";
-        private const string publicCode     = "5ad0d623d6024519e0be327e";
+        private const string privateCode    = "hERKFM6pT0qBOb8ZvypNDQmyok7nHxTkWkM2BFIe7hxQ";
+        private const string publicCode     = "5d810f91d1041303ecafee9f";
         private const string url            = "http://dreamlo.com/lb/";
 
         public static HighscoreManager instance;
@@ -30,7 +30,7 @@ namespace Manager
 				instance = this;
 			}
 
-			//UploadNewHighscore("Tom (The Developer)", 4500);
+			// UploadNewHighscore("Tom (The Developer)", 4500);
 		}
 
 		/// <summary>
@@ -68,7 +68,7 @@ namespace Manager
 		/// </summary>
         private IEnumerator UploadNewHighscoreRoutine(string username, int score)
         {
-			UnityWebRequest request = UnityWebRequest.Post(url + privateCode + "/add/" + UnityWebRequest.EscapeURL(username) + "/" + score, "");
+			UnityWebRequest request = UnityWebRequest.Post(url + privateCode + "/add/" + username + "/" + score, "");
             yield return request.SendWebRequest();
 
 			if (!request.downloadHandler.text.StartsWith("ERROR"))
