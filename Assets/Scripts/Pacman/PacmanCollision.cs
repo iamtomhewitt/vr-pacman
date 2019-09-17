@@ -15,9 +15,10 @@ namespace Pacman
 
         public int currentLives = 3;
 
-		private static PacmanCollision instance;
-
+		private Rigidbody rb;
 		private Debugger debugger;
+
+		private static PacmanCollision instance;
 
 		private void Awake()
 		{
@@ -27,6 +28,7 @@ namespace Pacman
 		private void Start()
 		{
 			debugger = GetComponent<Debugger>();
+			rb = GetComponent<Rigidbody>();
 		}
 
 		private void OnCollisionEnter(Collision other)
@@ -79,6 +81,9 @@ namespace Pacman
 					{
 						return;
 					}
+
+					// Reset the velocity to stop pacman drifting away
+					rb.velocity = Vector3.zero; 
 
                     if (ghost.IsEdible())
                     {

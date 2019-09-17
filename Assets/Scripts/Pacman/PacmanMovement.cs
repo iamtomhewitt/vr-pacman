@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Utility;
+using Manager;
 
 namespace Pacman
 {
-    public class PacmanMovement : MonoBehaviour
+	public class PacmanMovement : MonoBehaviour
     {
 		[SerializeField] private bool useAccelerometer;
 		[SerializeField] private bool debug = false;
@@ -16,6 +16,7 @@ namespace Pacman
 		[SerializeField] private float boostSpeed;
 		[SerializeField] private float accelerometerSensitivity;
 
+		private Rigidbody rb;
 		private Debugger debugger;
 
 		public static PacmanMovement instance;
@@ -28,6 +29,7 @@ namespace Pacman
 		private void Start()
         {
 			debugger = GetComponent<Debugger>();
+			rb = GetComponent<Rigidbody>();
 
             if (!SystemInfo.supportsGyroscope)
             {
@@ -37,6 +39,11 @@ namespace Pacman
 
             originalSpeed = speed;
             speed = 0f;
+
+			if (GameSettingsManager.instance)
+			{
+				accelerometerSensitivity = GameSettingsManager.instance.GetAccelerometerSensitivity();
+			}
         }
 
         private void Update()
@@ -55,7 +62,10 @@ namespace Pacman
 
 			// Even though rigidbody is checked to lock the y-pos, just ensure here
 			transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
-        }
+
+			// Reset the velocity to stop pacman drifting away
+			rb.velocity = Vector3.zero;
+		}
 
 		/// <summary>
 		/// Boosts Pacmans speed for an amount of time.
