@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Utility;
+using Manager;
 
 namespace Pacman
 {
-    public class PacmanMovement : MonoBehaviour
+	public class PacmanMovement : MonoBehaviour
     {
 		[SerializeField] private bool useAccelerometer;
 		[SerializeField] private bool debug = false;
@@ -16,6 +16,9 @@ namespace Pacman
 		[SerializeField] private float boostSpeed;
 		[SerializeField] private float accelerometerSensitivity;
 
+		private Rigidbody rb;
+		private Debugger debugger;
+
 		public static PacmanMovement instance;
 
 		private void Awake()
@@ -25,6 +28,9 @@ namespace Pacman
 
 		private void Start()
         {
+			debugger = GetComponent<Debugger>();
+			rb = GetComponent<Rigidbody>();
+
             if (!SystemInfo.supportsGyroscope)
             {
                 useAccelerometer = true;
@@ -33,6 +39,11 @@ namespace Pacman
 
             originalSpeed = speed;
             speed = 0f;
+
+			if (GameSettingsManager.instance)
+			{
+				accelerometerSensitivity = GameSettingsManager.instance.GetAccelerometerSensitivity();
+			}
         }
 
         private void Update()
@@ -51,13 +62,17 @@ namespace Pacman
 
 			// Even though rigidbody is checked to lock the y-pos, just ensure here
 			transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
-        }
+
+			// Reset the velocity to stop pacman drifting away
+			rb.velocity = Vector3.zero;
+		}
 
 		/// <summary>
 		/// Boosts Pacmans speed for an amount of time.
 		/// </summary>
 		public void BoostSpeed()
 		{
+			debugger.Info("boosting speed");
 			StartCoroutine(BoostSpeedRoutine());
 		}
 
@@ -81,6 +96,7 @@ namespace Pacman
 		/// </summary>
 		public void ResetSpeed()
 		{
+			debugger.Info("resetting speed");
 			speed = originalSpeed;
 		}
 
@@ -89,6 +105,7 @@ namespace Pacman
 		/// </summary>
 		public void ResetPosition()
 		{
+			debugger.Info("resetting position");
 			transform.position = new Vector3(0f, 0f, -3.43f);
 		}
 
@@ -97,6 +114,7 @@ namespace Pacman
 		/// </summary>
 		public void Stop()
 		{
+			debugger.Info("stopping");
 			speed = 0f;
 		}
 	}

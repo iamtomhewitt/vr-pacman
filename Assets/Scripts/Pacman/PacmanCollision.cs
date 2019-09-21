@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Manager;
 using Ghosts;
@@ -10,17 +9,26 @@ namespace Pacman
 	/// <summary>
 	/// Methods for when Pacman collides with something.
 	/// </summary>
-    public class PacmanCollision : MonoBehaviour
+	public class PacmanCollision : MonoBehaviour
     {
         public bool godMode;
 
         public int currentLives = 3;
+
+		private Rigidbody rb;
+		private Debugger debugger;
 
 		private static PacmanCollision instance;
 
 		private void Awake()
 		{
 			instance = this;
+		}
+
+		private void Start()
+		{
+			debugger = GetComponent<Debugger>();
+			rb = GetComponent<Rigidbody>();
 		}
 
 		private void OnCollisionEnter(Collision other)
@@ -40,25 +48,28 @@ namespace Pacman
                     break;
 
                 case "Powerup":
-                    other.gameObject.SetActive(false);
-                    GameObjectManager.instance.MakeGhostsEdible();
+					debugger.Info("Activated powerup");
+					other.gameObject.SetActive(false);
+					AudioManager.instance.PlayForDuration(SoundNames.GHOST_EDIBLE, Constants.POWERUP_DURATION);
+					GameObjectManager.instance.MakeGhostsEdible();
 					PacmanMovement.instance.BoostSpeed();
                     break;
 
                 case "Cherry":
-                    AudioManager.instance.Play(SoundNames.EAT_FRUIT);
+					debugger.Info("collected a cherry");
+					AudioManager.instance.Play(SoundNames.EAT_FRUIT);
                     Destroy(other.gameObject);
 					PacmanScore.instance.AddScore(Constants.FRUIT_EATEN_SCORE);
                     break;
             }
         }
-
-
+	
         private void OnTriggerEnter(Collider other)
         {
             if (godMode)
             {
-                return;
+				debugger.Info("god mode enabled, ignoring collision");
+				return;
             }
 
             switch (other.gameObject.tag)
@@ -70,6 +81,9 @@ namespace Pacman
 					{
 						return;
 					}
+
+					// Reset the velocity to stop pacman drifting away
+					rb.velocity = Vector3.zero; 
 
                     if (ghost.IsEdible())
                     {
@@ -90,7 +104,9 @@ namespace Pacman
 		/// </summary>
         private IEnumerator Die()
         {
-            currentLives--;
+			debugger.Info("has died");
+
+			currentLives--;
 
             AudioManager.instance.PauseAllSounds();
             GameObjectManager.instance.StopMovingEntities();

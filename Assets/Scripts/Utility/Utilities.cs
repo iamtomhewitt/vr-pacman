@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using Manager;
 
 namespace Utility
 {
@@ -73,6 +75,11 @@ namespace Utility
 			yield return null;
 			UnityEngine.XR.XRSettings.enabled = false;
 			Screen.orientation = ScreenOrientation.Portrait;
+		}
+
+		public void UpdateAccelerometerSettings(Slider slider)
+		{
+			GameSettingsManager.instance.SetAccelerometerSensitivity(slider.value);
 		}
 	}
 }

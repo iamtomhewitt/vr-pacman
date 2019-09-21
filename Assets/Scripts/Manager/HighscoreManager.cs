@@ -2,6 +2,7 @@
 using UnityEngine;
 using Utility;
 using UnityEngine.Networking;
+using System;
 
 namespace Manager
 {
@@ -9,8 +10,10 @@ namespace Manager
     {
         private Highscore[] highscoresList;
 
-        private const string privateCode    = "YHc0fAncbE-2ieJokE0NIAB9ZEzv8l10WovytuLwzMAw";
-        private const string publicCode     = "5ad0d623d6024519e0be327e";
+		private Leaderboard leaderboard;
+
+        private const string privateCode    = "hERKFM6pT0qBOb8ZvypNDQmyok7nHxTkWkM2BFIe7hxQ";
+        private const string publicCode     = "5d810f91d1041303ecafee9f";
         private const string url            = "http://dreamlo.com/lb/";
 
         public static HighscoreManager instance;
@@ -27,7 +30,7 @@ namespace Manager
 				instance = this;
 			}
 
-			//UploadNewHighscore("Tom (The Developer)", 4500);
+			// UploadNewHighscore("Tom (The Developer)", 4500);
 		}
 
 		/// <summary>
@@ -65,8 +68,7 @@ namespace Manager
 		/// </summary>
         private IEnumerator UploadNewHighscoreRoutine(string username, int score)
         {
-            string id = System.DateTime.Now.ToString("MMddyyyyhhmmss");
-			UnityWebRequest request = UnityWebRequest.Post(url + privateCode + "/add/" + UnityWebRequest.EscapeURL(id+username) + "/" + score, "");
+			UnityWebRequest request = UnityWebRequest.Post(url + privateCode + "/add/" + username + "/" + score, "");
             yield return request.SendWebRequest();
 
 			if (!request.downloadHandler.text.StartsWith("ERROR"))
@@ -76,7 +78,9 @@ namespace Manager
             }
             else
             {
-                Debug.Log("Error uploading: " + request.error);
+                Debug.Log("Error uploading: " + request.downloadHandler.text);
+				FindObjectOfType<HighscoreDisplayHelper>().ClearEntries();
+				FindObjectOfType<HighscoreDisplayHelper>().DisplayError("Could not upload score. Please try again later.\n\n" + request.downloadHandler.text);
             }
         }
 
@@ -92,54 +96,42 @@ namespace Manager
         {
             if (Application.internetReachability == NetworkReachability.NotReachable)
             {
-				FindObjectOfType<HighscoreDisplayHelper>().ShowNoInternetConnection();
+				FindObjectOfType<HighscoreDisplayHelper>().DisplayError("No internet connection.");
                 yield break;
             }
 
-			UnityWebRequest request = UnityWebRequest.Get(url + publicCode + "/pipe/0/10");
+			UnityWebRequest request = UnityWebRequest.Get(url + publicCode + "/json/0/10");
 			yield return request.SendWebRequest();
 
 			if (!request.downloadHandler.text.StartsWith("ERROR"))
 			{
-				highscoresList = ToHighScoreList(request.downloadHandler.text);
+				string json = JsonHelper.StripParentFromJson(request.downloadHandler.text, 2);
+				leaderboard = JsonUtility.FromJson<Leaderboard>(json);
+				highscoresList = ToHighScoreList();
 			}
 			else
 			{
-				Debug.Log("Error downloading: " + request.error);
+				Debug.Log("Error downloading: " + request.downloadHandler.text);
+				FindObjectOfType<HighscoreDisplayHelper>().DisplayError("Could not download highscores. Please try again later.\n\n" + request.downloadHandler.text);
 			}
         }
 
 		/// <summary>
-		/// Coverts a text stream into an array of Highscores.
+		/// Converts the leaderboard object created by a Json request into a highscore list.
 		/// </summary>
-        private Highscore[] ToHighScoreList(string textStream)
-        {
-            string[] entries = textStream.Split(new char[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
+		/// <returns></returns>
+		private Highscore[] ToHighScoreList()
+		{
+			Highscore[] list = new Highscore[leaderboard.entry.Length];
 
-			Highscore[] list = new Highscore[entries.Length];
-
-            for (int i = 0; i < entries.Length; i++)
-            {
-                string[] entryInfo = entries[i].Split(new char[] { '|' });
-
-                // Get the username from online
-                string usr = entryInfo[0];
-
-                // Replace with spaces
-                string username = usr.Replace('+', ' ');
-
-                // Dont want the date included in the username, so substring itself to show only the username
-                username = username.Substring(14, (username.Length-14));
-
-                int score = int.Parse(entryInfo[1]);
-
-                list[i] = new Highscore(username, score);
-
-                //print(highscoresList[i].username + ": " + highscoresList[i].score + " Date: "+date);
-            }
+			for (int i = 0; i < leaderboard.entry.Length; i++)
+			{
+				list[i].username = leaderboard.entry[i].name;
+				list[i].score = leaderboard.entry[i].score;
+			}
 
 			return list;
-        }
+		}
     }
 
 	/// <summary>
@@ -156,4 +148,26 @@ namespace Manager
             this.score = score;
         }
     }
+
+	/// <summary>
+	/// Data classes used to map the JSON response onto variables.
+	/// </summary>
+	[System.Serializable]
+	public class Leaderboard
+	{
+		public HighscoreData[] entry;
+	}
+
+	/// <summary>
+	/// A data class to hold information retrived from the Dreamlo leaderboard.
+	/// </summary>
+	[System.Serializable]
+	public class HighscoreData
+	{
+		public string name;
+		public int score;
+		public int seconds;
+		public string text;
+		public DateTime date;
+	}
 }
