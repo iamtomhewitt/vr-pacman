@@ -18,6 +18,37 @@
 
 This project is my Unity3D game on Google Play. It is a virtual reality version of the arcade game Pacman, in first person, targeted for mobile devices using a Google Cardboard or similar.  
 
+## Versioning
+
+Versioning works as follows - <b>MAJOR.MINOR.PATCH</b> <i>(e.g 2.1.4)</i>
+
+* <b>MAJOR</b> is incremented when a new feature has been introduced - such as the highscore marker visible in game
+
+* <b>MINOR</b> is incremented when there is a visual change that the player would see - such as different obstacle shapes and colours
+
+* <b>PATCH</b> is incremented when there has been only a code change - such as a bug fix
+
+Depending on an increment it may rollover, for example:
+```c#
+0.0.0 // New project
+0.1.0 // Visual change
+0.2.0 // Visual change
+0.2.1 // Fix bug
+0.3.0 // Visual change
+0.3.1 // Fix bug
+0.3.2 // Fix bug
+0.3.3 // Fix bug
+0.3.4 // Fix bug
+0.4.0 // Visual change
+0.4.1 // Fix bug
+0.4.2 // Fix bug
+1.0.0 // New feature
+1.1.0 // Visual change
+1.2.0 // Visual change
+1.2.1 // Fix bug
+2.0.0 // New feature
+```
+
 ## Fixing Problems
 
 Issues are currently tracked under the [Issues](https://github.com/iamtomhewitt/vr-pacman/issues) tab.  
