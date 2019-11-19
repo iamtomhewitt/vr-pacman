@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace Utility
 {
-	public class Constants : MonoBehaviour
+	public class Constants
 	{
 		public const int POWERUP_DURATION = 10;
 		public const int FOOD_SCORE = 10;

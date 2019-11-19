@@ -8,8 +8,6 @@ namespace Manager
 {
 	public class HighscoreManager : MonoBehaviour
 	{
-		private const string privateCode = "hERKFM6pT0qBOb8ZvypNDQmyok7nHxTkWkM2BFIe7hxQ";
-		private const string publicCode = "5d810f91d1041303ecafee9f";
 		private const string url = "http://dreamlo.com/lb/";
 
 		public static HighscoreManager instance;
@@ -63,6 +61,9 @@ namespace Manager
 		private IEnumerator UploadNewHighscoreRoutine(string username, int score)
 		{
 			HighscoreDisplayHelper displayHelper = FindObjectOfType<HighscoreDisplayHelper>();
+
+			string privateCode = Config.instance.GetConfig()["dreamlo"]["privateKey"];
+
 			UnityWebRequest request = UnityWebRequest.Post(url + privateCode + "/add/" + username + "/" + score, "");
 			yield return request.SendWebRequest();
 
@@ -96,6 +97,8 @@ namespace Manager
 				displayHelper.DisplayError("No internet connection.");
 				yield break;
 			}
+
+			string publicCode = Config.instance.GetConfig()["dreamlo"]["publicKey"];
 
 			UnityWebRequest request = UnityWebRequest.Get(url + publicCode + "/json/0/10");
 			yield return request.SendWebRequest();

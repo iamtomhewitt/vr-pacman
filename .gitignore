@@ -45,3 +45,5 @@ Logs/
 /Assembly-CSharp.csproj
 /Assembly-CSharp-Editor.csproj
 Packages
+/Assets/config.json
+/Assets/config.json.meta
