@@ -10,7 +10,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{AA02D8B5-A751-F1A1-22BA-E16A31F02BFB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -241,7 +242,6 @@
     <Compile Include="Assets\Scripts\Utility\Debugger.cs" />
     <Compile Include="Assets\Scripts\Utility\Highscore\HighscoreDisplayHelper.cs" />
     <Compile Include="Assets\Scripts\Utility\Highscore\HighscoreEntry.cs" />
-    <Compile Include="Assets\Scripts\Utility\JsonHelper.cs" />
     <Compile Include="Assets\Scripts\Utility\Powerup.cs" />
     <Compile Include="Assets\Scripts\Utility\SimpleJson.cs" />
     <Compile Include="Assets\Scripts\Utility\Utilities.cs" />

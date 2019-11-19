@@ -1,18 +1,13 @@
-﻿using System.Collections;
-using UnityEngine;
-using Utility;
+﻿using UnityEngine;
 using UnityEngine.Networking;
-using System;
+using System.Collections;
+using Utility;
 using SimpleJSON;
 
 namespace Manager
 {
 	public class HighscoreManager : MonoBehaviour
 	{
-		private Highscore[] highscoresList;
-
-		private Leaderboard leaderboard;
-
 		private const string privateCode = "hERKFM6pT0qBOb8ZvypNDQmyok7nHxTkWkM2BFIe7hxQ";
 		private const string publicCode = "5d810f91d1041303ecafee9f";
 		private const string url = "http://dreamlo.com/lb/";
@@ -67,6 +62,7 @@ namespace Manager
 		/// </summary>
 		private IEnumerator UploadNewHighscoreRoutine(string username, int score)
 		{
+			HighscoreDisplayHelper displayHelper = FindObjectOfType<HighscoreDisplayHelper>();
 			UnityWebRequest request = UnityWebRequest.Post(url + privateCode + "/add/" + username + "/" + score, "");
 			yield return request.SendWebRequest();
 
@@ -78,14 +74,9 @@ namespace Manager
 			else
 			{
 				Debug.Log("Error uploading: " + request.downloadHandler.text);
-				FindObjectOfType<HighscoreDisplayHelper>().ClearEntries();
-				FindObjectOfType<HighscoreDisplayHelper>().DisplayError("Could not upload score. Please try again later.\n\n" + request.downloadHandler.text);
+				displayHelper.ClearEntries();
+				displayHelper.DisplayError("Could not upload score. Please try again later.\n\n" + request.downloadHandler.text);
 			}
-		}
-
-		public Highscore[] GetHighscoresList()
-		{
-			return highscoresList;
 		}
 
 		public void DownloadHighscores()
@@ -121,59 +112,5 @@ namespace Manager
 				displayHelper.DisplayError("Could not download highscores. Please try again later.\n\n" + request.downloadHandler.text);
 			}
 		}
-
-		/// <summary>
-		/// Converts the leaderboard object created by a Json request into a highscore list.
-		/// </summary>
-		/// <returns></returns>
-		private Highscore[] ToHighScoreList()
-		{
-			Highscore[] list = new Highscore[leaderboard.entry.Length];
-
-			for (int i = 0; i < leaderboard.entry.Length; i++)
-			{
-				list[i].username = leaderboard.entry[i].name;
-				list[i].score = leaderboard.entry[i].score;
-			}
-
-			return list;
-		}
-	}
-
-	/// <summary>
-	/// Data class for a highscore entry.
-	/// </summary>
-	public struct Highscore
-	{
-		public string username;
-		public int score;
-
-		public Highscore(string username, int score)
-		{
-			this.username = username;
-			this.score = score;
-		}
-	}
-
-	/// <summary>
-	/// Data classes used to map the JSON response onto variables.
-	/// </summary>
-	[System.Serializable]
-	public class Leaderboard
-	{
-		public HighscoreData[] entry;
-	}
-
-	/// <summary>
-	/// A data class to hold information retrived from the Dreamlo leaderboard.
-	/// </summary>
-	[System.Serializable]
-	public class HighscoreData
-	{
-		public string name;
-		public int score;
-		public int seconds;
-		public string text;
-		public DateTime date;
 	}
 }
