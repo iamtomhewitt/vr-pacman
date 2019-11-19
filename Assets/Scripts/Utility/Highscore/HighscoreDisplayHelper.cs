@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Manager;
+using SimpleJSON;
 
 namespace Utility
 {
@@ -27,32 +28,25 @@ namespace Utility
         }
 
 		/// <summary>
-		/// Fills each of the entrys with values from the supplied list.
+		/// Fills each of the entrys with values from the supplied array.
 		/// </summary>
-        public void PopulateEntries(Highscore[] highscoreList)
-        {
-			if (highscoreList == null)
+        public void DisplayHighscores(JSONArray entries)
+		{
+			for (int i = 0; i < entries.Count; i++)
 			{
-				ClearEntries();
-			}
-			else
-			{
-				for (int i = 0; i < highscoreEntries.Length; i++)
-				{
-					highscoreEntries[i].Populate(i + 1 + ".", "", "");
+				highscoreEntries[i].Populate(i + 1 + ".", "", "");
 
-					if (highscoreList.Length > i)
-					{
-						highscoreEntries[i].Populate(i + 1 + ".", highscoreList[i].username, highscoreList[i].score.ToString());
-					}
+				if (entries.Count > i)
+				{
+					highscoreEntries[i].Populate(i + 1 + ".", entries[i]["name"], entries[i]["score"]);
 				}
 			}
-        }
-		
+		}
+
 		/// <summary>
 		/// Updates the status text.
 		/// </summary>
-        public void DisplayError(string message)
+		public void DisplayError(string message)
 		{
 			statusText.text = message;
 		}
@@ -62,17 +56,7 @@ namespace Utility
 		/// </summary>
         private void RefreshHighscores()
         {
-			StartCoroutine(RefreshHighscoresRoutine());
-		}
-
-		/// <summary>
-		/// Gets the highscores from the HighscoreManager, then populate with the returned list.
-		/// </summary>
-		private IEnumerator RefreshHighscoresRoutine()
-		{
-			yield return StartCoroutine(HighscoreManager.instance.DownloadHighscores());
-			Highscore[] list = HighscoreManager.instance.GetHighscoresList();
-			PopulateEntries(list);
+			HighscoreManager.instance.DownloadHighscores();
 		}
 		
 		/// <summary>
