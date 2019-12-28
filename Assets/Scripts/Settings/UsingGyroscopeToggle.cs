@@ -12,12 +12,24 @@ namespace Setting
 		[SerializeField] private GameObject accelerometerSettings;
 		[SerializeField] private GameObject gyroscopeSettings;
 
+		private Toggle gyroscopeToggle;
+
+		private void Start()
+		{
+			gyroscopeToggle = GetComponent<Toggle>();
+
+			if (!SystemInfo.supportsGyroscope)
+			{
+				gyroscopeToggle.interactable = false;
+			}
+		}
+
 		/// <summary>
 		/// Called from a Toggle.
 		/// </summary>
-		public void SetUsingGyro(Toggle toggle)
+		public void SetUsingGyro()
 		{
-			GameSettingsManager.instance.SetUsingGyro(toggle.isOn);
+			GameSettingsManager.instance.SetUsingGyro(gyroscopeToggle.isOn);
 		}
 
 		/// <summary>
