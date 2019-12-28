@@ -9,6 +9,11 @@ namespace Settings
 	/// </summary>
 	public class AccelerometerSlider : MonoBehaviour
 	{
+		private void Start()
+		{
+			UpdateAccelerometerSettings(GetComponent<Slider>()); 
+		}
+
 		/// <summary>
 		/// Called from a Slider.
 		/// </summary>

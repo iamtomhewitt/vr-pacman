@@ -17,11 +17,15 @@ namespace Setting
 		private void Start()
 		{
 			gyroscopeToggle = GetComponent<Toggle>();
+			gyroscopeToggle.isOn = GameSettingsManager.instance.IsUsingGyro();
 
 			if (!SystemInfo.supportsGyroscope)
 			{
 				gyroscopeToggle.interactable = false;
 			}
+
+			SetUsingGyro();
+			ShowSettings();
 		}
 
 		/// <summary>
