@@ -4,7 +4,7 @@ namespace Manager
 {
 	public class GameSettingsManager : MonoBehaviour
 	{
-		[SerializeField] private float accelerometerSensitivity = 5f;
+		[SerializeField] private float sensitivity = 5f;
 
 		public static GameSettingsManager instance;
 
@@ -23,12 +23,12 @@ namespace Manager
 
 		public void SetSensitivity(float sensitivity)
 		{
-			accelerometerSensitivity = sensitivity;
+			this.sensitivity = sensitivity;
 		}
 
 		public float GetSensitivity()
 		{
-			return accelerometerSensitivity;
+			return sensitivity;
 		}
 	}
 }
