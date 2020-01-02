@@ -47,3 +47,4 @@ Logs/
 Packages
 /Assets/config.json
 /Assets/config.json.meta
+/ProjectSettings/*.asset
