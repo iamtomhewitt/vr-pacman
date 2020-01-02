@@ -21,12 +21,12 @@ namespace Manager
 			}
 		}
 
-		public void SetAccelerometerSensitivity(float sensitivity)
+		public void SetSensitivity(float sensitivity)
 		{
 			accelerometerSensitivity = sensitivity;
 		}
 
-		public float GetAccelerometerSensitivity()
+		public float GetSensitivity()
 		{
 			return accelerometerSensitivity;
 		}

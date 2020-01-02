@@ -90,7 +90,8 @@ namespace Manager
             AudioManager.instance.PauseAllSounds(); 
 
             yield return new WaitForSeconds(5f);
-			yield return GameObject.FindObjectOfType<Utilities>().DeActivateVRRoutine();
+
+			FindObjectOfType<Utilities>().RotateScreenPortrait();
 
 			SceneManager.LoadScene(Constants.MAIN_MENU_SCENE);
         }
