@@ -6,15 +6,14 @@ using Manager;
 namespace Pacman
 {
 	public class PacmanMovement : MonoBehaviour
-    {
-		[SerializeField] private bool useAccelerometer;
+	{
 		[SerializeField] private bool debug = false;
 
-        [Space()]
+		[Space()]
 		[SerializeField] private float speed;
 		[SerializeField] private float originalSpeed;
 		[SerializeField] private float boostSpeed;
-		[SerializeField] private float accelerometerSensitivity;
+		[SerializeField] private float sensitivity;
 
 		private Rigidbody rb;
 		private Debugger debugger;
@@ -27,41 +26,20 @@ namespace Pacman
 		}
 
 		private void Start()
-        {
+		{
 			debugger = GetComponent<Debugger>();
 			rb = GetComponent<Rigidbody>();
 
-            if (!SystemInfo.supportsGyroscope)
-            {
-                useAccelerometer = true;
-				Input.gyro.enabled = false;				// Sanity check
-            }
+			originalSpeed = speed;
+			speed = 0f;
 
-            originalSpeed = speed;
-            speed = 0f;
+			sensitivity = GameSettingsManager.instance ? GameSettingsManager.instance.GetSensitivity() : 7.5f;
+		}
 
-			if (GameSettingsManager.instance)
-			{
-				accelerometerSensitivity = GameSettingsManager.instance.GetAccelerometerSensitivity();
-			}
-        }
-
-        private void Update()
-        {
-            if (useAccelerometer)
-            {
-                transform.Rotate(0f, Input.acceleration.x * accelerometerSensitivity, 0f);
-                transform.position += transform.forward * speed * Time.deltaTime;
-            }
-            else
-            {
-                Vector3 direction = Camera.main.transform.forward;
-                direction.y = 0f;
-				transform.position += direction * speed * Time.deltaTime;
-            }
-
-			// Even though rigidbody is checked to lock the y-pos, just ensure here
-			transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
+		private void Update()
+		{
+			transform.Rotate(0f, Input.acceleration.x * sensitivity, 0f);
+			transform.position += transform.forward * speed * Time.deltaTime;
 
 			// Reset the velocity to stop pacman drifting away
 			rb.velocity = Vector3.zero;
@@ -83,14 +61,6 @@ namespace Pacman
 			speed = originalSpeed;
 		}
 
-		private void OnGUI()
-		{
-			if (debug)
-			{
-				GUI.Label(new Rect(0, 0, 200, 100), "Use accelerometer: " + useAccelerometer);
-			}
-		}
-		
 		/// <summary>
 		/// Resets the speed to the original movement speed.
 		/// </summary>

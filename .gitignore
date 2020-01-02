@@ -42,3 +42,9 @@ Logs/
 .vs/vr-pacman/DesignTimeBuild/
 /.vscode/settings.json
 /ProjectSettings/ProBuilderSettings.json
+/Assembly-CSharp.csproj
+/Assembly-CSharp-Editor.csproj
+Packages
+/Assets/config.json
+/Assets/config.json.meta
+/ProjectSettings/*.asset
