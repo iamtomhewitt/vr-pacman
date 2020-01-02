@@ -37,7 +37,6 @@ Releases/
 Test Builds/
 Screenshots/
 Logs/
-
 .vs/vr-pacman/v15/Server/
 .vs/vr-pacman/DesignTimeBuild/
 /.vscode/settings.json
@@ -47,4 +46,4 @@ Logs/
 Packages
 /Assets/config.json
 /Assets/config.json.meta
-/ProjectSettings/*.asset
+/Assets/Graphics/ImageEffects/Shaders/
