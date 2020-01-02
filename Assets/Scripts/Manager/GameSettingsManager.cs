@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Manager
 {
 	public class GameSettingsManager : MonoBehaviour
 	{
-		[SerializeField] private float accelerometerSensitivity;
+		[SerializeField] private float sensitivity = 5f;
 
 		public static GameSettingsManager instance;
 
@@ -23,14 +21,14 @@ namespace Manager
 			}
 		}
 
-		public void SetAccelerometerSensitivity(float sensitivity)
+		public void SetSensitivity(float sensitivity)
 		{
-			accelerometerSensitivity = sensitivity;
+			this.sensitivity = sensitivity;
 		}
 
-		public float GetAccelerometerSensitivity()
+		public float GetSensitivity()
 		{
-			return accelerometerSensitivity;
+			return sensitivity;
 		}
 	}
 }
