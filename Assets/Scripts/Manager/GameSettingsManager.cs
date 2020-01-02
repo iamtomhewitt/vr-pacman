@@ -4,7 +4,6 @@ namespace Manager
 {
 	public class GameSettingsManager : MonoBehaviour
 	{
-		[SerializeField] private bool useGyro;
 		[SerializeField] private float accelerometerSensitivity;
 
 		public static GameSettingsManager instance;
@@ -19,7 +18,6 @@ namespace Manager
 			{
 				DontDestroyOnLoad(this.gameObject);
 				instance = this;
-				useGyro = SystemInfo.supportsGyroscope;
 			}
 		}
 
@@ -31,16 +29,6 @@ namespace Manager
 		public float GetAccelerometerSensitivity()
 		{
 			return accelerometerSensitivity;
-		}
-
-		public void SetUsingGyro(bool gyro)
-		{
-			useGyro = gyro;
-		}
-
-		public bool IsUsingGyro()
-		{
-			return useGyro;
 		}
 	}
 }
