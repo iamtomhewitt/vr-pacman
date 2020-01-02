@@ -33,7 +33,7 @@ namespace Pacman
 			originalSpeed = speed;
 			speed = 0f;
 
-			sensitivity = GameSettingsManager.instance ? GameSettingsManager.instance.GetAccelerometerSensitivity() : 7.5f;
+			sensitivity = GameSettingsManager.instance ? GameSettingsManager.instance.GetSensitivity() : 7.5f;
 		}
 
 		private void Update()

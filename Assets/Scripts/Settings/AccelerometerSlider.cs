@@ -11,7 +11,9 @@ namespace Settings
 	{
 		private void Start()
 		{
-			UpdateAccelerometerSettings(GetComponent<Slider>()); 
+			Slider slider = GetComponent<Slider>();
+			slider.value = GameSettingsManager.instance.GetSensitivity();
+			UpdateAccelerometerSettings(slider); 
 		}
 
 		/// <summary>
@@ -19,7 +21,7 @@ namespace Settings
 		/// </summary>
 		public void UpdateAccelerometerSettings(Slider slider)
 		{
-			GameSettingsManager.instance.SetAccelerometerSensitivity(slider.value);
+			GameSettingsManager.instance.SetSensitivity(slider.value);
 		}
 	}
 }
