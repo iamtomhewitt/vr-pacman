@@ -23,7 +23,7 @@ public class GhostPathEditor : Editor
 			{
 				if (child.name.Contains("Waypoint"))
 				{
-					ghostPath.waypoints.Add(child);
+					ghostPath.GetWaypoints().Add(child);
 				}
 			}
 		}
@@ -43,7 +43,7 @@ public class GhostPathEditor : Editor
 
 		if (GUILayout.Button("Reset"))
 		{
-			ghostPath.waypoints.Clear();
+			ghostPath.GetWaypoints().Clear();
 		}
 	}
 }
