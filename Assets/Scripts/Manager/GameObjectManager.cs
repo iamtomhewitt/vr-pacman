@@ -11,14 +11,13 @@ namespace Manager
 	/// </summary>
 	public class GameObjectManager : MonoBehaviour
     {
-        public GameObject cherry;
-		public GameObject ghostHome;
+		[SerializeField] private GameObject cherry;
+		[SerializeField] private GameObject ghostHome;
+		[SerializeField] private Transform cherrySpawn;
 
-        private GameObject[] foods;
+        private GameObject[] food;
         private GameObject[] powerups;
         private Ghost[] ghosts;
-
-		[SerializeField] private Transform cherrySpawn;
 
 		private int foodCount;
 		private bool spawnedCherry;
@@ -33,7 +32,7 @@ namespace Manager
 
         private void Start()
         {
-            foods = GameObject.FindGameObjectsWithTag("Food");
+            food = GameObject.FindGameObjectsWithTag("Food");
 			powerups = GameObject.FindGameObjectsWithTag("Powerup");
 			ghosts = FindObjectsOfType<Ghost>();
 			debugger = GetComponent<Debugger>();
@@ -42,11 +41,11 @@ namespace Manager
 
 			foodCount = CountFood();
             
-            for (int i = 0; i < foods.Length; i++)
+            for (int i = 0; i < food.Length; i++)
             {
                 // Name the food "Food ([coordinates])
-                foods[i].name = "Food (" + foods[i].transform.position.x.ToString() + ", " + foods[i].transform.position.z.ToString() + ")";
-                foods[i].transform.parent = this.transform;
+                food[i].name = "Food (" + food[i].transform.position.x.ToString() + ", " + food[i].transform.position.z.ToString() + ")";
+                food[i].transform.parent = this.transform;
             }
 
             InvokeRepeating("SpawnCherry", 10f, 10f);
@@ -57,16 +56,14 @@ namespace Manager
         /// </summary>
         public void MakeGhostsEdible()
         {
-			for (int i = 0; i < ghosts.Length; i++)
-            {
-                Ghost g = ghosts[i];
-
+			foreach (Ghost ghost in ghosts)
+			{
 				// Only want to become edible if we are not running home
-				if (!g.IsRunningHome())
+				if (!ghost.IsRunningHome())
 				{
-					g.BecomeEdible();
+					ghost.BecomeEdible();
 				}
-            }
+			}
         }
 
         /// <summary>
@@ -78,11 +75,10 @@ namespace Manager
 
 			PacmanMovement.instance.ResetSpeed();
 
-            // Reset the Ghosts speed and their path node
-            for (int i = 0; i < ghosts.Length; i++)
-            {
-				Ghost g = ghosts[i];
-				g.SetSpeed(g.GetMovingSpeed());
+			// Reset the Ghosts speed and their path node
+			foreach (Ghost ghost in ghosts)
+			{
+				ghost.SetSpeed(ghost.GetMovingSpeed());
             }
 
 			foreach (GhostPath path in GameObject.FindObjectsOfType<GhostPath>())
@@ -97,11 +93,11 @@ namespace Manager
         public void StopMovingEntities()
         {
 			debugger.Info("stopping everything");
-
-			for (int i = 0; i < ghosts.Length; i++)
-            {
-                ghosts[i].StopMoving();
-            }
+						
+			foreach (Ghost ghost in ghosts)
+			{
+				ghost.StopMoving();
+			}
 
 			PacmanMovement.instance.Stop();
         }
@@ -113,9 +109,9 @@ namespace Manager
         {
 			debugger.Info("resetting positions");
 
-			for (int i = 0; i < ghosts.Length; i++)
-            {
-				ghosts[i].ResetPosition();		
+			foreach (Ghost ghost in ghosts)
+			{
+				ghost.ResetPosition();		
 			}
 
 			// We reset the current node here to stop the Ghosts immediately looking at the first node when pacman dies
@@ -133,9 +129,9 @@ namespace Manager
         /// </summary>
         public void ActivateFood()
         {
-            for (int i = 0; i < foods.Length; i++)
+            for (int i = 0; i < food.Length; i++)
             {
-                foods[i].SetActive(true);
+                food[i].SetActive(true);
             }
         }
 

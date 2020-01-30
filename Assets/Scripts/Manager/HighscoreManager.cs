@@ -8,8 +8,6 @@ namespace Manager
 {
 	public class HighscoreManager : MonoBehaviour
 	{
-		private const string url = "http://dreamlo.com/lb/";
-
 		public static HighscoreManager instance;
 
 		private void Awake()
@@ -64,7 +62,7 @@ namespace Manager
 
 			string privateCode = Config.instance.GetConfig()["dreamlo"]["privateKey"];
 
-			UnityWebRequest request = UnityWebRequest.Post(url + privateCode + "/add/" + username + "/" + score, "");
+			UnityWebRequest request = UnityWebRequest.Post(Constants.DREAMLO + privateCode + "/add/" + username + "/" + score, "");
 			yield return request.SendWebRequest();
 
 			if (!request.downloadHandler.text.StartsWith("ERROR"))
@@ -100,7 +98,7 @@ namespace Manager
 
 			string publicCode = Config.instance.GetConfig()["dreamlo"]["publicKey"];
 
-			UnityWebRequest request = UnityWebRequest.Get(url + publicCode + "/json/0/10");
+			UnityWebRequest request = UnityWebRequest.Get(Constants.DREAMLO + publicCode + "/json/0/10");
 			yield return request.SendWebRequest();
 
 			if (!request.downloadHandler.text.StartsWith("ERROR"))
