@@ -7,7 +7,7 @@ namespace Ghosts
 {
 	public class GhostPath : MonoBehaviour
 	{
-		public List<Transform> waypoints;
+		[SerializeField] private List<Transform> waypoints;
 
 		private bool used;
 		private int currentWaypointIndex = 0;
@@ -15,6 +15,11 @@ namespace Ghosts
 		public Transform GetCurrentWaypoint()
 		{
 			return waypoints[currentWaypointIndex];
+		}
+
+		public List<Transform> GetWaypoints()
+		{
+			return waypoints;
 		}
 
 		public void SetNextWaypoint()

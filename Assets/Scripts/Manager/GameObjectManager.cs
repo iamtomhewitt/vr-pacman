@@ -115,11 +115,11 @@ namespace Manager
 
 			for (int i = 0; i < ghosts.Length; i++)
             {
-				ghosts[i].ResetPosition(i);		
+				ghosts[i].ResetPosition();		
 			}
 
 			// We reset the current node here to stop the Ghosts immediately looking at the first node when pacman dies
-			foreach (GhostPath path in GameObject.FindObjectsOfType<GhostPath>())
+			foreach (GhostPath path in FindObjectsOfType<GhostPath>())
 			{
 				path.ResetCurrentWaypointIndex();
 			}
