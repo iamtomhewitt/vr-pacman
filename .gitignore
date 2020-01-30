@@ -32,14 +32,12 @@ ehthumbs.db
 Thumbs.db
 /Library/*
 
-# Other folders
+# ============ #
+# Other        #
+# ============ #
 Releases/
-Test Builds/
-Screenshots/
 Logs/
-
-.vs/vr-pacman/v15/Server/
-.vs/vr-pacman/DesignTimeBuild/
+.vs/
 /.vscode/settings.json
 /ProjectSettings/ProBuilderSettings.json
 /Assembly-CSharp.csproj
@@ -47,4 +45,4 @@ Logs/
 Packages
 /Assets/config.json
 /Assets/config.json.meta
-/ProjectSettings/*.asset
+/Google Play Store/Video/Video.mp4
