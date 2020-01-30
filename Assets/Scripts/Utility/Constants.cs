@@ -11,5 +11,6 @@ namespace Utility
 		public const string ALREADY_UPLOADED_KEY = "hasUploadedHighscore";
 		public const string PLAYER_PREFS_HIGHSCORE_KEY = "LocalHighscore";
 		public const string MAIN_MENU_SCENE = "Main Menu";
+		public const string DREAMLO = "http://dreamlo.com/lb/";
 	}
 }
