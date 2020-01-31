@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Pacman
 {
@@ -9,9 +9,9 @@ namespace Pacman
 	/// </summary>
 	public class MinimapPacmanIcon : MonoBehaviour
 	{
-		public Transform pacman;
-		public Vector3 transformOffset;
-		public Vector3 rotationOffset;
+		[SerializeField] private Transform pacman;
+		[SerializeField] private Vector3 transformOffset;
+		[SerializeField] private Vector3 rotationOffset;
 
 		private void Update()
 		{
