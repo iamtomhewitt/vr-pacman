@@ -10,9 +10,9 @@ namespace Utility
 	/// </summary>
 	public class HighscoreDisplayHelper : MonoBehaviour
     {
-        public HighscoreEntry[] highscoreEntries;
-        public Text localHighscoreText;
-        public Text statusText;
+        [SerializeField] private HighscoreEntry[] highscoreEntries;
+        [SerializeField] private Text localHighscoreText;
+        [SerializeField] private Text statusText;
 
 		private float refreshRate = 60f;
 
@@ -20,9 +20,9 @@ namespace Utility
         {
             localHighscoreText.text = "Local Highscore: " + HighscoreManager.instance.GetLocalHighscore();
 
-			foreach (HighscoreEntry entry in highscoreEntries)
+			for (int i=0; i<highscoreEntries.Length; i++)
 			{
-                entry.Populate(i + 1 + ".", "Fetching...", "Fetching...");
+                highscoreEntries[i].Populate(i + 1 + ".", "Fetching...", "Fetching...");
             }
 
             InvokeRepeating("RefreshHighscores", 0f, refreshRate);
