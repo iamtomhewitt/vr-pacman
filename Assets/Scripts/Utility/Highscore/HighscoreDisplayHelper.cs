@@ -14,16 +14,18 @@ namespace Utility
         public Text localHighscoreText;
         public Text statusText;
 
+		private float refreshRate = 60f;
+
         private void Start()
         {
             localHighscoreText.text = "Local Highscore: " + HighscoreManager.instance.GetLocalHighscore();
 
-            for (int i = 0; i < highscoreEntries.Length; i++)
-            {
-                highscoreEntries[i].Populate(i + 1 + ".", "Fetching...", "Fetching...");
+			foreach (HighscoreEntry entry in highscoreEntries)
+			{
+                entry.Populate(i + 1 + ".", "Fetching...", "Fetching...");
             }
 
-            InvokeRepeating("RefreshHighscores", 0f, 60f);
+            InvokeRepeating("RefreshHighscores", 0f, refreshRate);
         }
 
 		/// <summary>
@@ -67,30 +69,30 @@ namespace Utility
 
 			if (HighscoreManager.instance.GetLocalHighscore() <= 0)
 			{
-				placeholderText.text = "Score cannot be 0!";
+				placeholderText.text = Constants.SCORE_NOT_ZERO;
 			}
 			else if (string.IsNullOrEmpty(usernameInputField.text))
 			{
-				placeholderText.text = "Enter a nickname!";
+				placeholderText.text = Constants.NICKNAME_REQUIRED;
 			}
 			else if (PlayerPrefs.GetInt(Constants.ALREADY_UPLOADED_KEY) != 0)
 			{
 				usernameInputField.text = "";
-				placeholderText.text = "Already uploaded!";
+				placeholderText.text = Constants.ALREADY_UPLOADED;
 			}
 			else
 			{
 				HighscoreManager.instance.UploadNewHighscore(usernameInputField.text, HighscoreManager.instance.GetLocalHighscore());
 				usernameInputField.text = "";
-				placeholderText.text = "Uploaded!";
+				placeholderText.text = Constants.UPLOADED;
 			}
         }
 
 		public void ClearEntries()
 		{
-			for (int i = 0; i < highscoreEntries.Length; i++)
+			foreach (HighscoreEntry entry in highscoreEntries)
 			{
-				highscoreEntries[i].Populate("", "", "");
+                entry.Populate("", "", "");
 			}
 		}
     }
