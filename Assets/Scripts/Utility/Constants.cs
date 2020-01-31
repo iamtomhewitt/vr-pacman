@@ -12,5 +12,9 @@ namespace Utility
 		public const string PLAYER_PREFS_HIGHSCORE_KEY = "LocalHighscore";
 		public const string MAIN_MENU_SCENE = "Main Menu";
 		public const string DREAMLO = "http://dreamlo.com/lb/";
+		public const string SCORE_NOT_ZERO = "Score cannot be 0!";
+		public const string NICKNAME_REQUIRED = "Enter a nickname!";
+		public const string ALREADY_UPLOADED = "Already uploaded!";
+		public const string UPLOADED = "Uploaded!";
 	}
 }
