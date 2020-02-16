@@ -13,9 +13,9 @@ namespace Pacman
 			instance = this;
 		}
 
-		public void AddScore(int scoreToAdd)
+		public void AddScore(int amount)
         {
-            score += scoreToAdd;
+            score += amount;
 			PacmanHud.instance.SetScoreText(score.ToString());
         }
 

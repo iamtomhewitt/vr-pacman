@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 using Utility;
 using Manager;
 
@@ -8,8 +8,6 @@ namespace Pacman
 	public class PacmanMovement : MonoBehaviour
 	{
 		[SerializeField] private bool debug = false;
-
-		[Space()]
 		[SerializeField] private float speed;
 		[SerializeField] private float originalSpeed;
 		[SerializeField] private float boostSpeed;
@@ -17,6 +15,7 @@ namespace Pacman
 
 		private Rigidbody rb;
 		private Debugger debugger;
+		private Vector3 originalPosition;
 
 		public static PacmanMovement instance;
 
@@ -31,6 +30,7 @@ namespace Pacman
 			rb = GetComponent<Rigidbody>();
 
 			originalSpeed = speed;
+			originalPosition = transform.position;
 			speed = 0f;
 
 			sensitivity = GameSettingsManager.instance ? GameSettingsManager.instance.GetSensitivity() : 7.5f;
@@ -76,7 +76,7 @@ namespace Pacman
 		public void ResetPosition()
 		{
 			debugger.Info("resetting position");
-			transform.position = new Vector3(0f, 0f, -3.43f);
+			transform.position = originalPosition;
 		}
 
 		/// <summary>
