@@ -7,8 +7,7 @@ namespace Pacman
 	/// </summary>
 	public class PacmanHud : MonoBehaviour
 	{
-		public GameObject[] lifeSprites;
-
+		[SerializeField] private GameObject[] lifeSprites;
 		[SerializeField] private TextMesh statusText;
 		[SerializeField] private TextMesh scoreText;
 

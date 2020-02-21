@@ -9,12 +9,11 @@ namespace Ghosts
 {
 	public class Ghost : MonoBehaviour
 	{
-		public Material originalColour;
+		[SerializeField] private Material originalColour;
 
 		[SerializeField] private bool edible = false;
 		[SerializeField] private bool eaten = false;
 		[SerializeField] private bool runningHome = false;
-
 		[SerializeField] private float speed;
 		[SerializeField] private float movingSpeed;
 		[SerializeField] private float flashingSpeed;
@@ -24,13 +23,15 @@ namespace Ghosts
 		private Rigidbody rb;
 		private MeshRenderer bodyColour;
 		private Debugger debugger;
-
 		private Coroutine flashRoutine;
+
+		private Vector3 originalPosition;
 
 		private void Start()
 		{
 			rb = GetComponent<Rigidbody>();
 			debugger = GetComponent<Debugger>();
+			originalPosition = transform.position;
 
 			path = GetRandomPath();
 			debugger.Info("has selected path: " + path.gameObject.name);
@@ -45,7 +46,7 @@ namespace Ghosts
 
 		private void OnTriggerEnter(Collider o)
 		{
-			if (o.name == Constants.GHOST_HOME)
+			if (o.name.Equals(Constants.GHOST_HOME))
 			{
 				Reset();
 				AudioManager.instance.StopGhostRunSound();
@@ -149,9 +150,9 @@ namespace Ghosts
 			}
 		}
 
-		public void ResetPosition(int offset)
+		public void ResetPosition()
 		{
-			transform.position = new Vector3((-1.5f + offset), 0f, -1.5f);
+			transform.position = originalPosition;
 		}
 
 		public void RunHome()

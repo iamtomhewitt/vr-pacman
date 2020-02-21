@@ -8,7 +8,7 @@ namespace Utility
 	/// </summary>
     public class Powerup : MonoBehaviour 
     {
-        public Vector3 speed;
+        [SerializeField] private Vector3 speed;
 
         private void Update()
         {

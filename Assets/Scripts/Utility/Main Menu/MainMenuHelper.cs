@@ -4,11 +4,14 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using Utility;
 
+/// <summary>
+/// Helper class for actions performed in the main menu.
+/// </summary>
 public class MainMenuHelper : MonoBehaviour
 {
-	public GameObject mainMenuUi;
-	public GameObject countdownUi;
-	public Text countdownText;
+	[SerializeField] private GameObject mainMenuUi;
+	[SerializeField] private GameObject countdownUi;
+	[SerializeField] private Text countdownText;
 
 	private void Start()
 	{

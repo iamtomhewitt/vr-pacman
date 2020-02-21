@@ -11,9 +11,8 @@ namespace Pacman
 	/// </summary>
 	public class PacmanCollision : MonoBehaviour
     {
-        public bool godMode;
-
-        public int currentLives = 3;
+        [SerializeField] private bool godMode;
+        [SerializeField] private int currentLives = 3;
 
 		private Rigidbody rb;
 		private Debugger debugger;
@@ -48,7 +47,7 @@ namespace Pacman
                     break;
 
                 case "Powerup":
-					debugger.Info("Activated powerup");
+					debugger.Info("activated powerup");
 					other.gameObject.SetActive(false);
 					AudioManager.instance.PlayForDuration(SoundNames.GHOST_EDIBLE, Constants.POWERUP_DURATION);
 					GameObjectManager.instance.MakeGhostsEdible();
