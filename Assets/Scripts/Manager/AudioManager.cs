@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System;
 using System.Linq;
-using Ghosts;
 using System.Collections;
-using System.Collections.Generic;
+using Ghosts;
 
 namespace Manager
 {
 	public class AudioManager : MonoBehaviour
 	{
-		public Sound[] sounds;
+		[SerializeField] private Sound[] sounds;
 
 		public static AudioManager instance;
 

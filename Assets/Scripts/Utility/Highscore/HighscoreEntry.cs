@@ -9,9 +9,9 @@ namespace Utility
 {
 	public class HighscoreEntry : MonoBehaviour
 	{
-		public Text rank;
-		public Text username;
-		public Text score;
+		[SerializeField] private Text rank;
+		[SerializeField] private Text username;
+		[SerializeField] private Text score;
 
 		public void Populate(string rank, string name, string score)
 		{
