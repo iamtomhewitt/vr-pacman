@@ -9,7 +9,7 @@
 	<img src="https://img.shields.io/github/stars/iamtomhewitt/vr-pacman?style=social"/>
 </p>
 <p align="center"><i>A first person virtual reality version of the arcade game Pacman, targeted for mobile devices using device holders like Google Cardboard.</i></p>
-<p align="center"><img src="github/gameplay.png" width="600"></p>
+<p align="center"><img src="github/gif.gif" width="600"></p>
 <p align="center">Built with ❤︎ by <a href="https://github.com/iamtomhewitt">Tom Hewitt</a></p>
 <p align="center">Become a Beta Tester <a href="https://play.google.com/apps/testing/com.SwivelChairGames.VRPacman">here!</a></p>
 
