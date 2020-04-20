@@ -25,6 +25,11 @@ namespace Utility
             Application.OpenURL(url);
         }
 
+		public void OpenPrivacyPolicy()
+		{
+			OpenURL(Config.instance.GetConfig()["privacyPolicy"]);
+		}
+
 		/// <summary>
 		/// Exits the game.
 		/// </summary>
