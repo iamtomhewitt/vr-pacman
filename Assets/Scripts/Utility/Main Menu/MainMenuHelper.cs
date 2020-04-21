@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Manager;
 using Utility;
 
 /// <summary>
@@ -26,6 +27,9 @@ public class MainMenuHelper : MonoBehaviour
 
 	private IEnumerator StartGameRoutine(string sceneName)
 	{
+		// Have to play the sound here, because the button gets deactivated on press so the sound will not play
+		AudioManager.instance.Play(SoundNames.BUTTON_PRESS);
+		
 		mainMenuUi.SetActive(false);
 		countdownUi.SetActive(true);
 
