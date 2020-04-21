@@ -153,6 +153,7 @@ namespace Manager
 		public const string PACMAN_DEATH = "Pacman Death";
 		public const string INTRO_MUSIC = "Intro Music";
 		public const string LEVEL_COMPLETE = "Level Complete";
+		public const string BUTTON_PRESS = "Button Press";
 	}
 }
 
