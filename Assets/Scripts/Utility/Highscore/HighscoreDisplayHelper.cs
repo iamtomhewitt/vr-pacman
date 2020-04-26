@@ -32,6 +32,7 @@ namespace Utility
         /// </summary>
         public void DisplayHighscores(JSONArray entries)
         {
+			statusText.text = "";
             for (int i = 0; i < entries.Count; i++)
             {
                 int rank = i + 1;
