@@ -27,7 +27,7 @@ namespace Utility
 
 		public void OpenPrivacyPolicy()
 		{
-			OpenURL(Config.instance.GetConfig()["privacyPolicy"]);
+			OpenURL("https://iamtomhewitt.github.io/website/#/vr-pac-mac-privacy-policy");
 		}
 
 		/// <summary>
