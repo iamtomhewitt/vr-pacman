@@ -63,6 +63,8 @@ MonoBehaviour:
   rank: {fileID: 6803029330623269953}
   username: {fileID: 6803029329719969529}
   score: {fileID: 6803029330576336039}
+  first: {r: 0.96470594, g: 0.6117647, b: 0.07450981, a: 1}
+  secondAndThird: {r: 0, g: 0.7411765, b: 0.8745099, a: 1}
 --- !u!1 &6803029329719969535
 GameObject:
   m_ObjectHideFlags: 0

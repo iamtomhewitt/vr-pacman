@@ -37,10 +37,12 @@ namespace Utility
                 int rank = i + 1;
                 HighscoreEntry entry = Instantiate(entryPrefab, entriesParent).GetComponent<HighscoreEntry>();
                 entry.Populate(rank + ".", "", "");
+                entry.SetTextColourBasedOnRank(rank);
 
                 if (entries.Count > i)
                 {
                     entry.Populate(rank + ".", entries[i]["name"], entries[i]["score"]);
+                    entry.SetTextColourBasedOnRank(rank);
                 }
             }
         }
@@ -93,9 +95,9 @@ namespace Utility
         public void ClearEntries()
         {
             foreach (Transform child in entriesParent)
-			{
-				Destroy(child);
-			}
+            {
+                Destroy(child);
+            }
         }
     }
 }

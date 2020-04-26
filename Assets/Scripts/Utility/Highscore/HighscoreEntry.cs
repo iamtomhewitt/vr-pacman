@@ -12,6 +12,8 @@ namespace Utility
         [SerializeField] private Text rank;
         [SerializeField] private Text username;
         [SerializeField] private Text score;
+		[SerializeField] private Color first;
+		[SerializeField] private Color secondAndThird;
 
         private string[] devColours = new string[] { "#FF3132", "#00BDDF" };
 
@@ -43,5 +45,28 @@ namespace Utility
         {
             return "<color=" + colour + ">" + s + "</color>";
         }
+
+		public void SetTextColourBasedOnRank(int rank)
+		{
+			if (rank <= 1)
+			{
+				SetColours(first);
+			}
+			else if (rank >= 4)
+			{
+				SetColours(Color.white);
+			}
+			else
+			{
+				SetColours(secondAndThird);
+			}
+		}
+
+		private void SetColours(Color colour)
+		{
+			rank.color = colour;
+			username.color = colour;
+			score.color = colour;
+		}
     }
 }
