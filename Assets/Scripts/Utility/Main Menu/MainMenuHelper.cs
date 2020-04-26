@@ -43,6 +43,8 @@ public class MainMenuHelper : MonoBehaviour
 			yield return new WaitForSeconds(1f);
 		}
 
+		AudioManager.instance.Pause(SoundNames.MENU_MUSIC);
+
 		SceneManager.LoadScene(sceneName);
 	}
 }

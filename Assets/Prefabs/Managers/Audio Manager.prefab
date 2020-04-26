@@ -104,3 +104,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Menu Music
+    clip: {fileID: 8300000, guid: b39c4cff5e61e433cb4a7bed55bb3711, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
