@@ -72,6 +72,8 @@ namespace Utility
         {
             Text placeholderText = usernameInputField.placeholder.GetComponent<Text>();
 
+			string formatted = Utilities.StripNonLatinLetters(usernameInputField.text);
+
             if (HighscoreManager.instance.GetLocalHighscore() <= 0)
             {
                 placeholderText.text = Constants.SCORE_NOT_ZERO;
@@ -85,9 +87,14 @@ namespace Utility
                 usernameInputField.text = "";
                 placeholderText.text = Constants.ALREADY_UPLOADED;
             }
+			else if (string.IsNullOrEmpty(formatted))
+			{
+				usernameInputField.text = "";
+				placeholderText.text = Constants.INVALID_NAME;
+			}
             else
             {
-                HighscoreManager.instance.UploadNewHighscore(usernameInputField.text, HighscoreManager.instance.GetLocalHighscore());
+                HighscoreManager.instance.UploadNewHighscore(formatted, HighscoreManager.instance.GetLocalHighscore());
                 usernameInputField.text = "";
                 placeholderText.text = Constants.UPLOADED;
             }
