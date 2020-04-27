@@ -94,7 +94,7 @@ namespace Utility
 			}
             else
             {
-                HighscoreManager.instance.UploadNewHighscore(usernameInputField.text, HighscoreManager.instance.GetLocalHighscore());
+                HighscoreManager.instance.UploadNewHighscore(formatted, HighscoreManager.instance.GetLocalHighscore());
                 usernameInputField.text = "";
                 placeholderText.text = Constants.UPLOADED;
             }
