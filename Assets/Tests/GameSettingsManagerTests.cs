@@ -15,7 +15,7 @@ namespace Tests
 		[SetUp]
 		public void Setup()
 		{
-			manager = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Managers/Game Settings Manager")).GetComponent<GameSettingsManager>();
+			manager = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Managers/Game Settings Manager")).GetComponent<GameSettingsManager>();
 		}
 
 		[TearDown]
