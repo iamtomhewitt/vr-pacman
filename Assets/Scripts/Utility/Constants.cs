@@ -16,5 +16,6 @@ namespace Utility
 		public const string NICKNAME_REQUIRED = "Enter a nickname!";
 		public const string ALREADY_UPLOADED = "Already uploaded!";
 		public const string UPLOADED = "Uploaded!";
+		public const string INVALID_NAME = "Invalid name!";
 	}
 }

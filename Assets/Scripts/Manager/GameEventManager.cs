@@ -92,7 +92,8 @@ namespace Manager
             yield return new WaitForSeconds(5f);
 
 			FindObjectOfType<Utilities>().RotateScreenPortrait();
-
+			
+			AudioManager.instance.Play(SoundNames.MENU_MUSIC);
 			SceneManager.LoadScene(Constants.MAIN_MENU_SCENE);
         }
 
