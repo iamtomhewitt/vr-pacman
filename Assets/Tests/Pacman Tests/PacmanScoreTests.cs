@@ -1,19 +1,12 @@
-﻿using Ghosts;
-using Manager;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Pacman;
-using System.Collections;
-using UnityEngine.TestTools;
 using UnityEngine;
-using Utility;
 
 namespace Tests
 {
 	public class PacmanScoreTests
 	{
 		private PacmanScore pacmanScore;
-		
-		private float WAIT_TIME = 0.1f;
 
 		[SetUp]
 		public void Setup()
