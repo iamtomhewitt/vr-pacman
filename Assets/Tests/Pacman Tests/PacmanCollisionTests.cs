@@ -1,24 +1,25 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using Ghosts;
+using Manager;
+using NUnit.Framework;
+using Pacman;
 using System.Collections;
 using UnityEngine.TestTools;
 using UnityEngine;
-using Pacman;
 using Utility;
-using Manager;
-using Ghosts;
 
 namespace Tests
 {
 	public class PacmanCollisionTests
 	{
 		private GameObject pacman;
+		private GameObject ghostPaths;
+		private GameObject food;
+
 		private PacmanCollision pacmanCollision;
 		private PacmanScore pacmanScore;
 		private PacmanMovement pacmanMovement;
 
 		private Ghost ghost;
-		private GameObject ghostPaths;
 
 		private Powerup powerup;
 
@@ -46,6 +47,7 @@ namespace Tests
 			geManager = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Managers/Game Event Manager")).GetComponent<GameEventManager>();
 
 			powerup = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Pickups/Powerup")).GetComponent<Powerup>();
+			food = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Pickups/Food"));
 		}
 
 		[TearDown]
@@ -58,27 +60,24 @@ namespace Tests
 			Object.Destroy(goManager.gameObject);
 			Object.Destroy(geManager.gameObject);
 			Object.Destroy(audio.gameObject);
+			Object.Destroy(food.gameObject);
 		}
 
 		[UnityTest]
 		public IEnumerator CollidingWithFoodDeactivatesFood()
 		{
-			GameObject food = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Pickups/Food"));
 			pacman.transform.position = food.transform.position;
 			yield return new WaitForSeconds(WAIT_TIME);
 			Assert.False(food.activeSelf);
-			Object.Destroy(food);
 		}
 
 		[UnityTest]
 		public IEnumerator CollidingWithFoodIncreasesScore()
 		{
-			GameObject food = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Pickups/Food"));
 			int score = pacmanScore.GetScore();
 			pacman.transform.position = food.transform.position;
 			yield return new WaitForSeconds(WAIT_TIME);
 			Assert.AreEqual(score + Constants.FOOD_SCORE, pacmanScore.GetScore());
-			Object.Destroy(food);
 		}
 
 		[UnityTest]
