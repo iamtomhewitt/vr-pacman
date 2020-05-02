@@ -137,5 +137,10 @@ namespace Pacman
 				AudioManager.instance.Play(SoundNames.GHOST_MOVE);
 			}
         }
+
+		public int GetCurrentLives()
+		{
+			return currentLives;
+		}
     }
 }
