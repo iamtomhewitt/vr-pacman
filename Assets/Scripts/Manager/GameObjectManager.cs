@@ -185,5 +185,10 @@ namespace Manager
         {
             return foodCount;
         }
+
+		public GameObject GetGhostHome()
+		{
+			return ghostHome;
+		}
     }
 }
