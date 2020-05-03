@@ -1,11 +1,9 @@
 ﻿using Ghosts;
 using Manager;
 using NUnit.Framework;
-using Pacman;
 using System.Collections;
 using UnityEngine.TestTools;
 using UnityEngine;
-using Utility;
 
 namespace Tests
 {
@@ -19,7 +17,6 @@ namespace Tests
 		private AudioManager audio;
 
 		private GameObjectManager goManager;
-		// private GameEventManager geManager;
 		
 		private float WAIT_TIME = 0.1f;
 
@@ -34,7 +31,6 @@ namespace Tests
 			ghostPaths = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Ghost Paths"));
 
 			goManager = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Managers/Game Object Manager")).GetComponent<GameObjectManager>();
-			// geManager = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Managers/Game Event Manager")).GetComponent<GameEventManager>();
 		}
 
 		[TearDown]
@@ -44,7 +40,6 @@ namespace Tests
 			Object.Destroy(ghost.gameObject);
 			Object.Destroy(ghostPaths.gameObject);
 			Object.Destroy(goManager.gameObject);
-			// Object.Destroy(geManager.gameObject);
 			Object.Destroy(audio.gameObject);
 		}
 
@@ -126,7 +121,6 @@ namespace Tests
 			ghostHome.SetActive(true);
 			ghost.transform.position = goManager.GetGhostHome().transform.position;
 			yield return new WaitForSeconds(WAIT_TIME);
-
 			Assert.True(ghost.GetPath().isUsed());
 			Assert.AreNotSame(path, ghost.GetPath());
 		}
