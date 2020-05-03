@@ -43,7 +43,7 @@ namespace Manager
             
             for (int i = 0; i < food.Length; i++)
             {
-                // Name the food "Food ([coordinates])
+                // Name the food "Food ([coordinates])"
                 food[i].name = "Food (" + food[i].transform.position.x.ToString() + ", " + food[i].transform.position.z.ToString() + ")";
                 food[i].transform.parent = this.transform;
             }
@@ -161,7 +161,7 @@ namespace Manager
 		/// <summary>
 		/// Spawns a cherry.
 		/// </summary>
-		private void SpawnCherry()
+		public void SpawnCherry()
         {
             if ((foodCount <= 80 && foodCount >= 40) && !spawnedCherry)
             {
@@ -185,5 +185,10 @@ namespace Manager
         {
             return foodCount;
         }
+
+		public GameObject GetGhostHome()
+		{
+			return ghostHome;
+		}
     }
 }

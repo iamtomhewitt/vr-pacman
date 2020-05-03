@@ -173,9 +173,19 @@ namespace Ghosts
 			this.speed = speed;
 		}
 
+		public float GetSpeed()
+		{
+			return speed;
+		}
+
 		public float GetMovingSpeed()
 		{
 			return movingSpeed;
+		}
+
+		public float GetEatenSpeed()
+		{
+			return eatenSpeed;
 		}
 
 		public void StopMoving()
@@ -213,6 +223,11 @@ namespace Ghosts
 			path.SetUsed(false);
 			path = GetRandomPath();
 			debugger.Info("has selected a new path: " + path.transform.name);
+		}
+	
+		public GhostPath GetPath()
+		{
+			return path;
 		}
 	}
 }

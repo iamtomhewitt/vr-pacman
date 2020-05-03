@@ -87,5 +87,20 @@ namespace Pacman
 			debugger.Info("stopping");
 			speed = 0f;
 		}
+	
+		public float GetSpeed()
+		{
+			return speed;
+		}
+	
+		public float GetBoostSpeed()
+		{
+			return boostSpeed;
+		}
+	
+		public float GetOriginalSpeed()
+		{
+			return originalSpeed;
+		}
 	}
 }
