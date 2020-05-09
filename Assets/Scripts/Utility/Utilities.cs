@@ -25,6 +25,11 @@ namespace Utility
             Application.OpenURL(url);
         }
 
+		public void OpenPrivacyPolicy()
+		{
+			OpenURL("https://iamtomhewitt.github.io/website/#/vr-pac-mac-privacy-policy");
+		}
+
 		/// <summary>
 		/// Exits the game.
 		/// </summary>
@@ -41,6 +46,23 @@ namespace Utility
 		public void RotateScreenPortrait()
 		{
 			Screen.orientation = ScreenOrientation.Portrait;
+		}
+
+		public static string StripNonLatinLetters(string name)
+		{
+			string newName = "";
+			foreach (char c in name)
+			{
+				int code = (int)c;
+				
+				// Only english numbers, letters, symbols
+				if ((code >= 32 && code <= 127))
+				{
+					newName += c;
+				}
+			}
+
+			return newName;
 		}
 	}
 }

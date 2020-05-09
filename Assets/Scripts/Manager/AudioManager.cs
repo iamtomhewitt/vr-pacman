@@ -16,18 +16,15 @@ namespace Manager
 
 		private void Awake()
 		{
-			if (instance == null)
+			if (instance)
 			{
-				instance = this;
+				DestroyImmediate(this.gameObject);
 			}
 			else
 			{
-				Destroy(this.gameObject);
-				return;
+				DontDestroyOnLoad(this.gameObject);
+				instance = this;
 			}
-
-			// Don't need this here as audio only present on game scene FOR NOW
-			//DontDestroyOnLoad(this.gameObject);
 
 			foreach (Sound s in sounds)
 			{
@@ -37,6 +34,8 @@ namespace Manager
 				s.source.pitch = s.pitch;
 				s.source.loop = s.loop;
 			}
+
+			Play(SoundNames.MENU_MUSIC);
 		}
 
 		public void Play(string name)
@@ -153,6 +152,8 @@ namespace Manager
 		public const string PACMAN_DEATH = "Pacman Death";
 		public const string INTRO_MUSIC = "Intro Music";
 		public const string LEVEL_COMPLETE = "Level Complete";
+		public const string BUTTON_PRESS = "Button Press";
+		public const string MENU_MUSIC = "Menu Music";
 	}
 }
 
