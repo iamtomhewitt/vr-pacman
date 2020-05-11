@@ -124,6 +124,15 @@ namespace Tests
 			Assert.AreNotSame(path, ghost.GetPath());
 		}
 
+		[UnityTest]
+		public IEnumerator IncreasingGhostSpeedWorks()
+		{
+			float currentSpeed = ghost.GetSpeed();
+			ghost.IncreaseSpeed();
+			yield return new WaitForSeconds(WAIT_TIME);
+			Assert.AreNotSame(currentSpeed, ghost.GetSpeed());
+		}
+
 		[Test]
 		public void StopMovingWorks()
 		{
