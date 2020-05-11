@@ -73,7 +73,6 @@ namespace Tests
 			yield return new WaitForSeconds(WAIT_TIME);
 			Assert.False(ghost.IsRunningHome());
 			Assert.False(ghost.IsEdible());
-			Assert.AreEqual(ghost.GetSpeed(), ghost.GetMovingSpeed());
 		}
 
 		[UnityTest]
