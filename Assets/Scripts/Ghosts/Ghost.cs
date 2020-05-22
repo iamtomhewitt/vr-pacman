@@ -148,7 +148,7 @@ namespace Ghosts
             yield return new WaitForSeconds(.1f);
         }
 
-        private void Reset()
+        public void Reset()
         {
             eaten = false;
             edible = false;

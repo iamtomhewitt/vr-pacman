@@ -133,6 +133,16 @@ namespace Tests
 			Assert.AreNotSame(currentSpeed, ghost.GetSpeed());
 		}
 
+		[UnityTest]
+		public IEnumerator ResettingGhostResetsMoveSoundPitch()
+		{
+			float pitch = audio.GetSound(SoundNames.GHOST_MOVE).source.pitch;
+			ghost.IncreaseSpeed();
+			ghost.Reset();
+			yield return new WaitForSeconds(WAIT_TIME);
+			Assert.AreEqual(pitch, audio.GetSound(SoundNames.GHOST_MOVE).source.pitch);
+		}
+
 		[Test]
 		public void StopMovingWorks()
 		{
