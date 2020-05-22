@@ -73,7 +73,6 @@ namespace Tests
 			yield return new WaitForSeconds(WAIT_TIME);
 			Assert.False(ghost.IsRunningHome());
 			Assert.False(ghost.IsEdible());
-			Assert.AreEqual(ghost.GetSpeed(), ghost.GetMovingSpeed());
 		}
 
 		[UnityTest]
@@ -123,6 +122,25 @@ namespace Tests
 			yield return new WaitForSeconds(WAIT_TIME);
 			Assert.True(ghost.GetPath().isUsed());
 			Assert.AreNotSame(path, ghost.GetPath());
+		}
+
+		[UnityTest]
+		public IEnumerator IncreasingGhostSpeedWorks()
+		{
+			float currentSpeed = ghost.GetSpeed();
+			ghost.IncreaseSpeed();
+			yield return new WaitForSeconds(WAIT_TIME);
+			Assert.AreNotSame(currentSpeed, ghost.GetSpeed());
+		}
+
+		[UnityTest]
+		public IEnumerator ResettingGhostResetsMoveSoundPitch()
+		{
+			float pitch = audio.GetSound(SoundNames.GHOST_MOVE).source.pitch;
+			ghost.IncreaseSpeed();
+			ghost.Reset();
+			yield return new WaitForSeconds(WAIT_TIME);
+			Assert.AreEqual(pitch, audio.GetSound(SoundNames.GHOST_MOVE).source.pitch);
 		}
 
 		[Test]

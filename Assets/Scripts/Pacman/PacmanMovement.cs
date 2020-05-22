@@ -7,7 +7,6 @@ namespace Pacman
 {
 	public class PacmanMovement : MonoBehaviour
 	{
-		[SerializeField] private bool debug = false;
 		[SerializeField] private float speed;
 		[SerializeField] private float originalSpeed;
 		[SerializeField] private float boostSpeed;
