@@ -149,6 +149,7 @@ namespace Ghosts
             runningHome = false;
             bodyColour.enabled = true;
             bodyColour.material = originalColour;
+            speed = movingSpeed;
 
             if (flashRoutine != null)
             {
