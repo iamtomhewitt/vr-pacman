@@ -48,9 +48,9 @@ namespace Pacman
 					{
 						GameEventManager.instance.CompleteLevel();
 					}
-                    else if ((goManager.GetNumberOfFood() % 50) == 0)
+                    else if ((goManager.GetNumberOfFood() % Constants.FRUIT_EATEN_BEFORE_SPEED_INCREASE) == 0)
                     {
-                        AudioManager.instance.GetSound(SoundNames.GHOST_MOVE).source.pitch += 0.03f;
+                        AudioManager.instance.GetSound(SoundNames.GHOST_MOVE).source.pitch += Constants.GHOST_SPEED_INCREASE_PITCH_INCREASE;
                         foreach(Ghost ghost in goManager.GetGhosts())
                         {
                             ghost.IncreaseSpeed();
