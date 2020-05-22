@@ -16,6 +16,7 @@ namespace Pacman
 
 		private Rigidbody rb;
 		private Debugger debugger;
+        private GameObjectManager goManager;
 
 		private static PacmanCollision instance;
 
@@ -28,6 +29,7 @@ namespace Pacman
 		{
 			debugger = GetComponent<Debugger>();
 			rb = GetComponent<Rigidbody>();
+            goManager = GameObjectManager.instance;
 		}
 
 		private void OnCollisionEnter(Collision other)
@@ -38,19 +40,29 @@ namespace Pacman
                     other.gameObject.SetActive(false);
                     PacmanScore.instance.AddScore(Constants.FOOD_SCORE);
                     AudioManager.instance.Play(SoundNames.FOOD);
-                    GameObjectManager.instance.CountFood();
+                    goManager.CountFood();
 
-					if (GameObjectManager.instance.GetNumberOfFood() <= 0)
+                    print(string.Format("Number of food: {0}, divisble by 50: {1}", goManager.GetNumberOfFood(), (goManager.GetNumberOfFood() % 50) == 0));
+
+					if (goManager.GetNumberOfFood() <= 0)
 					{
 						GameEventManager.instance.CompleteLevel();
 					}
+                    else if ((goManager.GetNumberOfFood() % 50) == 0)
+                    {
+                        AudioManager.instance.GetSound(SoundNames.GHOST_MOVE).source.pitch += 0.03f;
+                        foreach(Ghost ghost in goManager.GetGhosts())
+                        {
+                            ghost.IncreaseSpeed();
+                        }
+                    }
                     break;
 
                 case "Powerup":
 					debugger.Info("activated powerup");
 					other.gameObject.SetActive(false);
 					AudioManager.instance.PlayForDuration(SoundNames.GHOST_EDIBLE, Constants.POWERUP_DURATION);
-					GameObjectManager.instance.MakeGhostsEdible();
+					goManager.MakeGhostsEdible();
 					PacmanMovement.instance.BoostSpeed();
                     break;
 
@@ -108,14 +120,14 @@ namespace Pacman
 			currentLives--;
 
             AudioManager.instance.PauseAllSounds();
-            GameObjectManager.instance.StopMovingEntities();
+            goManager.StopMovingEntities();
 			AudioManager.instance.Pause(SoundNames.GHOST_MOVE);
 
 			yield return new WaitForSeconds(1f);
             AudioManager.instance.Play(SoundNames.PACMAN_DEATH);
 			yield return new WaitForSeconds(AudioManager.instance.GetSound(SoundNames.PACMAN_DEATH).clip.length + 1f);
 
-            GameObjectManager.instance.ResetEntityPositions();
+            goManager.ResetEntityPositions();
 
             if (currentLives < 0)
             {
