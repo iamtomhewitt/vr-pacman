@@ -26,8 +26,6 @@ namespace Ghosts
         private Debugger debugger;
         private Coroutine flashRoutine;
         private Vector3 originalPosition;
-        private float speedIncreaseRate = 30f;
-        private float originalMoveSoundPitch;
 
         private void Start()
         {
@@ -35,14 +33,11 @@ namespace Ghosts
             debugger = GetComponent<Debugger>();
 
             originalPosition = transform.position;
-            originalMoveSoundPitch = AudioManager.instance.GetSound(SoundNames.GHOST_MOVE).source.pitch;
 
             path = GetRandomPath();
             debugger.Info("has selected path: " + path.gameObject.name);
 
             bodyColour = GameObject.Find(gameObject.name + "/Model/Body").GetComponent<MeshRenderer>();
-
-            InvokeRepeating("IncreaseSpeed", 60f, speedIncreaseRate);
         }
 
         private void FixedUpdate()
@@ -85,7 +80,6 @@ namespace Ghosts
         {
             debugger.Info("Increasing speed");
             speed += speedIncrease;
-            AudioManager.instance.GetSound(SoundNames.GHOST_MOVE).source.pitch += 0.0075f;
         }
 
         /// <summary>
@@ -155,7 +149,6 @@ namespace Ghosts
             runningHome = false;
             bodyColour.enabled = true;
             bodyColour.material = originalColour;
-            AudioManager.instance.GetSound(SoundNames.GHOST_MOVE).source.pitch = originalMoveSoundPitch;
 
             if (flashRoutine != null)
             {
