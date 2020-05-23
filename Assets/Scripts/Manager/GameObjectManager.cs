@@ -2,6 +2,7 @@ using Ghosts;
 using Pacman;
 using System.Collections;
 using UnityEngine;
+using Utility;
 
 namespace Manager
 {
