@@ -19,7 +19,6 @@ namespace Manager
         private GameObject[] powerups;
         private Ghost[] ghosts;
         private Debugger debugger;
-        private float originalGhostMovePitch;
         private int foodCount;
         private bool spawnedCherry;
 
@@ -36,7 +35,6 @@ namespace Manager
             powerups = GameObject.FindGameObjectsWithTag("Powerup");
             ghosts = FindObjectsOfType<Ghost>();
             debugger = GetComponent<Debugger>();
-            originalGhostMovePitch = AudioManager.instance.GetSound(SoundNames.GHOST_MOVE).source.pitch;
 
             ghostHome.SetActive(false);
 
@@ -82,8 +80,6 @@ namespace Manager
                 ghost.SetSpeed(ghost.GetMovingSpeed());
             }
 
-            AudioManager.instance.GetSound(SoundNames.GHOST_MOVE).source.pitch = originalGhostMovePitch;
-
             foreach (GhostPath path in GameObject.FindObjectsOfType<GhostPath>())
             {
                 path.ResetCurrentWaypointIndex();
@@ -125,6 +121,15 @@ namespace Manager
 
             // Reset pacmans position
             PacmanMovement.instance.ResetPosition();
+        }
+
+        public void ResetAllGhosts()
+        {
+            foreach (Ghost ghost in ghosts)
+            {
+                ghost.Reset();
+                ghost.ResetPosition();
+            }
         }
 
         /// <summary>
