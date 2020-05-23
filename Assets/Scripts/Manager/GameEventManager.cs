@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using Pacman;
 using System.Collections;
-using Pacman;
+using UnityEngine.SceneManagement;
+using UnityEngine;
 using Utility;
 
 namespace Manager

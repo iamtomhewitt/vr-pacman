@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.Networking;
+﻿using SimpleJSON;
 using System.Collections;
+using UnityEngine.Networking;
+using UnityEngine;
 using Utility;
-using SimpleJSON;
 
 namespace Manager
 {

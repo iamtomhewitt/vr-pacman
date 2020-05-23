@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System;
-using System.Linq;
+﻿using Ghosts;
 using System.Collections;
-using Ghosts;
+using System.Linq;
+using System;
+using UnityEngine;
 
 namespace Manager
 {

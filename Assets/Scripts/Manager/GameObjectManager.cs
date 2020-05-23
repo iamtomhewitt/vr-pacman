@@ -1,8 +1,8 @@
-using UnityEngine;
-using System.Collections;
-using Pacman;
 using Ghosts;
+using Pacman;
 using System.Collections.Generic;
+using System.Collections;
+using UnityEngine;
 
 namespace Manager
 {

@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Manager;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
-using Manager;
+using UnityEngine;
 using Utility;
 
 namespace Ghosts
