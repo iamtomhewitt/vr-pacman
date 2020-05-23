@@ -1,16 +1,15 @@
 using Ghosts;
 using Pacman;
-using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
 namespace Manager
 {
-    /// <summary>
-    /// Manages the objects within the game scene, such as Pacman and the Ghosts.
-    /// Any events such as game over, or starting the game, that does not involve objects, should be implemented in GameEventManager.
-    /// </summary>
-    public class GameObjectManager : MonoBehaviour
+	/// <summary>
+	/// Manages the objects within the game scene, such as Pacman and the Ghosts.
+	/// Any events such as game over, or starting the game, that does not involve objects, should be implemented in GameEventManager.
+	/// </summary>
+	public class GameObjectManager : MonoBehaviour
     {
         [SerializeField] private GameObject cherry;
         [SerializeField] private GameObject ghostHome;

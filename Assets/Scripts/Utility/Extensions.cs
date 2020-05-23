@@ -4,4 +4,9 @@ public static class Extensions
     {
         return item <= max && item >= min;
     }
+
+	public static bool IsAMultipleOf(this int x, int y)
+	{
+		return (x % y) == 0;
+	}
 }
