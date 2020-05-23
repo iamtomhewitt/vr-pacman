@@ -42,8 +42,6 @@ namespace Pacman
                     AudioManager.instance.Play(SoundNames.FOOD);
                     goManager.CountFood();
 
-                    print(string.Format("Number of food: {0}, divisble by 50: {1}", goManager.GetNumberOfFood(), (goManager.GetNumberOfFood() % 50) == 0));
-
                     if (goManager.GetNumberOfFood() <= 0)
                     {
                         GameEventManager.instance.CompleteLevel();
