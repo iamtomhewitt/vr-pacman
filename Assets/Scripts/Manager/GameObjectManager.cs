@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Pacman;
 using Ghosts;
+using System.Collections.Generic;
 
 namespace Manager
 {
@@ -19,7 +20,11 @@ namespace Manager
         private GameObject[] powerups;
         private Ghost[] ghosts;
         private Debugger debugger;
+        private PacmanMovement pacmanMovement;
+        private float cherrySpawnRepeateRate = 10f;
         private int foodCount;
+        private int cherrySpawnMaxFood = 80;
+        private int cherrySpawnMinFood = 40;
         private bool spawnedCherry;
 
         public static GameObjectManager instance;
@@ -31,10 +36,11 @@ namespace Manager
 
         private void Start()
         {
-            food = GameObject.FindGameObjectsWithTag("Food");
-            powerups = GameObject.FindGameObjectsWithTag("Powerup");
+            food = GameObject.FindGameObjectsWithTag(Tags.FOOD);
+            powerups = GameObject.FindGameObjectsWithTag(Tags.POWERUP);
             ghosts = FindObjectsOfType<Ghost>();
             debugger = GetComponent<Debugger>();
+            pacmanMovement = PacmanMovement.instance;
 
             ghostHome.SetActive(false);
 
@@ -47,7 +53,7 @@ namespace Manager
                 food[i].transform.parent = this.transform;
             }
 
-            InvokeRepeating("SpawnCherry", 10f, 10f);
+            InvokeRepeating("SpawnCherry", cherrySpawnRepeateRate, cherrySpawnRepeateRate);
         }
 
         /// <summary>
@@ -72,7 +78,7 @@ namespace Manager
         {
             debugger.Info("moving everything");
 
-            PacmanMovement.instance.ResetSpeed();
+            pacmanMovement.ResetSpeed();
 
             // Reset the Ghosts speed and their path node
             foreach (Ghost ghost in ghosts)
@@ -98,7 +104,7 @@ namespace Manager
                 ghost.StopMoving();
             }
 
-            PacmanMovement.instance.Stop();
+            pacmanMovement.Stop();
         }
 
         /// <summary>
@@ -120,7 +126,7 @@ namespace Manager
             }
 
             // Reset pacmans position
-            PacmanMovement.instance.ResetPosition();
+            pacmanMovement.ResetPosition();
         }
 
         public void ResetAllGhosts()
@@ -171,7 +177,7 @@ namespace Manager
         /// </summary>
         public void SpawnCherry()
         {
-            if ((foodCount <= 80 && foodCount >= 40) && !spawnedCherry)
+            if (foodCount.IsBetween(cherrySpawnMinFood, cherrySpawnMaxFood) && !spawnedCherry)
             {
                 Instantiate(cherry, cherrySpawn.position, cherrySpawn.rotation);
                 spawnedCherry = true;
@@ -185,7 +191,7 @@ namespace Manager
 
         public int CountFood()
         {
-            foodCount = GameObject.FindGameObjectsWithTag("Food").Length;
+            foodCount = GameObject.FindGameObjectsWithTag(Tags.FOOD).Length;
             return foodCount;
         }
 

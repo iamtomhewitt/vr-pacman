@@ -104,7 +104,7 @@ namespace Manager
 
 			if (s == null)
 			{
-				print("WARNING! Sound: '" + name + "' was not found.");
+				Debug.Log("WARNING! Sound: '" + name + "' was not found.");
 				return null;
 			}
 			return s;

@@ -36,7 +36,7 @@ namespace Manager
 				PlayerPrefs.SetInt(Constants.PLAYER_PREFS_HIGHSCORE_KEY, score);
 
 				// Player has got a new highscore, which hasn't been uploaded yet, so set it to false (0)
-				PlayerPrefs.SetInt(Constants.ALREADY_UPLOADED_KEY, 0);
+				PlayerPrefs.SetInt(Constants.ALREADY_UPLOADED_KEY, Constants.NO);
 			}
 		}
 

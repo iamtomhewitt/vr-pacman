@@ -7,6 +7,8 @@ namespace Utility
         public const int GHOST_EATEN_SCORE = 200;
         public const int FRUIT_EATEN_SCORE = 100;
         public const int FRUIT_EATEN_BEFORE_SPEED_INCREASE = 60;
+        public const int NO = 0;
+        public const int YES = 1;
 
         public const float GHOST_SPEED_INCREASE_PITCH_INCREASE = 0.1f;
         public const float GHOST_MOVE_PITCH = 1f;
