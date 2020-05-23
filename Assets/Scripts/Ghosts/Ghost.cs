@@ -26,11 +26,13 @@ namespace Ghosts
         private Debugger debugger;
         private Coroutine flashRoutine;
         private Vector3 originalPosition;
+        private AudioManager audioManager;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
             debugger = GetComponent<Debugger>();
+            audioManager = AudioManager.instance;
 
             originalPosition = transform.position;
 
@@ -50,7 +52,7 @@ namespace Ghosts
             if (o.name.Equals(Constants.GHOST_HOME))
             {
                 Reset();
-                AudioManager.instance.StopGhostRunSound();
+                audioManager.StopGhostRunSound();
                 SelectNewPath();
             }
         }
@@ -88,13 +90,16 @@ namespace Ghosts
         public void BecomeEdible()
         {
             debugger.Info("has become edible");
+            StopFlashing();
+            StartCoroutine(BecomeEdibleRoutine());
+        }
 
+        public void StopFlashing()
+        {
             if (flashRoutine != null)
             {
                 StopCoroutine(flashRoutine);
             }
-
-            StartCoroutine(BecomeEdibleRoutine());
         }
 
         private IEnumerator BecomeEdibleRoutine()
@@ -166,7 +171,7 @@ namespace Ghosts
         {
             debugger.Info("is running home");
 
-            AudioManager.instance.Play(SoundNames.GHOST_RUN);
+            audioManager.Play(SoundNames.GHOST_RUN);
 
             speed = eatenSpeed;
             edible = false;
@@ -218,9 +223,7 @@ namespace Ghosts
         {
             List<GhostPath> allPaths = new List<GhostPath>(GameObject.FindObjectsOfType<GhostPath>());
             IEnumerable<GhostPath> unusedPaths = allPaths.Where(x => !x.isUsed());
-
             GhostPath path = unusedPaths.ElementAt(Random.Range(0, unusedPaths.Count()));
-
             path.SetUsed(true);
             return path;
         }
