@@ -1,12 +1,15 @@
-public static class Extensions
+namespace Utility
 {
-    public static bool IsBetween(this int item, int min, int max)
-    {
-        return item <= max && item >= min;
-    }
-
-	public static bool IsAMultipleOf(this int x, int y)
+	public static class Extensions
 	{
-		return (x % y) == 0;
+		public static bool IsBetween(this int item, int min, int max)
+		{
+			return item <= max && item >= min;
+		}
+
+		public static bool IsAMultipleOf(this int x, int y)
+		{
+			return (x % y) == 0;
+		}
 	}
 }

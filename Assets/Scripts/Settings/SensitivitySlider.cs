@@ -13,7 +13,7 @@ namespace Settings
 		{
 			Slider slider = GetComponent<Slider>();
 			slider.value = GameSettingsManager.instance.GetSensitivity();
-			UpdateSensitivityInGameSettings(slider); 
+			UpdateSensitivityInGameSettings(slider);
 		}
 
 		/// <summary>

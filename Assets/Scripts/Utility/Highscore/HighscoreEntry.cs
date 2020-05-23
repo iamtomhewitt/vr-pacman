@@ -20,11 +20,11 @@ namespace Utility
 		public void Populate(string rank, string name, string score)
 		{
 			string formattedName = Utilities.StripNonLatinLetters(name);
-			
+
 			this.rank.text = rank;
 			this.username.text = string.IsNullOrEmpty(formattedName) ? "<invalid name>" : formattedName;
 			this.score.text = score;
-			
+
 			if (name.Equals("Tom (The Developer)"))
 			{
 				username.text = ApplyDevColours(name);

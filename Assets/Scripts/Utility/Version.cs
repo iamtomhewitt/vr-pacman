@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Version : MonoBehaviour
+namespace Utility
 {
-	private void Start()
+	public class Version : MonoBehaviour
 	{
-		GetComponent<Text>().text = "Version: " + Application.version;
+		private void Start()
+		{
+			GetComponent<Text>().text = "Version: " + Application.version;
+		}
 	}
 }
