@@ -1,9 +1,8 @@
+using Manager;
 using NUnit.Framework;
-using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.TestTools;
 using UnityEngine;
-using Manager;
 using static Manager.AudioManager;
 
 namespace Tests
@@ -69,7 +68,7 @@ namespace Tests
 		[UnityTest]
 		public IEnumerator AudioManagerPlaysSoundForADuration()
 		{
-			manager.PlayForDuration(sound.name, WAIT_TIME);	
+			manager.PlayForDuration(sound.name, WAIT_TIME);
 			Assert.True(sound.source.isPlaying);
 			yield return new WaitForSeconds(WAIT_TIME);
 			Assert.False(sound.source.isPlaying);

@@ -1,22 +1,20 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using Manager;
+using NUnit.Framework;
+using Pacman;
 using System.Collections;
 using UnityEngine.TestTools;
 using UnityEngine;
-using Pacman;
 using Utility;
-using Manager;
 
 namespace Tests
 {
 	public class PacmanMovementTests
 	{
+		private AudioManager audio;
 		private GameObject pacman;
+		private GameObjectManager goManager;
 		private PacmanMovement pacmanMovement;
 		private Powerup powerup;
-		private AudioManager audio;
-		private GameObjectManager goManager = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Managers/Game Object Manager")).GetComponent<GameObjectManager>();
-
 		private float WAIT_TIME = 0.05f;
 
 		[SetUp]
@@ -26,8 +24,8 @@ namespace Tests
 			{
 				audio = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Managers/Audio Manager")).GetComponent<AudioManager>();
 			}
+			goManager = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Managers/Game Object Manager")).GetComponent<GameObjectManager>();
 			pacman = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Pacman"));
-
 			pacmanMovement = pacman.GetComponent<PacmanMovement>();
 		}
 
