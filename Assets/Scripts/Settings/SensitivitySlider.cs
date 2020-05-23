@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using Manager;
 using UnityEngine.UI;
-using Manager;
+using UnityEngine;
 
 namespace Settings
 {

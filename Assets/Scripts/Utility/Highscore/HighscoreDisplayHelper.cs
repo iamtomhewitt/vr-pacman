@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using Manager;
+﻿using Manager;
 using SimpleJSON;
+using UnityEngine.UI;
+using UnityEngine;
 
 namespace Utility
 {
@@ -15,11 +15,13 @@ namespace Utility
         [SerializeField] private Text localHighscoreText;
         [SerializeField] private Text statusText;
 
+		private HighscoreManager highscoreManager;
         private float refreshRate = 60f;
 
         private void Start()
         {
-            localHighscoreText.text = "Local Highscore: " + HighscoreManager.instance.GetLocalHighscore();
+			highscoreManager = HighscoreManager.instance;
+            localHighscoreText.text = "Local Highscore: " + highscoreManager.GetLocalHighscore();
 
             statusText.text = "Downloading highscores...";
             statusText.color = Color.green;
@@ -62,7 +64,7 @@ namespace Utility
         /// </summary>
         private void RefreshHighscores()
         {
-            HighscoreManager.instance.DownloadHighscores();
+            highscoreManager.DownloadHighscores();
         }
 
         /// <summary>
@@ -74,7 +76,7 @@ namespace Utility
 
 			string formatted = Utilities.StripNonLatinLetters(usernameInputField.text);
 
-            if (HighscoreManager.instance.GetLocalHighscore() <= 0)
+            if (highscoreManager.GetLocalHighscore() <= 0)
             {
                 placeholderText.text = Constants.SCORE_NOT_ZERO;
             }
@@ -94,7 +96,7 @@ namespace Utility
 			}
             else
             {
-                HighscoreManager.instance.UploadNewHighscore(formatted, HighscoreManager.instance.GetLocalHighscore());
+                highscoreManager.UploadNewHighscore(formatted, highscoreManager.GetLocalHighscore());
                 usernameInputField.text = "";
                 placeholderText.text = Constants.UPLOADED;
             }

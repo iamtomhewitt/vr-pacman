@@ -9,7 +9,7 @@ namespace Utility
 	public class Preload : MonoBehaviour
 	{
 		[SerializeField] private GameObject[] requiredComponents;
-        [SerializeField] private string mainMenuName;
+		[SerializeField] private string mainMenuName;
 
 		private void Start()
 		{
