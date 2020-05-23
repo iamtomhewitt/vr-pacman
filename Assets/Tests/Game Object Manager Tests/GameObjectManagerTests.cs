@@ -10,17 +10,13 @@ namespace Tests
 {
 	public class GameObjectManagerTest
 	{
-		private GameObject pacman;
-		private GameObject ghostPaths;
-		private GameObject food;
-		private GameObject powerup;
-
-		private Ghost ghost;
-
 		private AudioManager audio;
-
+		private GameObject food;
+		private GameObject ghostPaths;
+		private GameObject pacman;
+		private GameObject powerup;
 		private GameObjectManager goManager;
-
+		private Ghost ghost;
 		private float WAIT_TIME = 0.1f;
 
 		[SetUp]

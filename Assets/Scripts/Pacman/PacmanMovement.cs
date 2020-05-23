@@ -1,7 +1,7 @@
-using UnityEngine;
-using System.Collections;
-using Utility;
 using Manager;
+using System.Collections;
+using UnityEngine;
+using Utility;
 
 namespace Pacman
 {
@@ -12,16 +12,9 @@ namespace Pacman
 		[SerializeField] private float boostSpeed;
 		[SerializeField] private float sensitivity;
 
-		private Rigidbody rb;
 		private Debugger debugger;
+		private Rigidbody rb;
 		private Vector3 originalPosition;
-
-		public static PacmanMovement instance;
-
-		private void Awake()
-		{
-			instance = this;
-		}
 
 		private void Start()
 		{
@@ -86,17 +79,17 @@ namespace Pacman
 			debugger.Info("stopping");
 			speed = 0f;
 		}
-	
+
 		public float GetSpeed()
 		{
 			return speed;
 		}
-	
+
 		public float GetBoostSpeed()
 		{
 			return boostSpeed;
 		}
-	
+
 		public float GetOriginalSpeed()
 		{
 			return originalSpeed;

@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using Manager;
 using UnityEngine.UI;
-using Manager;
+using UnityEngine;
 
 namespace Settings
 {
@@ -13,7 +13,7 @@ namespace Settings
 		{
 			Slider slider = GetComponent<Slider>();
 			slider.value = GameSettingsManager.instance.GetSensitivity();
-			UpdateSensitivityInGameSettings(slider); 
+			UpdateSensitivityInGameSettings(slider);
 		}
 
 		/// <summary>

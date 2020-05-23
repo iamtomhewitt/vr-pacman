@@ -1,9 +1,8 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using Manager;
+using NUnit.Framework;
 using System.Collections;
 using UnityEngine.TestTools;
 using UnityEngine;
-using Manager;
 
 namespace Tests
 {

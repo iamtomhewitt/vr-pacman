@@ -12,6 +12,7 @@ namespace Tests
 		public void Setup()
 		{
 			pacmanScore = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Pacman")).GetComponent<PacmanScore>();
+			pacmanScore.Start();
 		}
 
 		[TearDown]

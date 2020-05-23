@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Manager;
+﻿using Manager;
 using NUnit.Framework;
-using UnityEngine;
+using System.Collections;
 using UnityEngine.TestTools;
+using UnityEngine;
 using Utility;
 
 namespace Tests

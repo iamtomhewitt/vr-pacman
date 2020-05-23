@@ -11,56 +11,46 @@ namespace Tests
 {
 	public class PacmanCollisionTests
 	{
-		private GameObject pacman;
-		private GameObject ghostPaths;
-		private GameObject food;
-
-		private PacmanCollision pacmanCollision;
-		private PacmanScore pacmanScore;
-		private PacmanMovement pacmanMovement;
-
-		private Ghost ghost;
-
-		private Powerup powerup;
-
 		private AudioManager audio;
-
-		private GameObjectManager goManager;
 		private GameEventManager geManager;
-		
+		private GameObject food;
+		private GameObject ghostPaths;
+		private GameObject pacman;
+		private GameObjectManager goManager;
+		private Ghost ghost;
+		private PacmanCollision pacmanCollision;
+		private PacmanMovement pacmanMovement;
+		private PacmanScore pacmanScore;
+		private Powerup powerup;
 		private float WAIT_TIME = 0.1f;
 
 		[SetUp]
 		public void Setup()
 		{
 			audio = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Managers/Audio Manager")).GetComponent<AudioManager>();
-
+			food = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Pickups/Food"));
+			geManager = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Managers/Game Event Manager")).GetComponent<GameEventManager>();
+			ghost = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Ghost")).GetComponent<Ghost>();
+			ghostPaths = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Ghost Paths"));
+			goManager = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Managers/Game Object Manager")).GetComponent<GameObjectManager>();
 			pacman = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Pacman"));
 			pacmanCollision = pacman.GetComponent<PacmanCollision>();
 			pacmanMovement = pacman.GetComponent<PacmanMovement>();
 			pacmanScore = pacman.GetComponent<PacmanScore>();
-
-			ghost = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Ghost")).GetComponent<Ghost>();
-			ghostPaths = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Ghost Paths"));
-
-			goManager = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Managers/Game Object Manager")).GetComponent<GameObjectManager>();
-			geManager = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Managers/Game Event Manager")).GetComponent<GameEventManager>();
-
 			powerup = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Pickups/Powerup")).GetComponent<Powerup>();
-			food = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Pickups/Food"));
 		}
 
 		[TearDown]
 		public void Teardown()
 		{
-			Object.Destroy(pacman.gameObject);
-			Object.Destroy(powerup.gameObject);
+			Object.Destroy(audio.gameObject);
+			Object.Destroy(food.gameObject);
+			Object.Destroy(geManager.gameObject);
 			Object.Destroy(ghost.gameObject);
 			Object.Destroy(ghostPaths.gameObject);
 			Object.Destroy(goManager.gameObject);
-			Object.Destroy(geManager.gameObject);
-			Object.Destroy(audio.gameObject);
-			Object.Destroy(food.gameObject);
+			Object.Destroy(pacman.gameObject);
+			Object.Destroy(powerup.gameObject);
 		}
 
 		[UnityTest]

@@ -3,16 +3,12 @@ using UnityEngine;
 
 public class Config : MonoBehaviour
 {
-	[SerializeField] private TextAsset configFile;
-
 	private JSONNode root;
 
 	public static Config instance;
 
 	private void Awake()
 	{
-		root = JSON.Parse(configFile.text);
-
 		if (instance)
 		{
 			DestroyImmediate(gameObject);
@@ -22,6 +18,15 @@ public class Config : MonoBehaviour
 			DontDestroyOnLoad(gameObject);
 			instance = this;
 		}
+
+		TextAsset configFile = Resources.Load<TextAsset>("config");
+
+		if (configFile == null)
+		{
+			Debug.LogError("Could not load config from Resources/config.json");
+		}
+
+		root = JSON.Parse(configFile.text);
 	}
 
 	public JSONNode GetConfig()
