@@ -1,22 +1,25 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using Ghosts;
 using Manager;
-using Ghosts;
+using System.Collections;
+using UnityEngine;
 using Utility;
 
 namespace Pacman
 {
     /// <summary>
-    /// Methods for when Pacman collides with something.
+    /// Collision component for Pacman.
     /// </summary>
     public class PacmanCollision : MonoBehaviour
     {
         [SerializeField] private bool godMode;
         [SerializeField] private int currentLives = 3;
 
-        private Rigidbody rb;
+        private AudioManager audioManager;
         private Debugger debugger;
+        private GameEventManager gameEventManager;
         private GameObjectManager goManager;
+		private PacmanScore pacmanScore;
+        private Rigidbody rb;
 
         private static PacmanCollision instance;
 
@@ -29,7 +32,10 @@ namespace Pacman
         {
             debugger = GetComponent<Debugger>();
             rb = GetComponent<Rigidbody>();
+			pacmanScore = GetComponent<PacmanScore>();
             goManager = GameObjectManager.instance;
+            gameEventManager = GameEventManager.instance;
+			audioManager = AudioManager.instance;
         }
 
         private void OnCollisionEnter(Collision other)
@@ -38,17 +44,17 @@ namespace Pacman
             {
                 case "Food":
                     other.gameObject.SetActive(false);
-                    PacmanScore.instance.AddScore(Constants.FOOD_SCORE);
-                    AudioManager.instance.Play(SoundNames.FOOD);
+                    pacmanScore.AddScore(Constants.FOOD_SCORE);
+                    audioManager.Play(SoundNames.FOOD);
                     goManager.CountFood();
 
                     if (goManager.GetNumberOfFood() <= 0)
                     {
-                        GameEventManager.instance.CompleteLevel();
+                        gameEventManager.CompleteLevel();
                     }
-                    else if ((goManager.GetNumberOfFood() % Constants.FRUIT_EATEN_BEFORE_SPEED_INCREASE) == 0)
+                    else if (goManager.GetNumberOfFood().IsAMultipleOf(Constants.FRUIT_EATEN_BEFORE_SPEED_INCREASE))
                     {
-                        AudioManager.instance.GetSound(SoundNames.GHOST_MOVE).source.pitch += Constants.GHOST_SPEED_INCREASE_PITCH_INCREASE;
+                        audioManager.GetSound(SoundNames.GHOST_MOVE).source.pitch += Constants.GHOST_SPEED_INCREASE_PITCH_INCREASE;
                         foreach (Ghost ghost in goManager.GetGhosts())
                         {
                             ghost.IncreaseSpeed();
@@ -59,16 +65,16 @@ namespace Pacman
                 case "Powerup":
                     debugger.Info("activated powerup");
                     other.gameObject.SetActive(false);
-                    AudioManager.instance.PlayForDuration(SoundNames.GHOST_EDIBLE, Constants.POWERUP_DURATION);
+                    audioManager.PlayForDuration(SoundNames.GHOST_EDIBLE, Constants.POWERUP_DURATION);
                     goManager.MakeGhostsEdible();
                     PacmanMovement.instance.BoostSpeed();
                     break;
 
                 case "Cherry":
                     debugger.Info("collected a cherry");
-                    AudioManager.instance.Play(SoundNames.EAT_FRUIT);
+                    audioManager.Play(SoundNames.EAT_FRUIT);
                     Destroy(other.gameObject);
-                    PacmanScore.instance.AddScore(Constants.FRUIT_EATEN_SCORE);
+                    pacmanScore.AddScore(Constants.FRUIT_EATEN_SCORE);
                     break;
             }
         }
@@ -91,14 +97,15 @@ namespace Pacman
                         return;
                     }
 
-                    // Reset the velocity to stop pacman drifting away
+                    // Reset velocity to stop drifting away
                     rb.velocity = Vector3.zero;
+					ghost.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
                     if (ghost.IsEdible())
                     {
                         ghost.RunHome();
-                        AudioManager.instance.Play(SoundNames.EAT_GHOST);
-                        PacmanScore.instance.AddScore(Constants.GHOST_EATEN_SCORE);
+                        audioManager.Play(SoundNames.EAT_GHOST);
+                        pacmanScore.AddScore(Constants.GHOST_EATEN_SCORE);
                     }
                     else
                     {
@@ -117,35 +124,36 @@ namespace Pacman
 
             currentLives--;
 
-            AudioManager.instance.PauseAllSounds();
+            audioManager.PauseAllSounds();
             goManager.StopMovingEntities();
-            AudioManager.instance.Pause(SoundNames.GHOST_MOVE);
-            AudioManager.instance.GetSound(SoundNames.GHOST_MOVE).source.pitch = Constants.GHOST_MOVE_PITCH;
+            audioManager.Pause(SoundNames.GHOST_MOVE);
+            audioManager.GetSound(SoundNames.GHOST_MOVE).source.pitch = Constants.GHOST_MOVE_PITCH;
 
             yield return new WaitForSeconds(1f);
-            AudioManager.instance.Play(SoundNames.PACMAN_DEATH);
-            yield return new WaitForSeconds(AudioManager.instance.GetSound(SoundNames.PACMAN_DEATH).clip.length + 1f);
+            audioManager.Play(SoundNames.PACMAN_DEATH);
+            yield return new WaitForSeconds(audioManager.GetSound(SoundNames.PACMAN_DEATH).clip.length + 1f);
 
             goManager.ResetEntityPositions();
 
             if (currentLives < 0)
             {
                 bool newHighscore = false;
-                int score = PacmanScore.instance.GetScore();
+                int score = pacmanScore.GetScore();
+				HighscoreManager highscoreManager = HighscoreManager.instance;
 
-                if (score > HighscoreManager.instance.GetLocalHighscore())
+                if (score > highscoreManager.GetLocalHighscore())
                 {
-                    HighscoreManager.instance.SaveLocalHighscore(score);
+                    highscoreManager.SaveLocalHighscore(score);
                     newHighscore = true;
                 }
 
-                GameEventManager.instance.GameOver(newHighscore);
+                gameEventManager.GameOver(newHighscore);
             }
             else
             {
                 PacmanHud.instance.RemoveLife(currentLives);
-                GameEventManager.instance.RespawnPacman();
-                AudioManager.instance.Play(SoundNames.GHOST_MOVE);
+                gameEventManager.RespawnPacman();
+                audioManager.Play(SoundNames.GHOST_MOVE);
             }
         }
 
