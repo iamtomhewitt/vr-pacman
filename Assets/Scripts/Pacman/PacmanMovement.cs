@@ -16,13 +16,6 @@ namespace Pacman
 		private Rigidbody rb;
 		private Vector3 originalPosition;
 
-		public static PacmanMovement instance;
-
-		private void Awake()
-		{
-			instance = this;
-		}
-
 		private void Start()
 		{
 			debugger = GetComponent<Debugger>();
@@ -86,17 +79,17 @@ namespace Pacman
 			debugger.Info("stopping");
 			speed = 0f;
 		}
-	
+
 		public float GetSpeed()
 		{
 			return speed;
 		}
-	
+
 		public float GetBoostSpeed()
 		{
 			return boostSpeed;
 		}
-	
+
 		public float GetOriginalSpeed()
 		{
 			return originalSpeed;
