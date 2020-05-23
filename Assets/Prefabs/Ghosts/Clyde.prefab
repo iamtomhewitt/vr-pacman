@@ -671,7 +671,7 @@ MonoBehaviour:
   movingSpeed: 0.03
   flashingSpeed: 0.02
   eatenSpeed: 0.3
-  speedIncrease: 0.002
+  speedIncrease: 0.022
 --- !u!54 &54910304504155320
 Rigidbody:
   m_ObjectHideFlags: 0

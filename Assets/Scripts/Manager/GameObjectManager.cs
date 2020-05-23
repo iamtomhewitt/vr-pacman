@@ -5,23 +5,22 @@ using Ghosts;
 
 namespace Manager
 {
-	/// <summary>
-	/// Manages the objects within the game scene, such as Pacman and the Ghosts.
-	/// Any events such as game over, or starting the game, that does not involve objects, should be implemented in GameEventManager.
-	/// </summary>
-	public class GameObjectManager : MonoBehaviour
+    /// <summary>
+    /// Manages the objects within the game scene, such as Pacman and the Ghosts.
+    /// Any events such as game over, or starting the game, that does not involve objects, should be implemented in GameEventManager.
+    /// </summary>
+    public class GameObjectManager : MonoBehaviour
     {
-		[SerializeField] private GameObject cherry;
-		[SerializeField] private GameObject ghostHome;
-		[SerializeField] private Transform cherrySpawn;
+        [SerializeField] private GameObject cherry;
+        [SerializeField] private GameObject ghostHome;
+        [SerializeField] private Transform cherrySpawn;
 
         private GameObject[] food;
         private GameObject[] powerups;
         private Ghost[] ghosts;
-
-		private int foodCount;
-		private bool spawnedCherry;
-		private Debugger debugger;
+        private Debugger debugger;
+        private int foodCount;
+        private bool spawnedCherry;
 
         public static GameObjectManager instance;
 
@@ -33,14 +32,14 @@ namespace Manager
         private void Start()
         {
             food = GameObject.FindGameObjectsWithTag("Food");
-			powerups = GameObject.FindGameObjectsWithTag("Powerup");
-			ghosts = FindObjectsOfType<Ghost>();
-			debugger = GetComponent<Debugger>();
+            powerups = GameObject.FindGameObjectsWithTag("Powerup");
+            ghosts = FindObjectsOfType<Ghost>();
+            debugger = GetComponent<Debugger>();
 
-			ghostHome.SetActive(false);
+            ghostHome.SetActive(false);
 
-			foodCount = CountFood();
-            
+            foodCount = CountFood();
+
             for (int i = 0; i < food.Length; i++)
             {
                 // Name the food "Food ([coordinates])"
@@ -56,14 +55,14 @@ namespace Manager
         /// </summary>
         public void MakeGhostsEdible()
         {
-			foreach (Ghost ghost in ghosts)
-			{
-				// Only want to become edible if we are not running home
-				if (!ghost.IsRunningHome())
-				{
-					ghost.BecomeEdible();
-				}
-			}
+            foreach (Ghost ghost in ghosts)
+            {
+                // Only want to become edible if we are not running home
+                if (!ghost.IsRunningHome())
+                {
+                    ghost.BecomeEdible();
+                }
+            }
         }
 
         /// <summary>
@@ -71,35 +70,35 @@ namespace Manager
         /// </summary>
         public void StartMovingEntities()
         {
-			debugger.Info("moving everything");
+            debugger.Info("moving everything");
 
-			PacmanMovement.instance.ResetSpeed();
+            PacmanMovement.instance.ResetSpeed();
 
-			// Reset the Ghosts speed and their path node
-			foreach (Ghost ghost in ghosts)
-			{
-				ghost.SetSpeed(ghost.GetMovingSpeed());
+            // Reset the Ghosts speed and their path node
+            foreach (Ghost ghost in ghosts)
+            {
+                ghost.SetSpeed(ghost.GetMovingSpeed());
             }
 
-			foreach (GhostPath path in GameObject.FindObjectsOfType<GhostPath>())
-			{
-				path.ResetCurrentWaypointIndex();
-			}
-		}
+            foreach (GhostPath path in GameObject.FindObjectsOfType<GhostPath>())
+            {
+                path.ResetCurrentWaypointIndex();
+            }
+        }
 
         /// <summary>
         /// Stops moving Pacman and the Ghosts.
         /// </summary>
         public void StopMovingEntities()
         {
-			debugger.Info("stopping everything");
-						
-			foreach (Ghost ghost in ghosts)
-			{
-				ghost.StopMoving();
-			}
+            debugger.Info("stopping everything");
 
-			PacmanMovement.instance.Stop();
+            foreach (Ghost ghost in ghosts)
+            {
+                ghost.StopMoving();
+            }
+
+            PacmanMovement.instance.Stop();
         }
 
         /// <summary>
@@ -107,21 +106,30 @@ namespace Manager
         /// </summary>
         public void ResetEntityPositions()
         {
-			debugger.Info("resetting positions");
+            debugger.Info("resetting positions");
 
-			foreach (Ghost ghost in ghosts)
-			{
-				ghost.ResetPosition();		
-			}
+            foreach (Ghost ghost in ghosts)
+            {
+                ghost.ResetPosition();
+            }
 
-			// We reset the current node here to stop the Ghosts immediately looking at the first node when pacman dies
-			foreach (GhostPath path in FindObjectsOfType<GhostPath>())
-			{
-				path.ResetCurrentWaypointIndex();
-			}
+            // We reset the current node here to stop the Ghosts immediately looking at the first node when pacman dies
+            foreach (GhostPath path in FindObjectsOfType<GhostPath>())
+            {
+                path.ResetCurrentWaypointIndex();
+            }
 
-			// Reset pacmans position
-			PacmanMovement.instance.ResetPosition();
+            // Reset pacmans position
+            PacmanMovement.instance.ResetPosition();
+        }
+
+        public void ResetAllGhosts()
+        {
+            foreach (Ghost ghost in ghosts)
+            {
+                ghost.Reset();
+                ghost.ResetPosition();
+            }
         }
 
         /// <summary>
@@ -146,30 +154,30 @@ namespace Manager
             }
         }
 
-		public void ActivateGhostHome()
-		{
-			StartCoroutine(ActivateGhostHomeRoutine());
-		}
+        public void ActivateGhostHome()
+        {
+            StartCoroutine(ActivateGhostHomeRoutine());
+        }
 
-		private IEnumerator ActivateGhostHomeRoutine()
-		{
-			yield return new WaitForSeconds(3f);
-			ghostHome.SetActive(true);
-			debugger.Info("ghost home activated");
-		}
+        private IEnumerator ActivateGhostHomeRoutine()
+        {
+            yield return new WaitForSeconds(3f);
+            ghostHome.SetActive(true);
+            debugger.Info("ghost home activated");
+        }
 
-		/// <summary>
-		/// Spawns a cherry.
-		/// </summary>
-		public void SpawnCherry()
+        /// <summary>
+        /// Spawns a cherry.
+        /// </summary>
+        public void SpawnCherry()
         {
             if ((foodCount <= 80 && foodCount >= 40) && !spawnedCherry)
             {
                 Instantiate(cherry, cherrySpawn.position, cherrySpawn.rotation);
                 spawnedCherry = true;
-				debugger.Info("spawned cherry");
-			}
-			if (foodCount <= 1)
+                debugger.Info("spawned cherry");
+            }
+            if (foodCount <= 1)
             {
                 spawnedCherry = false;
             }
@@ -178,7 +186,7 @@ namespace Manager
         public int CountFood()
         {
             foodCount = GameObject.FindGameObjectsWithTag("Food").Length;
-			return foodCount;
+            return foodCount;
         }
 
         public int GetNumberOfFood()
@@ -186,9 +194,14 @@ namespace Manager
             return foodCount;
         }
 
-		public GameObject GetGhostHome()
-		{
-			return ghostHome;
-		}
+        public GameObject GetGhostHome()
+        {
+            return ghostHome;
+        }
+
+        public Ghost[] GetGhosts()
+        {
+            return ghosts;
+        }
     }
 }
