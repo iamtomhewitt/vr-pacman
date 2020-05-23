@@ -230,8 +230,9 @@ namespace Ghosts
 
         private void SelectNewPath()
         {
-            path.SetUsed(false);
+			GhostPath oldPath = path;
             path = GetRandomPath();
+            oldPath.SetUsed(false);
             debugger.Info("has selected a new path: " + path.transform.name);
         }
 
