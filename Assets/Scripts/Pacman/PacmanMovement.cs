@@ -1,7 +1,7 @@
-using UnityEngine;
-using System.Collections;
-using Utility;
 using Manager;
+using System.Collections;
+using UnityEngine;
+using Utility;
 
 namespace Pacman
 {
@@ -12,8 +12,8 @@ namespace Pacman
 		[SerializeField] private float boostSpeed;
 		[SerializeField] private float sensitivity;
 
-		private Rigidbody rb;
 		private Debugger debugger;
+		private Rigidbody rb;
 		private Vector3 originalPosition;
 
 		public static PacmanMovement instance;

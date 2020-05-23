@@ -6,6 +6,8 @@ namespace Pacman
     {
         [SerializeField] private int score = 0;
 
+		private PacmanHud hud;
+
 		public static PacmanScore instance;
 
 		private void Awake()
@@ -13,10 +15,15 @@ namespace Pacman
 			instance = this;
 		}
 
+		public void Start()
+		{
+			hud = GetComponent<PacmanHud>();
+		}
+
 		public void AddScore(int amount)
         {
             score += amount;
-			PacmanHud.instance.SetScoreText(score.ToString());
+			hud.SetScoreText(score.ToString());
         }
 
 		public int GetScore()
