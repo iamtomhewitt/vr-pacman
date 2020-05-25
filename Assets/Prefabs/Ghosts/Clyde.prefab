@@ -606,6 +606,7 @@ GameObject:
   - component: {fileID: 136530792161851180}
   - component: {fileID: 114690434204887270}
   - component: {fileID: 54910304504155320}
+  - component: {fileID: 2504181124295064120}
   m_Layer: 8
   m_Name: Clyde
   m_TagString: Ghost
@@ -670,6 +671,7 @@ MonoBehaviour:
   movingSpeed: 0.03
   flashingSpeed: 0.02
   eatenSpeed: 0.3
+  speedIncrease: 0.022
 --- !u!54 &54910304504155320
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -686,6 +688,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &2504181124295064120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886438838910048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17eb352b5d30bf34586edb166229406c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 1
+  debugColour: orange
 --- !u!1 &1923693802081298
 GameObject:
   m_ObjectHideFlags: 0

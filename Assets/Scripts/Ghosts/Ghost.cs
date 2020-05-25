@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Manager;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
-using Manager;
+using UnityEngine;
 using Utility;
 
 namespace Ghosts
@@ -18,19 +18,22 @@ namespace Ghosts
 		[SerializeField] private float movingSpeed;
 		[SerializeField] private float flashingSpeed;
 		[SerializeField] private float eatenSpeed;
+		[SerializeField] private float speedIncrease;
 
 		private GhostPath path;
 		private Rigidbody rb;
 		private MeshRenderer bodyColour;
 		private Debugger debugger;
 		private Coroutine flashRoutine;
-
 		private Vector3 originalPosition;
+		private AudioManager audioManager;
 
 		private void Start()
 		{
 			rb = GetComponent<Rigidbody>();
 			debugger = GetComponent<Debugger>();
+			audioManager = AudioManager.instance;
+
 			originalPosition = transform.position;
 
 			path = GetRandomPath();
@@ -49,7 +52,7 @@ namespace Ghosts
 			if (o.name.Equals(Constants.GHOST_HOME))
 			{
 				Reset();
-				AudioManager.instance.StopGhostRunSound();
+				audioManager.StopGhostRunSound();
 				SelectNewPath();
 			}
 		}
@@ -75,19 +78,28 @@ namespace Ghosts
 			}
 		}
 
+		public void IncreaseSpeed()
+		{
+			debugger.Info("Increasing speed");
+			speed += speedIncrease;
+		}
+
 		/// <summary>
 		/// Makes the Ghost able to be eaten by Pacman for a specified amount of time.
 		/// </summary>
 		public void BecomeEdible()
 		{
 			debugger.Info("has become edible");
+			StopFlashing();
+			StartCoroutine(BecomeEdibleRoutine());
+		}
 
+		public void StopFlashing()
+		{
 			if (flashRoutine != null)
 			{
 				StopCoroutine(flashRoutine);
 			}
-
-			StartCoroutine(BecomeEdibleRoutine());
 		}
 
 		private IEnumerator BecomeEdibleRoutine()
@@ -135,14 +147,14 @@ namespace Ghosts
 			yield return new WaitForSeconds(.1f);
 		}
 
-		private void Reset()
+		public void Reset()
 		{
 			eaten = false;
 			edible = false;
 			runningHome = false;
 			bodyColour.enabled = true;
-			speed = movingSpeed;
 			bodyColour.material = originalColour;
+			speed = movingSpeed;
 
 			if (flashRoutine != null)
 			{
@@ -159,13 +171,13 @@ namespace Ghosts
 		{
 			debugger.Info("is running home");
 
-			AudioManager.instance.Play(SoundNames.GHOST_RUN);
+			audioManager.Play(SoundNames.GHOST_RUN);
 
-            speed = eatenSpeed;
-            edible = false;
-            eaten = true;
-            runningHome = true;
-            bodyColour.enabled = false;
+			speed = eatenSpeed;
+			edible = false;
+			eaten = true;
+			runningHome = true;
+			bodyColour.enabled = false;
 		}
 
 		public void SetSpeed(float speed)
@@ -173,9 +185,19 @@ namespace Ghosts
 			this.speed = speed;
 		}
 
+		public float GetSpeed()
+		{
+			return speed;
+		}
+
 		public float GetMovingSpeed()
 		{
 			return movingSpeed;
+		}
+
+		public float GetEatenSpeed()
+		{
+			return eatenSpeed;
 		}
 
 		public void StopMoving()
@@ -201,18 +223,22 @@ namespace Ghosts
 		{
 			List<GhostPath> allPaths = new List<GhostPath>(GameObject.FindObjectsOfType<GhostPath>());
 			IEnumerable<GhostPath> unusedPaths = allPaths.Where(x => !x.isUsed());
-
 			GhostPath path = unusedPaths.ElementAt(Random.Range(0, unusedPaths.Count()));
-
 			path.SetUsed(true);
 			return path;
 		}
 
 		private void SelectNewPath()
 		{
-			path.SetUsed(false);
+			GhostPath oldPath = path;
 			path = GetRandomPath();
+			oldPath.SetUsed(false);
 			debugger.Info("has selected a new path: " + path.transform.name);
+		}
+
+		public GhostPath GetPath()
+		{
+			return path;
 		}
 	}
 }

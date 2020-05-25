@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 136263327561304180}
   - component: {fileID: 114944863842485118}
   - component: {fileID: 54899331002780114}
+  - component: {fileID: -6508303853935583064}
   m_Layer: 8
   m_Name: Pinky
   m_TagString: Ghost
@@ -156,6 +157,7 @@ MonoBehaviour:
   movingSpeed: 0.03
   flashingSpeed: 0.02
   eatenSpeed: 0.3
+  speedIncrease: 0.035
 --- !u!54 &54899331002780114
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -172,6 +174,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &-6508303853935583064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270481889001396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17eb352b5d30bf34586edb166229406c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 1
+  debugColour: magenta
 --- !u!1 &1617525501676618
 GameObject:
   m_ObjectHideFlags: 0
