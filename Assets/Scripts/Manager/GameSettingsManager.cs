@@ -21,6 +21,11 @@ namespace Manager
 			}
 		}
 
+		private void Start()
+		{
+			Screen.sleepTimeout = SleepTimeout.NeverSleep;
+		}
+
 		public void SetSensitivity(float sensitivity)
 		{
 			this.sensitivity = sensitivity;
