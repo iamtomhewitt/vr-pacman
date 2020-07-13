@@ -1,6 +1,6 @@
 {
 	"name": "vr-pacman",
-	"version": "2.12.0",
+	"version": "2.12.1",
 	"description": "First person VR Pacman, available on Google Play. Why not give it a five star review? ⭐️",
 	"scripts": {
 		"release": "github-releaser"
