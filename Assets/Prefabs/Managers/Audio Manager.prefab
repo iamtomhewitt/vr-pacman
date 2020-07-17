@@ -63,7 +63,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Pacman Death
-    clip: {fileID: 8300000, guid: dcb923780aa7a7b4b818ec5acc59c897, type: 3}
+    clip: {fileID: 8300000, guid: f44c1f9ea920e3341b950b93da03e367, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -75,19 +75,19 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Ghost Run
-    clip: {fileID: 8300000, guid: 58ec342bd85de18419faae59ed14aa31, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: de14f66b1c7e4d046b955ddd375e1ee2, type: 3}
+    volume: 0.8
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Ghost Edible
-    clip: {fileID: 8300000, guid: 07a55de3a6d5f2a44b9caf39967d7e08, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: efaca843b08de104e94c7f1aeb2507eb, type: 3}
+    volume: 0.6
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Intro Music
-    clip: {fileID: 8300000, guid: 3a50750e14caedd4c8bf1fb4786b0a46, type: 3}
+    clip: {fileID: 8300000, guid: 257b07236acee16409e18ef2dde951f4, type: 3}
     volume: 1
     pitch: 1
     loop: 0
