@@ -8632,7 +8632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b6d3ca54cdcf4695e572ad2554a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cherry: {fileID: 163470, guid: e8edc0beb9d6a2943b6c166e3dead2e3, type: 3}
+  cherry: {fileID: 163470, guid: 5e3bcdca2d3d241beb18d6554ddf97dc, type: 3}
   ghostHome: {fileID: 130394686}
   cherrySpawn: {fileID: 1250650867}
 --- !u!4 &478396640
