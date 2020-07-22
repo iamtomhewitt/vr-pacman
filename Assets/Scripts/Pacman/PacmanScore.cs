@@ -3,25 +3,25 @@
 namespace Pacman
 {
 	public class PacmanScore : MonoBehaviour
-    {
-        [SerializeField] private int score = 0;
+	{
+		[SerializeField] private int score = 0;
 
-		public static PacmanScore instance;
+		private PacmanHud hud;
 
-		private void Awake()
+		public void Start()
 		{
-			instance = this;
+			hud = GetComponent<PacmanHud>();
 		}
 
 		public void AddScore(int amount)
-        {
-            score += amount;
-			PacmanHud.instance.SetScoreText(score.ToString());
-        }
+		{
+			score += amount;
+			hud.SetScoreText(score.ToString());
+		}
 
 		public int GetScore()
 		{
 			return score;
 		}
-    }
+	}
 }

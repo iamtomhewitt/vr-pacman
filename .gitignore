@@ -42,6 +42,7 @@ Logs/
 /ProjectSettings/ProBuilderSettings.json
 /Assembly-CSharp.csproj
 /Assembly-CSharp-Editor.csproj
-/Assets/config.json
-/Assets/config.json.meta
 /Google Play Store/Video/Video.mp4
+Assets/Resources/config.json
+Assets/Resources/config.json.meta
+node_modules

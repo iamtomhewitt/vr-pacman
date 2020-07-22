@@ -165,8 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredComponents:
-  - {fileID: 1469769188037684, guid: 85a608b249969c6428cc2472c13f5df1, type: 3}
-  - {fileID: 2318598036196292888, guid: 3bd0a70160a5fd644817e13fcf07b1b5, type: 3}
-  - {fileID: 1546106922763394, guid: ffb9f487ea6fd9541b1123bcde5639dd, type: 3}
+  - {fileID: 1469769188037684, guid: 00537f129d987430ca4a5aefd6cd0cca, type: 3}
+  - {fileID: 2318598036196292888, guid: da9ea5907201f476d9d3c9cb23c43bd2, type: 3}
+  - {fileID: 1546106922763394, guid: 2bdb3e11d70824e4693939659647d619, type: 3}
   - {fileID: 8285418277902039423, guid: ddef8cd8ef7bd2541af4ad56f593fb93, type: 3}
   mainMenuName: Main Menu

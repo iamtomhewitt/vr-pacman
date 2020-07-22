@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System;
-using System.Linq;
+﻿using Ghosts;
 using System.Collections;
-using Ghosts;
+using System.Linq;
+using System;
+using UnityEngine;
 
 namespace Manager
 {
@@ -104,7 +104,7 @@ namespace Manager
 
 			if (s == null)
 			{
-				print("WARNING! Sound: '" + name + "' was not found.");
+				Debug.Log("WARNING! Sound: '" + name + "' was not found.");
 				return null;
 			}
 			return s;

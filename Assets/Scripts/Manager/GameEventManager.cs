@@ -1,101 +1,134 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using Pacman;
 using System.Collections;
-using Pacman;
+using UnityEngine.SceneManagement;
+using UnityEngine;
 using Utility;
 
 namespace Manager
 {
-    public class GameEventManager : MonoBehaviour
-    {
+	public class GameEventManager : MonoBehaviour
+	{
 		private const string READY = "READY?";
 		private const string GAME_OVER = "GAME OVER";
+		private const string GAME_OVER_NEW_HIGHSCORE = "GAME OVER \nNEW HIGHSCORE!";
 
+		private AudioManager audioManager;
 		private Debugger debugger;
+		private GameObjectManager gameObjectManager;
+		private PacmanHud hud;
 
 		public static GameEventManager instance;
 
-        private void Awake()
-        {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(this.gameObject);
-                return;
-            }
-        }
+		private void Awake()
+		{
+			if (instance == null)
+			{
+				instance = this;
+			}
+			else
+			{
+				Destroy(this.gameObject);
+				return;
+			}
+		}
 
-        private void Start()
-        {
+		private void Start()
+		{
 			debugger = GetComponent<Debugger>();
-            StartCoroutine(StartGame());
-        }
+			audioManager = AudioManager.instance;
+			gameObjectManager = GameObjectManager.instance;
+			hud = FindObjectOfType<PacmanHud>();
 
-        private IEnumerator StartGame()
-        {
+			StartCoroutine(StartGame());
+		}
+
+		private IEnumerator StartGame()
+		{
 			debugger.Info("starting game");
 
-			PacmanHud.instance.SetStatusText(READY);
-            AudioManager.instance.Play(SoundNames.INTRO_MUSIC);
-            yield return new WaitForSeconds(AudioManager.instance.GetSound(SoundNames.INTRO_MUSIC).clip.length);
-			PacmanHud.instance.SetStatusText("");
-			AudioManager.instance.Play(SoundNames.GHOST_MOVE);
-			GameObjectManager.instance.StartMovingEntities();
-			GameObjectManager.instance.ActivateGhostHome();
-        }
-        
+			hud.SetStatusText(READY);
+			audioManager.Play(SoundNames.INTRO_MUSIC);
+			yield return new WaitForSeconds(audioManager.GetSound(SoundNames.INTRO_MUSIC).clip.length);
+			hud.SetStatusText("");
+			audioManager.Play(SoundNames.GHOST_MOVE);
+			gameObjectManager.StartMovingEntities();
+			gameObjectManager.ActivateGhostHome();
+		}
+
+		/// <summary>
+		/// Completes the current level.
+		/// </summary>
+		public void CompleteLevel()
+		{
+			StartCoroutine(CompleteLevelRoutine());
+		}
+
 		/// <summary>
 		/// Routine that completes the current level.
 		/// </summary>
-        private IEnumerator CompleteLevelRoutine()
-        {
+		private IEnumerator CompleteLevelRoutine()
+		{
 			debugger.Info("completed level");
 
-			GameObjectManager.instance.StopMovingEntities();
+			gameObjectManager.StopMovingEntities();
 
-			AudioManager.instance.Pause(SoundNames.GHOST_MOVE);
-			AudioManager.instance.Play(SoundNames.LEVEL_COMPLETE);
+			audioManager.Pause(SoundNames.GHOST_MOVE);
+			audioManager.Play(SoundNames.LEVEL_COMPLETE);
 
-            yield return new WaitForSeconds(AudioManager.instance.GetSound(SoundNames.LEVEL_COMPLETE).clip.length);
+			yield return new WaitForSeconds(audioManager.GetSound(SoundNames.LEVEL_COMPLETE).clip.length);
 
-            GameObjectManager.instance.ActivateFood();
-            GameObjectManager.instance.ActivatePowerups();
-            GameObjectManager.instance.ResetEntityPositions();
+			gameObjectManager.ActivateFood();
+			gameObjectManager.ActivatePowerups();
+			gameObjectManager.ResetEntityPositions();
+			gameObjectManager.ResetAllGhosts();
 
-			PacmanHud.instance.SetStatusText(READY);
-            yield return new WaitForSeconds(1.5f);
-			PacmanHud.instance.SetStatusText("");
+			hud.SetStatusText(READY);
+			yield return new WaitForSeconds(1.5f);
+			hud.SetStatusText("");
 
-            GameObjectManager.instance.StartMovingEntities();
-			AudioManager.instance.Play(SoundNames.GHOST_MOVE);
+			gameObjectManager.StartMovingEntities();
+			audioManager.Play(SoundNames.GHOST_MOVE);
+		}
+
+		/// <summary>
+		/// Ends the game.
+		/// </summary>
+		public void GameOver(bool newHighscore)
+		{
+			StartCoroutine(GameOverRoutine(newHighscore));
 		}
 
 		/// <summary>
 		/// Routine that makes the game end.
 		/// </summary>
-        private IEnumerator GameOverRoutine(bool newHighscore)
-        {
+		private IEnumerator GameOverRoutine(bool newHighscore)
+		{
 			debugger.Info("game over");
 
-			PacmanHud.instance.SetStatusText(GAME_OVER);
+			hud.SetStatusText(GAME_OVER);
 
 			if (newHighscore)
 			{
-				PacmanHud.instance.SetStatusText(GAME_OVER+"\nNEW HIGHSCORE!");
+				hud.SetStatusText(GAME_OVER_NEW_HIGHSCORE);
 			}
 
-            AudioManager.instance.PauseAllSounds(); 
+			audioManager.PauseAllSounds();
 
-            yield return new WaitForSeconds(5f);
+			yield return new WaitForSeconds(5f);
 
 			FindObjectOfType<Utilities>().RotateScreenPortrait();
-			
-			AudioManager.instance.Play(SoundNames.MENU_MUSIC);
+
+			audioManager.Play(SoundNames.MENU_MUSIC);
 			SceneManager.LoadScene(Constants.MAIN_MENU_SCENE);
-        }
+		}
+
+		/// <summary>
+		/// Respawns Pacman after he's died.
+		/// </summary>
+		public void RespawnPacman()
+		{
+			StartCoroutine(RespawnRoutine());
+		}
 
 		/// <summary>
 		/// Routine that respawns Pacman after he has died.
@@ -104,34 +137,10 @@ namespace Manager
 		{
 			debugger.Info("respawning");
 
-			PacmanHud.instance.SetStatusText(READY);
+			hud.SetStatusText(READY);
 			yield return new WaitForSeconds(2f);
-			PacmanHud.instance.SetStatusText("");
-			GameObjectManager.instance.StartMovingEntities();
-		}
-
-		/// <summary>
-		/// Ends the game.
-		/// </summary>
-        public void GameOver(bool newHighscore)
-        {
-            StartCoroutine(GameOverRoutine(newHighscore)); 
-        }
-
-		/// <summary>
-		/// Completes the current level.
-		/// </summary>
-        public void CompleteLevel()
-        {
-            StartCoroutine(CompleteLevelRoutine());
-        }
-
-		/// <summary>
-		/// Respawns Pacman after he's died.
-		/// </summary>
-		public void RespawnPacman()
-		{
-			StartCoroutine(RespawnRoutine());
+			hud.SetStatusText("");
+			gameObjectManager.StartMovingEntities();
 		}
 	}
 }

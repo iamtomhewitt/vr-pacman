@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+﻿using Manager;
 using System.Collections;
-using Manager;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine;
 using Utility;
 
 /// <summary>
@@ -27,23 +27,23 @@ public class MainMenuHelper : MonoBehaviour
 
 	private IEnumerator StartGameRoutine(string sceneName)
 	{
+		AudioManager audio = AudioManager.instance;
+
 		// Have to play the sound here, because the button gets deactivated on press so the sound will not play
-		AudioManager.instance.Play(SoundNames.BUTTON_PRESS);
-		
+		audio.Play(SoundNames.BUTTON_PRESS);
+
 		mainMenuUi.SetActive(false);
 		countdownUi.SetActive(true);
 
 		FindObjectOfType<Utilities>().RotateScreenLandscape();
 
-		int countdownTime = 10;
-
-		for (int i = countdownTime; i >= 0; i--)
+		for (int i = 10; i >= 0; i--)
 		{
 			countdownText.text = "Put on your VR headset!\n" + i.ToString();
 			yield return new WaitForSeconds(1f);
 		}
 
-		AudioManager.instance.Pause(SoundNames.MENU_MUSIC);
+		audio.Pause(SoundNames.MENU_MUSIC);
 
 		SceneManager.LoadScene(sceneName);
 	}

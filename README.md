@@ -17,24 +17,6 @@
 - Install [Unity Hub](https://unity.com/) and open the project with latest version of Unity.
 - If you want to test on an Android device you will need to install the Android module.
 
-## Contributing 🎉
-Issues are currently tracked under the [Issues](https://github.com/iamtomhewitt/vr-pacman/issues) tab. Choose an issue, branch off of the `develop` branch and code it! When you are done create a merge request to merge your changes back into `develop`. Once we are ready, the `develop` branch will be merged into the `beta` branch, where a beta build will be created from it and uploaded to Google Play.
-After the beta has ended, or another one comes along, then the `beta` branch will be merged into `master`. The beta in Google Play will then be promoted to production.
-
-Make sure to update the [Issue Management Project](https://github.com/iamtomhewitt/vr-pacman/projects/1) so the issues can be tracked effectively. 
-
-## Versioning 🗂
-
-Versioning is similar to Semantic versioning - <b>MAJOR.MINOR.PATCH</b> <i>(e.g 2.1.4)</i>
-
-* <b>MAJOR</b> is incremented when a new feature has been introduced (like achievements being added to the game)
-* <b>MINOR</b> is incremented when there is a visual change that the player would see (like a menu change or a colour change)
-* <b>PATCH</b> is incremented when there has been only a code change (like a bug fix)
-
-## Code Style 💎
-
-See [Code Style](Code-Style.md) for how to style your scripts.
-
 ## Acknowledgements 🙌
 
 - Carmine T. Guida for [Dreamlo](http://dreamlo.com/). It's a very easy to use online leaderboard and I've used it in many of my projects.

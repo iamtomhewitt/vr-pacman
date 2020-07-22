@@ -13,13 +13,6 @@ namespace Pacman
 
 		private Debugger debugger;
 
-		public static PacmanHud instance;
-
-		private void Awake()
-		{
-			instance = this;
-		}
-
 		private void Start()
 		{
 			debugger = GetComponent<Debugger>();
