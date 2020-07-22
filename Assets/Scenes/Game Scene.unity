@@ -8632,7 +8632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b6d3ca54cdcf4695e572ad2554a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cherry: {fileID: 163470, guid: e8edc0beb9d6a2943b6c166e3dead2e3, type: 3}
+  cherry: {fileID: 163470, guid: 5e3bcdca2d3d241beb18d6554ddf97dc, type: 3}
   ghostHome: {fileID: 130394686}
   cherrySpawn: {fileID: 1250650867}
 --- !u!4 &478396640
@@ -20766,7 +20766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250650866}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.5, z: -9.25}
+  m_LocalPosition: {x: 0, y: -0.402, z: -9.004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 478396640}
@@ -35478,7 +35478,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2064331505}
   - component: {fileID: 2064331504}
-  - component: {fileID: 2064331503}
   - component: {fileID: 2064331506}
   m_Layer: 11
   m_Name: Pacman Minimap Sprite
@@ -35487,25 +35486,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &2064331503
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064331501}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ece45d066c2419e46ac0c54873e04cb1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &2064331504
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -35545,12 +35525,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d6c1041bc43a71141aeb5e6266b4a5e5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: da31e892bdfc8416a8a039ee3ec89112, type: 3}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -35565,7 +35545,7 @@ Transform:
   m_GameObject: {fileID: 2064331501}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 5, z: -3}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
