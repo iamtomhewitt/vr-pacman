@@ -1,3 +1,12 @@
+## 2.13.0 (22/07/2020) 
+
+
+### Issues in this release:
+
+* [#112](https://github.com/iamtomhewitt/vr-pacman/issues/112) - Google Play Store violations
+
+
+
 ## 2.12.2-BETA (13/07/2020) 
 
 

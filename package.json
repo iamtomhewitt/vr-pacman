@@ -1,6 +1,6 @@
 {
     "name": "vr-pacman",
-    "version": "2.12.2-BETA",
+    "version": "2.13.0",
     "description": "First person VR Pacman, available on Google Play. Why not give it a five star review? ⭐️",
     "scripts": {
         "release": "github-releaser"
@@ -41,6 +41,6 @@
         }
     },
     "dependencies": {
-        "github-releaser": "^1.1.2"
+        "github-releaser": "^1.2.0"
     }
 }
