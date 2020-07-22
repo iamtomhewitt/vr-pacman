@@ -121,7 +121,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 2.12.2-BETA
+  bundleVersion: 2.13.0-BETA
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -167,7 +167,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.SwivelChairGames.VRPacman
   buildNumber: {}
-  AndroidBundleVersionCode: 24
+  AndroidBundleVersionCode: 26
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1

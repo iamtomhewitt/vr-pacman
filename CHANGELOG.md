@@ -1,4 +1,4 @@
-## 2.12.3-BETA (22/07/2020) 
+## 2.13.0-BETA (22/07/2020) 
 
 
 ### Issues in this release:
