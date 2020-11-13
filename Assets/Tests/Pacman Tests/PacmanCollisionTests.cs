@@ -16,6 +16,7 @@ namespace Tests
 		private GameObject food;
 		private GameObject ghostPaths;
 		private GameObject pacman;
+		private GameObject teleporter;
 		private GameObjectManager goManager;
 		private Ghost ghost;
 		private PacmanCollision pacmanCollision;
@@ -34,10 +35,13 @@ namespace Tests
 			ghostPaths = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Ghost Paths"));
 			goManager = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Managers/Game Object Manager")).GetComponent<GameObjectManager>();
 			pacman = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Pacman"));
+			powerup = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Pickups/Powerup")).GetComponent<Powerup>();
+			teleporter = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Teleporter"));
+			
 			pacmanCollision = pacman.GetComponent<PacmanCollision>();
 			pacmanMovement = pacman.GetComponent<PacmanMovement>();
 			pacmanScore = pacman.GetComponent<PacmanScore>();
-			powerup = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Tests/Prefabs/Pickups/Powerup")).GetComponent<Powerup>();
+			teleporter.transform.position = new Vector3(10f, 1f, 10f);
 		}
 
 		[TearDown]
@@ -51,6 +55,7 @@ namespace Tests
 			Object.Destroy(goManager.gameObject);
 			Object.Destroy(pacman.gameObject);
 			Object.Destroy(powerup.gameObject);
+			Object.Destroy(teleporter.gameObject);
 		}
 
 		[UnityTest]
@@ -125,6 +130,15 @@ namespace Tests
 			pacman.transform.position = ghost.transform.position;
 			yield return new WaitForSeconds(WAIT_TIME);
 			Assert.AreEqual(expectedLivesAfterDeath, pacmanCollision.GetCurrentLives());
+		}
+
+		[UnityTest]
+		public IEnumerator CollidingWithTeleporterMovesPlayer()
+		{
+			Vector3 positionBeforeTeleport = pacman.transform.position;
+			pacman.transform.position = teleporter.transform.position;
+			yield return new WaitForSeconds(WAIT_TIME);
+			Assert.AreNotEqual(positionBeforeTeleport, pacman.transform.position);
 		}
 	}
 }
