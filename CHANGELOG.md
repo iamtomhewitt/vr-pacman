@@ -1,3 +1,12 @@
+## 2.14.0-BETA (18/11/2020) 
+
+
+### Issues in this release:
+
+* [#116](https://github.com/iamtomhewitt/vr-pacman/issues/116) - Add player teleporter
+
+
+
 ## 2.13.0 (22/07/2020) 
 
 
