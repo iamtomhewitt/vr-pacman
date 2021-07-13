@@ -65,7 +65,6 @@ GameObject:
   - component: {fileID: 1580661063643274492}
   - component: {fileID: 1776919494669708619}
   - component: {fileID: 2564135474598942997}
-  - component: {fileID: 2923736847351511040}
   m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
@@ -80,13 +79,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8121219941671731640}
-  m_LocalRotation: {x: -0.033856697, y: 0.00021681089, z: 0.0063999835, w: 0.9994062}
-  m_LocalPosition: {x: -0.46981567, y: -0.5274291, z: -0.44464028}
-  m_LocalScale: {x: 1.0441, y: 1.0441, z: 1.0441}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 407342}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -3.8810003, y: 0, z: 0.734}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1776919494669708619
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -94,7 +93,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8121219941671731640}
-  m_Mesh: {fileID: 4300000, guid: 1c05f08541c2047bba154e4f581562ab, type: 2}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2564135474598942997
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -106,10 +105,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -134,17 +135,4 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2923736847351511040
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8121219941671731640}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 1c05f08541c2047bba154e4f581562ab, type: 2}
+  m_AdditionalVertexStreams: {fileID: 0}
