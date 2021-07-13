@@ -19,10 +19,11 @@ namespace Ghosts
 		[SerializeField] private float flashingSpeed;
 		[SerializeField] private float eatenSpeed;
 		[SerializeField] private float speedIncrease;
+		[SerializeField] private MeshRenderer[] colouredBodyParts;
+		[SerializeField] private GameObject[] bodyParts;
 
 		private GhostPath path;
 		private Rigidbody rb;
-		private MeshRenderer bodyColour;
 		private Debugger debugger;
 		private Coroutine flashRoutine;
 		private Vector3 originalPosition;
@@ -38,8 +39,6 @@ namespace Ghosts
 
 			path = GetRandomPath();
 			debugger.Info("has selected path: " + path.gameObject.name);
-
-			bodyColour = GameObject.Find(gameObject.name + "/Model/Body").GetComponent<MeshRenderer>();
 		}
 
 		private void FixedUpdate()
@@ -109,7 +108,7 @@ namespace Ghosts
 
 			flashRoutine = StartCoroutine(Flash(Color.blue, Color.white));
 			yield return flashRoutine;
-			bodyColour.material = originalColour;
+			SetGhostColour(originalColour);
 
 			edible = false;
 
@@ -133,10 +132,10 @@ namespace Ghosts
 
 			do
 			{
-				bodyColour.material.color = one;
+				SetGhostColour(one);
 				yield return new WaitForSeconds(timeBetweenFlash);
 
-				bodyColour.material.color = two;
+				SetGhostColour(two);
 				yield return new WaitForSeconds(timeBetweenFlash);
 
 				flashTimer += timeBetweenFlash * 2;
@@ -152,8 +151,8 @@ namespace Ghosts
 			eaten = false;
 			edible = false;
 			runningHome = false;
-			bodyColour.enabled = true;
-			bodyColour.material = originalColour;
+			ShowBody();
+			SetGhostColour(originalColour);
 			speed = movingSpeed;
 
 			if (flashRoutine != null)
@@ -177,7 +176,7 @@ namespace Ghosts
 			edible = false;
 			eaten = true;
 			runningHome = true;
-			bodyColour.enabled = false;
+			HideBody();
 		}
 
 		public void SetSpeed(float speed)
@@ -239,6 +238,38 @@ namespace Ghosts
 		public GhostPath GetPath()
 		{
 			return path;
+		}
+
+		private void SetGhostColour(Material colour)
+		{
+			foreach (MeshRenderer part in colouredBodyParts)
+			{
+				part.material = colour;
+			}
+		}
+
+		private void SetGhostColour(Color colour)
+		{
+			foreach (MeshRenderer part in colouredBodyParts)
+			{
+				part.material.color = colour;
+			}
+		}
+
+		private void HideBody()
+		{
+			foreach (GameObject part in bodyParts)
+			{
+				part.SetActive(false);
+			}
+		}
+
+		private void ShowBody()
+		{
+			foreach (GameObject part in bodyParts)
+			{
+				part.SetActive(true);
+			}
 		}
 	}
 }

@@ -275,6 +275,26 @@ MonoBehaviour:
   flashingSpeed: 0.02
   eatenSpeed: 0.3
   speedIncrease: 0.022
+  colouredBodyParts:
+  - {fileID: 8374636731779753718}
+  - {fileID: 7238178444446641618}
+  - {fileID: 8687273297709855893}
+  - {fileID: 1181383779563935000}
+  - {fileID: 5922716866906843880}
+  bodyParts:
+  - {fileID: 4864798344719297081}
+  - {fileID: 1886677688850709589}
+  - {fileID: 4000396430856258041}
+  - {fileID: 3850237248000051365}
+  - {fileID: 2659071704500922686}
+  - {fileID: 238006745959825734}
+  - {fileID: 8534105543973905172}
+  - {fileID: 5027102423500372152}
+  - {fileID: 801907182580940952}
+  - {fileID: 2944768228336888549}
+  - {fileID: 1910291285515856231}
+  - {fileID: 7385580823786681164}
+  - {fileID: 8131451849830020355}
 --- !u!54 &54910304504155320
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -317,7 +337,7 @@ GameObject:
   - component: {fileID: 3841638981611292305}
   - component: {fileID: 8955097804313321355}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -399,7 +419,7 @@ GameObject:
   - component: {fileID: 7528093748748952182}
   - component: {fileID: 5997852005745228131}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Tooth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -563,7 +583,7 @@ GameObject:
   - component: {fileID: 7243584119467070918}
   - component: {fileID: 8551856765692817541}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Tooth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -727,7 +747,7 @@ GameObject:
   - component: {fileID: 929827522488601871}
   - component: {fileID: 5235535864387065219}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Tooth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1137,7 +1157,7 @@ GameObject:
   - component: {fileID: 4711663750918679259}
   - component: {fileID: 6278462924311923593}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1342,7 +1362,7 @@ GameObject:
   - component: {fileID: 8214565125131224469}
   - component: {fileID: 4269989131977946248}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Tooth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1521,7 +1541,7 @@ GameObject:
   - component: {fileID: 9148109796093188116}
   - component: {fileID: 263029580814127934}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Tooth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1603,7 +1623,7 @@ GameObject:
   - component: {fileID: 1786548835423572413}
   - component: {fileID: 4559352967291819414}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

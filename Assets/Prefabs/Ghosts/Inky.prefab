@@ -79,6 +79,24 @@ MonoBehaviour:
   flashingSpeed: 0.02
   eatenSpeed: 0.3
   speedIncrease: 0.03
+  colouredBodyParts:
+  - {fileID: 570528003820807212}
+  - {fileID: 9221593637915545182}
+  - {fileID: 7470573757042568841}
+  - {fileID: 6654739034705677258}
+  - {fileID: 3245766370893398803}
+  bodyParts:
+  - {fileID: 3221657602897798738}
+  - {fileID: 8086406224939409358}
+  - {fileID: 6651493839560808377}
+  - {fileID: 70384957712452351}
+  - {fileID: 8620980452519283280}
+  - {fileID: 2105309074627380854}
+  - {fileID: 8042205046568112173}
+  - {fileID: 9053372422861047132}
+  - {fileID: 452686751082749242}
+  - {fileID: 4617568482008225693}
+  - {fileID: 5504200766581648269}
 --- !u!54 &54833997452609326
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -285,7 +303,7 @@ GameObject:
   - component: {fileID: 8924166008608975423}
   - component: {fileID: 3978988547805542774}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Tooth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -432,7 +450,7 @@ GameObject:
   - component: {fileID: 7277532050794657736}
   - component: {fileID: 2658018249980044768}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -596,7 +614,7 @@ GameObject:
   - component: {fileID: 8992688175868923259}
   - component: {fileID: 3536706276734267177}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Tooth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -799,7 +817,7 @@ GameObject:
   - component: {fileID: 5211634365277077267}
   - component: {fileID: 3404172124017258539}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Tooth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1158,7 +1176,7 @@ GameObject:
   - component: {fileID: 1721274289234416049}
   - component: {fileID: 4561931158552020993}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1438,7 +1456,7 @@ GameObject:
   - component: {fileID: 2880055963787230117}
   - component: {fileID: 2319666087735735881}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
