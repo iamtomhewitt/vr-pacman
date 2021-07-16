@@ -51,7 +51,7 @@ namespace Ghosts
 			if (o.name.Equals(Constants.GHOST_HOME))
 			{
 				Reset();
-				audioManager.StopGhostRunSound();
+				audioManager.ResetGhostSounds();
 				SelectNewPath();
 			}
 		}
@@ -171,6 +171,8 @@ namespace Ghosts
 			debugger.Info("is running home");
 
 			audioManager.Play(SoundNames.GHOST_RUN);
+			audioManager.Pause(SoundNames.GHOST_EDIBLE);
+			audioManager.Pause(SoundNames.GHOST_MOVE);
 
 			speed = eatenSpeed;
 			edible = false;
