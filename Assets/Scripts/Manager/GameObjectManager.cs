@@ -1,6 +1,7 @@
 using Ghosts;
 using Pacman;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using Utility;
 
@@ -208,6 +209,11 @@ namespace Manager
 		public Ghost[] GetGhosts()
 		{
 			return ghosts;
+		}
+
+		public int GetNumberOfGhostsRunningHome()
+		{
+			return ghosts.Where(ghost => ghost.IsRunningHome()).Count();
 		}
 	}
 }

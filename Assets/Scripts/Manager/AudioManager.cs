@@ -110,14 +110,15 @@ namespace Manager
 			return s;
 		}
 
-		/// <summary>
-		/// Stops the Ghost run home sound if there are no ghosts running home.
-		/// </summary>
-		public void StopGhostRunSound()
+		public void ResetGhostSounds()
 		{
-			if (FindObjectsOfType<Ghost>().Where(ghost => ghost.IsRunningHome()).Count() == 0)
+			Ghost[] ghosts = FindObjectsOfType<Ghost>();
+			int numberOfGhostsRunningHome = ghosts.Where(ghost => ghost.IsRunningHome()).Count();
+
+			if (numberOfGhostsRunningHome == 0)
 			{
 				Pause(SoundNames.GHOST_RUN);
+				Play(SoundNames.GHOST_MOVE);
 			}
 		}
 
