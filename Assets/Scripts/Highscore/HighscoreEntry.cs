@@ -23,7 +23,7 @@ namespace Highscores
 			string formattedName = Utilities.StripNonLatinLetters(name);
 
 			this.rank.text = rank;
-			this.username.text = string.IsNullOrEmpty(formattedName) ? "<invalid name>" : formattedName;
+			this.username.text = string.IsNullOrEmpty(formattedName) ? "<Player>" : formattedName;
 			this.score.text = score;
 
 			if (name.Equals("Tom (The Dev)"))
