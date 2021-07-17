@@ -1,19 +1,18 @@
 ﻿using Manager;
-using SimpleJSON;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using Utility;
 
-namespace Utility
+namespace Highscores
 {
-	/// <summary>
-	/// A helper class to display highscores in the scene.
-	/// </summary>
 	public class HighscoreDisplayHelper : MonoBehaviour
 	{
 		[SerializeField] private HighscoreEntry entryPrefab;
 		[SerializeField] private Transform entriesParent;
 		[SerializeField] private Text localHighscoreText;
 		[SerializeField] private Text statusText;
+		[SerializeField] private GameObject uploadModal;
 
 		private HighscoreManager highscoreManager;
 		private float refreshRate = 60f;
@@ -21,7 +20,7 @@ namespace Utility
 		private void Start()
 		{
 			highscoreManager = HighscoreManager.instance;
-			localHighscoreText.text = "Local Highscore: " + highscoreManager.GetLocalHighscore();
+			localHighscoreText.text = highscoreManager.GetLocalHighscore().ToString();
 
 			statusText.text = "Downloading highscores...";
 			statusText.color = Color.green;
@@ -29,46 +28,39 @@ namespace Utility
 			InvokeRepeating("RefreshHighscores", 0f, refreshRate);
 		}
 
-		/// <summary>
-		/// Fills each of the entrys with values from the supplied array.
-		/// </summary>
-		public void DisplayHighscores(JSONArray entries)
+		public void DisplayHighscores(List<Highscore> highscores)
 		{
+			ClearEntries();
 			statusText.text = "";
-			for (int i = 0; i < entries.Count; i++)
+
+			for (int i = 0; i < highscores.Count; i++)
 			{
 				int rank = i + 1;
 				HighscoreEntry entry = Instantiate(entryPrefab, entriesParent).GetComponent<HighscoreEntry>();
 				entry.Populate(rank + ".", "", "");
 				entry.SetTextColourBasedOnRank(rank);
 
-				if (entries.Count > i)
+				if (highscores.Count > i)
 				{
-					entry.Populate(rank + ".", entries[i]["name"], entries[i]["score"]);
+					entry.Populate(rank + ".", highscores[i].GetName(), highscores[i].GetScore().ToString());
 					entry.SetTextColourBasedOnRank(rank);
 				}
 			}
 		}
 
-		/// <summary>
-		/// Updates the status text.
-		/// </summary>
 		public void DisplayError(string message)
 		{
 			statusText.text = message;
 			statusText.color = Color.red;
 		}
 
-		/// <summary>
-		/// Invoked every x seconds in the start menu to pull new highscores.
-		/// </summary>
 		private void RefreshHighscores()
 		{
 			highscoreManager.DownloadHighscores();
 		}
 
 		/// <summary>
-		/// Called from a Unity button, uploads the highscore to Dreamlo.
+		/// Called from a Unity button, uploads the highscore to Firebase.
 		/// </summary>
 		public void Upload(InputField usernameInputField)
 		{
@@ -108,6 +100,16 @@ namespace Utility
 			{
 				Destroy(child);
 			}
+		}
+
+		public void ShowUploadModal()
+		{
+			uploadModal.SetActive(true);
+		}
+
+		public void HideUploadModal()
+		{
+			uploadModal.SetActive(false);
 		}
 	}
 }
