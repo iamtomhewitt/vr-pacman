@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Utility;
 
 /// <summary>
 /// A data class used for helping display the name, rank and score of the downloaded highscores in the Highscore menu.
 /// Used for the front end only.
 /// </summary>
-namespace Utility
+namespace Highscores
 {
 	public class HighscoreEntry : MonoBehaviour
 	{
