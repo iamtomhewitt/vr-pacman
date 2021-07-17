@@ -2,6 +2,7 @@
 using SimpleJSON;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine.Networking;
 using UnityEngine;
 using Utility;
@@ -62,21 +63,32 @@ namespace Manager
 		{
 			HighscoreDisplayHelper displayHelper = FindObjectOfType<HighscoreDisplayHelper>();
 
-			string privateCode = Config.instance.GetConfig()["dreamlo"]["privateKey"];
+			string url = Config.instance.GetConfig()["firebase"];
 
-			UnityWebRequest request = UnityWebRequest.Post(Constants.DREAMLO + privateCode + "/add/" + username + "/" + score, "");
+			JSONObject body = new JSONObject();
+			body.Add("date", System.DateTime.Now.ToString());
+			body.Add("name", username);
+			body.Add("score", score);
+
+			UnityWebRequest request = UnityWebRequest.Post(url, "POST");
+			byte[] bytes = Encoding.UTF8.GetBytes(body.ToString());
+
+			request.uploadHandler = new UploadHandlerRaw(bytes);
+			request.downloadHandler = new DownloadHandlerBuffer();
+			request.SetRequestHeader("Content-Type", "application/json");
+
 			yield return request.SendWebRequest();
 
-			if (!request.downloadHandler.text.StartsWith("ERROR"))
-			{
-				Debug.Log("Upload successful! " + request.responseCode);
-				PlayerPrefs.SetInt(Constants.ALREADY_UPLOADED_KEY, 1);
-			}
-			else
+			if (request.result != UnityWebRequest.Result.Success)
 			{
 				Debug.Log("Error uploading: " + request.downloadHandler.text);
 				displayHelper.ClearEntries();
 				displayHelper.DisplayError("Could not upload score. Please try again later.\n\n" + request.downloadHandler.text);
+			}
+			else
+			{
+				Debug.Log("Upload successful! " + request.responseCode);
+				PlayerPrefs.SetInt(Constants.ALREADY_UPLOADED_KEY, 1);
 			}
 		}
 
