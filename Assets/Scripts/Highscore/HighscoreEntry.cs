@@ -26,7 +26,7 @@ namespace Highscores
 			this.username.text = string.IsNullOrEmpty(formattedName) ? "<invalid name>" : formattedName;
 			this.score.text = score;
 
-			if (name.Equals("Tom (The Developer)"))
+			if (name.Equals("Tom (The Dev)"))
 			{
 				username.text = ApplyDevColours(name);
 			}

@@ -12,6 +12,7 @@ namespace Highscores
 		[SerializeField] private Transform entriesParent;
 		[SerializeField] private Text localHighscoreText;
 		[SerializeField] private Text statusText;
+		[SerializeField] private GameObject uploadModal;
 
 		private HighscoreManager highscoreManager;
 		private float refreshRate = 60f;
@@ -19,7 +20,7 @@ namespace Highscores
 		private void Start()
 		{
 			highscoreManager = HighscoreManager.instance;
-			localHighscoreText.text = "Local Highscore: " + highscoreManager.GetLocalHighscore();
+			localHighscoreText.text = highscoreManager.GetLocalHighscore().ToString();
 
 			statusText.text = "Downloading highscores...";
 			statusText.color = Color.green;
@@ -99,6 +100,16 @@ namespace Highscores
 			{
 				Destroy(child);
 			}
+		}
+
+		public void ShowUploadModal()
+		{
+			uploadModal.SetActive(true);
+		}
+
+		public void HideUploadModal()
+		{
+			uploadModal.SetActive(false);
 		}
 	}
 }
