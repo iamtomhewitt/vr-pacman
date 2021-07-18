@@ -1,5 +1,8 @@
-﻿using SimpleJSON;
+﻿using Highscores;
+using SimpleJSON;
 using System.Collections;
+using System.Collections.Generic;
+using System.Text;
 using UnityEngine.Networking;
 using UnityEngine;
 using Utility;
@@ -46,7 +49,7 @@ namespace Manager
 		}
 
 		/// <summary>
-		/// Uploads a new highscore to Dreamlo.
+		/// Uploads a new highscore to Firebase.
 		/// </summary>
 		public void UploadNewHighscore(string username, int score)
 		{
@@ -54,27 +57,38 @@ namespace Manager
 		}
 
 		/// <summary>
-		/// Routine for uploading a highscore to Dreamlo.
+		/// Routine for uploading a highscore to Firebase.
 		/// </summary>
 		private IEnumerator UploadNewHighscoreRoutine(string username, int score)
 		{
 			HighscoreDisplayHelper displayHelper = FindObjectOfType<HighscoreDisplayHelper>();
 
-			string privateCode = Config.instance.GetConfig()["dreamlo"]["privateKey"];
+			string url = Config.instance.GetConfig()["firebase"];
 
-			UnityWebRequest request = UnityWebRequest.Post(Constants.DREAMLO + privateCode + "/add/" + username + "/" + score, "");
+			JSONObject body = new JSONObject();
+			body.Add("date", System.DateTime.Now.ToString());
+			body.Add("name", username);
+			body.Add("score", score);
+
+			UnityWebRequest request = UnityWebRequest.Post(url, "POST");
+			byte[] bytes = Encoding.UTF8.GetBytes(body.ToString());
+
+			request.uploadHandler = new UploadHandlerRaw(bytes);
+			request.downloadHandler = new DownloadHandlerBuffer();
+			request.SetRequestHeader("Content-Type", "application/json");
+
 			yield return request.SendWebRequest();
 
-			if (!request.downloadHandler.text.StartsWith("ERROR"))
-			{
-				Debug.Log("Upload successful! " + request.responseCode);
-				PlayerPrefs.SetInt(Constants.ALREADY_UPLOADED_KEY, 1);
-			}
-			else
+			if (request.result != UnityWebRequest.Result.Success)
 			{
 				Debug.Log("Error uploading: " + request.downloadHandler.text);
 				displayHelper.ClearEntries();
 				displayHelper.DisplayError("Could not upload score. Please try again later.\n\n" + request.downloadHandler.text);
+			}
+			else
+			{
+				Debug.Log("Upload successful! " + request.responseCode);
+				PlayerPrefs.SetInt(Constants.ALREADY_UPLOADED_KEY, 1);
 			}
 		}
 
@@ -84,7 +98,7 @@ namespace Manager
 		}
 
 		/// <summary>
-		/// Downloads the highscores from Dreamlo.
+		/// Downloads the highscores from Firebase.
 		/// </summary>
 		private IEnumerator DownloadHighscoresRoutine()
 		{
@@ -96,21 +110,29 @@ namespace Manager
 				yield break;
 			}
 
-			string publicCode = Config.instance.GetConfig()["dreamlo"]["publicKey"];
+			string url = Config.instance.GetConfig()["firebase"];
 
-			UnityWebRequest request = UnityWebRequest.Get(Constants.DREAMLO + publicCode + "/json");
+			UnityWebRequest request = UnityWebRequest.Get(url);
 			yield return request.SendWebRequest();
 
-			if (!request.downloadHandler.text.StartsWith("ERROR"))
-			{
-				JSONNode json = JSON.Parse(request.downloadHandler.text);
-				JSONArray entries = json["dreamlo"]["leaderboard"]["entry"].AsArray;
-				displayHelper.DisplayHighscores(entries);
-			}
-			else
+			if (request.result != UnityWebRequest.Result.Success)
 			{
 				Debug.Log("Error downloading: " + request.downloadHandler.text);
 				displayHelper.DisplayError("Could not download highscores. Please try again later.\n\n" + request.downloadHandler.text);
+			}
+			else
+			{
+				JSONNode json = JSON.Parse(request.downloadHandler.text);
+				List<Highscore> highscores = new List<Highscore>();
+
+				foreach (JSONNode i in json)
+				{
+					highscores.Add(new Highscore(i["name"], i["score"], i["date"]));
+				}
+
+				highscores.Sort((p1, p2) => p2.GetScore().CompareTo(p1.GetScore()));
+
+				displayHelper.DisplayHighscores(highscores);
 			}
 		}
 	}
