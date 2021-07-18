@@ -1,3 +1,13 @@
+## 2.14.1 (18/07/2021) 
+
+
+### Issues in this release:
+
+* [#127](https://github.com/iamtomhewitt/vr-pacman/issues/127) - New graphics/design
+* [#123](https://github.com/iamtomhewitt/vr-pacman/issues/123) - Use Firebase for highscores
+
+
+
 ## 2.14.0 (21/11/2020) 
 
 
