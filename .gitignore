@@ -46,3 +46,5 @@ Logs/
 Assets/Resources/config.json
 Assets/Resources/config.json.meta
 node_modules
+/.env
+/UserSettings/EditorUserSettings.asset
