@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Utility;
 
 /// <summary>
 /// A data class used for helping display the name, rank and score of the downloaded highscores in the Highscore menu.
 /// Used for the front end only.
 /// </summary>
-namespace Utility
+namespace Highscores
 {
 	public class HighscoreEntry : MonoBehaviour
 	{
@@ -22,10 +23,10 @@ namespace Utility
 			string formattedName = Utilities.StripNonLatinLetters(name);
 
 			this.rank.text = rank;
-			this.username.text = string.IsNullOrEmpty(formattedName) ? "<invalid name>" : formattedName;
+			this.username.text = string.IsNullOrEmpty(formattedName) ? "<Player>" : formattedName;
 			this.score.text = score;
 
-			if (name.Equals("Tom (The Developer)"))
+			if (name.Equals("Tom (The Dev)"))
 			{
 				username.text = ApplyDevColours(name);
 			}

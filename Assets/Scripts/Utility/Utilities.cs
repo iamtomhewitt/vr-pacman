@@ -26,7 +26,7 @@ namespace Utility
 
 		public void OpenPrivacyPolicy()
 		{
-			OpenURL("https://iamtomhewitt.github.io/website/#/vr-pac-mac-privacy-policy");
+			OpenURL("https://iamtomhewitt.github.io/privacy-policies/#/ghost-hunter-vr");
 		}
 
 		/// <summary>
