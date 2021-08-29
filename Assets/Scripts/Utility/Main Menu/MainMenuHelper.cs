@@ -10,12 +10,20 @@ using Utility;
 /// </summary>
 public class MainMenuHelper : MonoBehaviour
 {
-	[SerializeField] private GameObject mainMenuUi;
 	[SerializeField] private GameObject countdownUi;
+	[SerializeField] private GameObject halloweenUi;
+	[SerializeField] private GameObject mainMenuUi;
+	[SerializeField] private GameObject normalParticleSystem;
 	[SerializeField] private Text countdownText;
 
 	private void Start()
 	{
+		if (Utilities.isOctober())
+		{
+			halloweenUi.SetActive(true);
+			normalParticleSystem.SetActive(false);
+		}
+
 		mainMenuUi.SetActive(true);
 		countdownUi.SetActive(false);
 	}
