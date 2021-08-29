@@ -1,4 +1,5 @@
-﻿using Manager;
+﻿using Environment;
+using Manager;
 using NUnit.Framework;
 using Pacman;
 using System.Collections;

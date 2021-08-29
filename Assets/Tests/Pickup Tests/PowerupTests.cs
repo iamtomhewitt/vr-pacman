@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Environment;
+using NUnit.Framework;
 using System.Collections;
 using UnityEngine.TestTools;
 using UnityEngine;
-using Utility;
 
 namespace Tests
 {
