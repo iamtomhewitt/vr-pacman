@@ -8,11 +8,13 @@ namespace Highscores
 {
 	public class HighscoreDisplayHelper : MonoBehaviour
 	{
+		[SerializeField] private GameObject halloweenUi;
+		[SerializeField] private GameObject uploadModal;
 		[SerializeField] private HighscoreEntry entryPrefab;
-		[SerializeField] private Transform entriesParent;
 		[SerializeField] private Text localHighscoreText;
 		[SerializeField] private Text statusText;
-		[SerializeField] private GameObject uploadModal;
+		[SerializeField] private Transform entriesParent;
+		[SerializeField] private GameObject normalParticleSystem;
 
 		private HighscoreManager highscoreManager;
 		private float refreshRate = 60f;
@@ -24,6 +26,12 @@ namespace Highscores
 
 			statusText.text = "Downloading highscores...";
 			statusText.color = Color.green;
+
+			if (Utilities.isOctober())
+			{
+				halloweenUi.SetActive(true);
+				normalParticleSystem.SetActive(false);
+			}
 
 			InvokeRepeating("RefreshHighscores", 0f, refreshRate);
 		}
