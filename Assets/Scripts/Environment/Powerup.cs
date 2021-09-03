@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Utility
+namespace Environment
 {
 	/// <summary>
 	/// The powerup that makes the Ghosts flash.
