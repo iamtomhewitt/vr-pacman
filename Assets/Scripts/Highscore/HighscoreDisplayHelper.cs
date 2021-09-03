@@ -9,6 +9,7 @@ namespace Highscores
 	public class HighscoreDisplayHelper : MonoBehaviour
 	{
 		[SerializeField] private GameObject halloweenUi;
+		[SerializeField] private GameObject christmasUi;
 		[SerializeField] private GameObject uploadModal;
 		[SerializeField] private HighscoreEntry entryPrefab;
 		[SerializeField] private Text localHighscoreText;
@@ -30,6 +31,12 @@ namespace Highscores
 			if (Utilities.isOctober())
 			{
 				halloweenUi.SetActive(true);
+				normalParticleSystem.SetActive(false);
+			}
+
+			if (Utilities.isDecember())
+			{
+				christmasUi.SetActive(true);
 				normalParticleSystem.SetActive(false);
 			}
 
