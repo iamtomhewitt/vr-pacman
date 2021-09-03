@@ -7,6 +7,8 @@ namespace Environment
 	{
 		[SerializeField] private Material halloweenMaterial;
 		[SerializeField] private Material halloweenTopMaterial;
+		[SerializeField] private Material christmasMaterial;
+		[SerializeField] private Material christmasTopMaterial;
 
 		private void Start()
 		{
@@ -25,7 +27,8 @@ namespace Environment
 			}
 			else if (Utilities.isDecember())
 			{
-				// TODO
+				materials[0] = christmasMaterial;
+				materials[1] = christmasTopMaterial;
 			}
 
 			meshRenderer.materials = materials;

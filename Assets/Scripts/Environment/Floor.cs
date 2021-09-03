@@ -6,6 +6,7 @@ namespace Environment
 	public class Floor : MonoBehaviour
 	{
 		[SerializeField] private Material halloweenMaterial;
+		[SerializeField] private Material christmasMaterial;
 
 		private void Start()
 		{
@@ -23,7 +24,7 @@ namespace Environment
 			}
 			else if (Utilities.isDecember())
 			{
-				// TODO
+				materials[0] = christmasMaterial;
 			}
 
 			meshRenderer.materials = materials;

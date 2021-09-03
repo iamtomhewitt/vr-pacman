@@ -309,7 +309,7 @@ namespace Ghosts
 			}
 			else if (Utilities.isDecember())
 			{
-				// TODO
+				eyes.SetActive(false);
 			}
 			else
 			{

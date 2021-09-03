@@ -238,6 +238,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!43 &7383082
 Mesh:
   m_ObjectHideFlags: 0
@@ -474,6 +477,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &8968377
 MeshRenderer:
@@ -1367,6 +1373,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &57255492
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1480,6 +1489,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &57993760
 MeshRenderer:
@@ -3985,6 +3997,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &179868701
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4270,6 +4285,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &191724974
 MeshRenderer:
@@ -4824,6 +4842,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &215902087
 MeshRenderer:
@@ -5458,6 +5479,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &237358166
 MeshRenderer:
@@ -6600,6 +6624,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &297482870
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6713,6 +6740,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &297950038
 MeshRenderer:
@@ -7708,6 +7738,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &339137682
 MeshRenderer:
@@ -9514,6 +9547,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &486610552
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10780,6 +10816,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &588315574
 MeshRenderer:
@@ -12102,6 +12141,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &671786107
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12215,6 +12257,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &674188902
 MeshRenderer:
@@ -12419,6 +12464,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &690049892
 MeshRenderer:
@@ -13148,6 +13196,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &715351649
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13411,6 +13462,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &740517137
 MeshRenderer:
@@ -14981,6 +15035,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &800192333
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15519,6 +15576,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &832529986
 MeshRenderer:
@@ -16069,6 +16129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &872360242
 MeshRenderer:
@@ -17298,6 +17361,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &942945112
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17952,6 +18018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: caf78ca78e6504c7bb8173cc3fd2ee83, type: 2}
+  christmasMaterial: {fileID: 2100000, guid: 836d6eb4bbd374eb4b56b23891db0502, type: 2}
 --- !u!1 &985485013
 GameObject:
   m_ObjectHideFlags: 0
@@ -18306,6 +18373,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &997737865
 MeshRenderer:
@@ -20269,6 +20339,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1178929544
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20782,6 +20855,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1227664506
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20996,6 +21072,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &1236089323
 MeshRenderer:
@@ -21648,6 +21727,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1256785346
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21821,6 +21903,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &1265872366
 MeshRenderer:
@@ -22112,6 +22197,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &1275480319
 MeshRenderer:
@@ -22936,6 +23024,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1309437648
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23049,6 +23140,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &1310066596
 MeshRenderer:
@@ -23634,6 +23728,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1323565144
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23747,6 +23844,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &1326561220
 MeshRenderer:
@@ -25214,6 +25314,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1402552636
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25519,6 +25622,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &1431895148
 MeshRenderer:
@@ -25927,6 +26033,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &1447829165
 MeshRenderer:
@@ -26353,6 +26462,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1471931635
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26498,6 +26610,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &1481193675
 MeshRenderer:
@@ -26669,6 +26784,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &1487361770
 MeshRenderer:
@@ -27119,6 +27237,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1506629977
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27464,6 +27585,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &1530001949
 MeshRenderer:
@@ -27831,6 +27955,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1548027525
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27944,6 +28071,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &1550772718
 MeshRenderer:
@@ -28774,6 +28904,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1587302251
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28887,6 +29020,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &1588507510
 MeshRenderer:
@@ -29504,6 +29640,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1627575300
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29739,6 +29878,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!4 &1640425379 stripped
 Transform:
@@ -31087,6 +31229,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1696205557
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31216,6 +31361,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &1699263684
 MeshRenderer:
@@ -32455,6 +32603,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1782881270
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33177,6 +33328,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1837836249
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33492,6 +33646,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &1851526174
 MeshRenderer:
@@ -34614,6 +34771,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1949138027
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34828,6 +34988,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &1958448470
 MeshRenderer:
@@ -36322,6 +36485,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &2022245933
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36465,6 +36631,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &2029150399
 MeshRenderer:
@@ -37162,6 +37331,9 @@ MonoBehaviour:
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
     type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &2083808142
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37305,6 +37477,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
   halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
     type: 2}
 --- !u!23 &2086655817
 MeshRenderer:
