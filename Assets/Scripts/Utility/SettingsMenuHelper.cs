@@ -7,6 +7,7 @@ using Utility;
 public class SettingsMenuHelper : MonoBehaviour
 {
 	[SerializeField] private GameObject halloweenUi;
+	[SerializeField] private GameObject christmasUi;
 	[SerializeField] private GameObject normalParticleSystem;
 
 	private void Start()
@@ -14,6 +15,12 @@ public class SettingsMenuHelper : MonoBehaviour
 		if (Utilities.isOctober())
 		{
 			halloweenUi.SetActive(true);
+			normalParticleSystem.SetActive(false);
+		}
+
+		if (Utilities.isDecember())
+		{
+			christmasUi.SetActive(true);
 			normalParticleSystem.SetActive(false);
 		}
 	}
