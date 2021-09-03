@@ -12,6 +12,7 @@ public class MainMenuHelper : MonoBehaviour
 {
 	[SerializeField] private GameObject countdownUi;
 	[SerializeField] private GameObject halloweenUi;
+	[SerializeField] private GameObject christmasUi;
 	[SerializeField] private GameObject mainMenuUi;
 	[SerializeField] private GameObject normalParticleSystem;
 	[SerializeField] private Text countdownText;
@@ -21,6 +22,12 @@ public class MainMenuHelper : MonoBehaviour
 		if (Utilities.isOctober())
 		{
 			halloweenUi.SetActive(true);
+			normalParticleSystem.SetActive(false);
+		}
+
+		if (Utilities.isDecember())
+		{
+			christmasUi.SetActive(true);
 			normalParticleSystem.SetActive(false);
 		}
 
