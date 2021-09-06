@@ -136,12 +136,13 @@ GameObject:
   - component: {fileID: 6029920}
   - component: {fileID: 6029919}
   - component: {fileID: 6029918}
+  - component: {fileID: 6029921}
   m_Layer: 0
   m_Name: Cube (56)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6029917
 Transform:
@@ -222,6 +223,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6029916}
   m_Mesh: {fileID: 970642089}
+--- !u!114 &6029921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6029916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!43 &7383082
 Mesh:
   m_ObjectHideFlags: 0
@@ -408,12 +427,13 @@ GameObject:
   - component: {fileID: 8968378}
   - component: {fileID: 8968377}
   - component: {fileID: 8968375}
+  - component: {fileID: 8968376}
   m_Layer: 0
   m_Name: Cube (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8968374
 Transform:
@@ -443,6 +463,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 68588579}
+--- !u!114 &8968376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8968373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &8968377
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1284,12 +1322,13 @@ GameObject:
   - component: {fileID: 57255493}
   - component: {fileID: 57255492}
   - component: {fileID: 57255490}
+  - component: {fileID: 57255491}
   m_Layer: 0
   m_Name: Cube (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &57255489
 Transform:
@@ -1319,6 +1358,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1664662867}
+--- !u!114 &57255491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57255488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &57255492
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1382,12 +1439,13 @@ GameObject:
   - component: {fileID: 57993761}
   - component: {fileID: 57993760}
   - component: {fileID: 57993758}
+  - component: {fileID: 57993759}
   m_Layer: 0
   m_Name: Cube (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &57993757
 Transform:
@@ -1417,6 +1475,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 970642089}
+--- !u!114 &57993759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57993756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &57993760
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3870,12 +3946,13 @@ GameObject:
   - component: {fileID: 179868702}
   - component: {fileID: 179868701}
   - component: {fileID: 179868699}
+  - component: {fileID: 179868700}
   m_Layer: 0
   m_Name: Cube (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &179868698
 Transform:
@@ -3905,6 +3982,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2009785840}
+--- !u!114 &179868700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179868697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &179868701
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4140,12 +4235,13 @@ GameObject:
   - component: {fileID: 191724975}
   - component: {fileID: 191724974}
   - component: {fileID: 191724972}
+  - component: {fileID: 191724973}
   m_Layer: 0
   m_Name: Cube (51)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &191724971
 Transform:
@@ -4175,6 +4271,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1313006585}
+--- !u!114 &191724973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191724970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &191724974
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4678,12 +4792,13 @@ GameObject:
   - component: {fileID: 215902088}
   - component: {fileID: 215902087}
   - component: {fileID: 215902085}
+  - component: {fileID: 215902086}
   m_Layer: 0
   m_Name: Cube (43)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &215902084
 Transform:
@@ -4713,6 +4828,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1016604835}
+--- !u!114 &215902086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215902083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &215902087
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5296,12 +5429,13 @@ GameObject:
   - component: {fileID: 237358167}
   - component: {fileID: 237358166}
   - component: {fileID: 237358164}
+  - component: {fileID: 237358165}
   m_Layer: 0
   m_Name: Cube (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &237358163
 Transform:
@@ -5331,6 +5465,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 274351784}
+--- !u!114 &237358165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237358162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &237358166
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6421,12 +6573,13 @@ GameObject:
   - component: {fileID: 297482871}
   - component: {fileID: 297482870}
   - component: {fileID: 297482868}
+  - component: {fileID: 297482869}
   m_Layer: 0
   m_Name: Cube (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &297482867
 Transform:
@@ -6456,6 +6609,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 875115443}
+--- !u!114 &297482869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297482866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &297482870
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6519,12 +6690,13 @@ GameObject:
   - component: {fileID: 297950039}
   - component: {fileID: 297950038}
   - component: {fileID: 297950036}
+  - component: {fileID: 297950037}
   m_Layer: 0
   m_Name: Cube (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &297950035
 Transform:
@@ -6554,6 +6726,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 213053617}
+--- !u!114 &297950037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297950034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &297950038
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7498,12 +7688,13 @@ GameObject:
   - component: {fileID: 339137683}
   - component: {fileID: 339137682}
   - component: {fileID: 339137680}
+  - component: {fileID: 339137681}
   m_Layer: 0
   m_Name: Cube (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &339137679
 Transform:
@@ -7533,6 +7724,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 217303365}
+--- !u!114 &339137681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339137678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &339137682
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9287,12 +9496,13 @@ GameObject:
   - component: {fileID: 486610553}
   - component: {fileID: 486610552}
   - component: {fileID: 486610550}
+  - component: {fileID: 486610551}
   m_Layer: 0
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &486610549
 Transform:
@@ -9322,6 +9532,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 286072058}
+--- !u!114 &486610551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486610548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &486610552
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10538,12 +10766,13 @@ GameObject:
   - component: {fileID: 588315575}
   - component: {fileID: 588315574}
   - component: {fileID: 588315572}
+  - component: {fileID: 588315573}
   m_Layer: 0
   m_Name: Cube (49)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &588315571
 Transform:
@@ -10573,6 +10802,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 658148792}
+--- !u!114 &588315573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588315570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &588315574
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11843,12 +12090,13 @@ GameObject:
   - component: {fileID: 671786108}
   - component: {fileID: 671786107}
   - component: {fileID: 671786105}
+  - component: {fileID: 671786106}
   m_Layer: 0
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &671786104
 Transform:
@@ -11878,6 +12126,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1758508597}
+--- !u!114 &671786106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671786103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &671786107
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11941,12 +12207,13 @@ GameObject:
   - component: {fileID: 674188903}
   - component: {fileID: 674188902}
   - component: {fileID: 674188900}
+  - component: {fileID: 674188901}
   m_Layer: 0
   m_Name: Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &674188899
 Transform:
@@ -11976,6 +12243,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1643055418}
+--- !u!114 &674188901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674188898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &674188902
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12129,12 +12414,13 @@ GameObject:
   - component: {fileID: 690049893}
   - component: {fileID: 690049892}
   - component: {fileID: 690049890}
+  - component: {fileID: 690049891}
   m_Layer: 0
   m_Name: Cube (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &690049889
 Transform:
@@ -12164,6 +12450,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1140459614}
+--- !u!114 &690049891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690049888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &690049892
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12841,12 +13145,13 @@ GameObject:
   - component: {fileID: 715351650}
   - component: {fileID: 715351649}
   - component: {fileID: 715351647}
+  - component: {fileID: 715351648}
   m_Layer: 0
   m_Name: Cube (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &715351646
 Transform:
@@ -12876,6 +13181,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 799810249}
+--- !u!114 &715351648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715351645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &715351649
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13089,12 +13412,13 @@ GameObject:
   - component: {fileID: 740517138}
   - component: {fileID: 740517137}
   - component: {fileID: 740517135}
+  - component: {fileID: 740517136}
   m_Layer: 0
   m_Name: Cube (53)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &740517134
 Transform:
@@ -13124,6 +13448,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 928169929}
+--- !u!114 &740517136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740517133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &740517137
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14642,12 +14984,13 @@ GameObject:
   - component: {fileID: 800192334}
   - component: {fileID: 800192333}
   - component: {fileID: 800192331}
+  - component: {fileID: 800192332}
   m_Layer: 0
   m_Name: Cube (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &800192330
 Transform:
@@ -14677,6 +15020,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1728690813}
+--- !u!114 &800192332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800192329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &800192333
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15165,12 +15526,13 @@ GameObject:
   - component: {fileID: 832529987}
   - component: {fileID: 832529986}
   - component: {fileID: 832529984}
+  - component: {fileID: 832529985}
   m_Layer: 0
   m_Name: Cube (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &832529983
 Transform:
@@ -15200,6 +15562,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1775137457}
+--- !u!114 &832529985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832529982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &832529986
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15699,12 +16079,13 @@ GameObject:
   - component: {fileID: 872360243}
   - component: {fileID: 872360242}
   - component: {fileID: 872360240}
+  - component: {fileID: 872360241}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &872360239
 Transform:
@@ -15734,6 +16115,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1364567146}
+--- !u!114 &872360241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872360238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &872360242
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16911,12 +17310,13 @@ GameObject:
   - component: {fileID: 942945113}
   - component: {fileID: 942945112}
   - component: {fileID: 942945110}
+  - component: {fileID: 942945111}
   m_Layer: 0
   m_Name: Cube (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &942945109
 Transform:
@@ -16946,6 +17346,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1569208826}
+--- !u!114 &942945111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942945108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &942945112
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17515,6 +17933,7 @@ GameObject:
   - component: {fileID: 974751215}
   - component: {fileID: 974751217}
   - component: {fileID: 974751216}
+  - component: {fileID: 974751218}
   m_Layer: 16
   m_Name: Floor
   m_TagString: Untagged
@@ -17586,6 +18005,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974751214}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &974751218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974751214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db47ccd77340043138e1ed0973f4aa4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: caf78ca78e6504c7bb8173cc3fd2ee83, type: 2}
+  christmasMaterial: {fileID: 2100000, guid: 836d6eb4bbd374eb4b56b23891db0502, type: 2}
 --- !u!1 &985485013
 GameObject:
   m_ObjectHideFlags: 0
@@ -17890,12 +18323,13 @@ GameObject:
   - component: {fileID: 997737866}
   - component: {fileID: 997737865}
   - component: {fileID: 997737863}
+  - component: {fileID: 997737864}
   m_Layer: 0
   m_Name: Cube (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &997737862
 Transform:
@@ -17925,6 +18359,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1488477435}
+--- !u!114 &997737864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997737861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &997737865
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19836,12 +20288,13 @@ GameObject:
   - component: {fileID: 1178929545}
   - component: {fileID: 1178929544}
   - component: {fileID: 1178929542}
+  - component: {fileID: 1178929543}
   m_Layer: 0
   m_Name: Cube (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1178929541
 Transform:
@@ -19871,6 +20324,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 754638889}
+--- !u!114 &1178929543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178929540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1178929544
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20333,12 +20804,13 @@ GameObject:
   - component: {fileID: 1227664507}
   - component: {fileID: 1227664506}
   - component: {fileID: 1227664504}
+  - component: {fileID: 1227664505}
   m_Layer: 0
   m_Name: Cube (46)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1227664503
 Transform:
@@ -20368,6 +20840,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 253355781}
+--- !u!114 &1227664505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227664502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1227664506
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20532,12 +21022,13 @@ GameObject:
   - component: {fileID: 1236089324}
   - component: {fileID: 1236089323}
   - component: {fileID: 1236089321}
+  - component: {fileID: 1236089322}
   m_Layer: 0
   m_Name: Cube (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1236089320
 Transform:
@@ -20567,6 +21058,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 600226857}
+--- !u!114 &1236089322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236089319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1236089323
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21167,12 +21676,13 @@ GameObject:
   - component: {fileID: 1256785347}
   - component: {fileID: 1256785346}
   - component: {fileID: 1256785344}
+  - component: {fileID: 1256785345}
   m_Layer: 0
   m_Name: Cube (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1256785343
 Transform:
@@ -21202,6 +21712,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2111285558}
+--- !u!114 &1256785345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256785342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1256785346
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21325,12 +21853,13 @@ GameObject:
   - component: {fileID: 1265872367}
   - component: {fileID: 1265872366}
   - component: {fileID: 1265872364}
+  - component: {fileID: 1265872365}
   m_Layer: 0
   m_Name: Cube (44)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1265872363
 Transform:
@@ -21360,6 +21889,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 68591378}
+--- !u!114 &1265872365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265872362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1265872366
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21600,12 +22147,13 @@ GameObject:
   - component: {fileID: 1275480320}
   - component: {fileID: 1275480319}
   - component: {fileID: 1275480317}
+  - component: {fileID: 1275480318}
   m_Layer: 0
   m_Name: Cube (54)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1275480316
 Transform:
@@ -21635,6 +22183,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1917263191}
+--- !u!114 &1275480318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275480315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1275480319
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22407,12 +22973,13 @@ GameObject:
   - component: {fileID: 1309437649}
   - component: {fileID: 1309437648}
   - component: {fileID: 1309437646}
+  - component: {fileID: 1309437647}
   m_Layer: 0
   m_Name: Cube (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1309437645
 Transform:
@@ -22442,6 +23009,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 800988964}
+--- !u!114 &1309437647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309437644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1309437648
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22505,12 +23090,13 @@ GameObject:
   - component: {fileID: 1310066597}
   - component: {fileID: 1310066596}
   - component: {fileID: 1310066594}
+  - component: {fileID: 1310066595}
   m_Layer: 0
   m_Name: Cube (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1310066593
 Transform:
@@ -22540,6 +23126,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 648756989}
+--- !u!114 &1310066595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310066592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1310066596
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23073,12 +23677,13 @@ GameObject:
   - component: {fileID: 1323565145}
   - component: {fileID: 1323565144}
   - component: {fileID: 1323565142}
+  - component: {fileID: 1323565143}
   m_Layer: 0
   m_Name: Cube (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1323565141
 Transform:
@@ -23108,6 +23713,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1282667593}
+--- !u!114 &1323565143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323565140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1323565144
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23171,12 +23794,13 @@ GameObject:
   - component: {fileID: 1326561221}
   - component: {fileID: 1326561220}
   - component: {fileID: 1326561218}
+  - component: {fileID: 1326561219}
   m_Layer: 0
   m_Name: Cube (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1326561217
 Transform:
@@ -23206,6 +23830,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 795988895}
+--- !u!114 &1326561219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326561216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1326561220
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24621,12 +25263,13 @@ GameObject:
   - component: {fileID: 1402552637}
   - component: {fileID: 1402552636}
   - component: {fileID: 1402552634}
+  - component: {fileID: 1402552635}
   m_Layer: 0
   m_Name: Cube (47)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1402552633
 Transform:
@@ -24656,6 +25299,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7383082}
+--- !u!114 &1402552635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402552632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1402552636
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24911,12 +25572,13 @@ GameObject:
   - component: {fileID: 1431895149}
   - component: {fileID: 1431895148}
   - component: {fileID: 1431895146}
+  - component: {fileID: 1431895147}
   m_Layer: 0
   m_Name: Cube (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1431895145
 Transform:
@@ -24946,6 +25608,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 158743453}
+--- !u!114 &1431895147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431895144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1431895148
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25303,12 +25983,13 @@ GameObject:
   - component: {fileID: 1447829166}
   - component: {fileID: 1447829165}
   - component: {fileID: 1447829163}
+  - component: {fileID: 1447829164}
   m_Layer: 0
   m_Name: Cube (48)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1447829162
 Transform:
@@ -25338,6 +26019,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 987604748}
+--- !u!114 &1447829164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447829161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1447829165
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25712,12 +26411,13 @@ GameObject:
   - component: {fileID: 1471931636}
   - component: {fileID: 1471931635}
   - component: {fileID: 1471931633}
+  - component: {fileID: 1471931634}
   m_Layer: 0
   m_Name: Cube (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1471931632
 Transform:
@@ -25747,6 +26447,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 208070362}
+--- !u!114 &1471931634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471931631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1471931635
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25842,12 +26560,13 @@ GameObject:
   - component: {fileID: 1481193676}
   - component: {fileID: 1481193675}
   - component: {fileID: 1481193673}
+  - component: {fileID: 1481193674}
   m_Layer: 0
   m_Name: Cube (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1481193672
 Transform:
@@ -25877,6 +26596,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1614570885}
+--- !u!114 &1481193674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481193671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1481193675
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25997,12 +26734,13 @@ GameObject:
   - component: {fileID: 1487361771}
   - component: {fileID: 1487361770}
   - component: {fileID: 1487361768}
+  - component: {fileID: 1487361769}
   m_Layer: 0
   m_Name: Cube (50)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1487361767
 Transform:
@@ -26032,6 +26770,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 233426422}
+--- !u!114 &1487361769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487361766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1487361770
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26430,12 +27186,13 @@ GameObject:
   - component: {fileID: 1506629978}
   - component: {fileID: 1506629977}
   - component: {fileID: 1506629975}
+  - component: {fileID: 1506629976}
   m_Layer: 0
   m_Name: Cube (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1506629974
 Transform:
@@ -26465,6 +27222,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 332087381}
+--- !u!114 &1506629976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506629973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1506629977
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26760,12 +27535,13 @@ GameObject:
   - component: {fileID: 1530001950}
   - component: {fileID: 1530001949}
   - component: {fileID: 1530001947}
+  - component: {fileID: 1530001948}
   m_Layer: 0
   m_Name: Cube (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1530001946
 Transform:
@@ -26795,6 +27571,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1246618211}
+--- !u!114 &1530001948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530001945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1530001949
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27110,12 +27904,13 @@ GameObject:
   - component: {fileID: 1548027526}
   - component: {fileID: 1548027525}
   - component: {fileID: 1548027523}
+  - component: {fileID: 1548027524}
   m_Layer: 0
   m_Name: Cube (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1548027522
 Transform:
@@ -27145,6 +27940,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1141263175}
+--- !u!114 &1548027524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548027521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1548027525
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27208,12 +28021,13 @@ GameObject:
   - component: {fileID: 1550772719}
   - component: {fileID: 1550772718}
   - component: {fileID: 1550772716}
+  - component: {fileID: 1550772717}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1550772715
 Transform:
@@ -27243,6 +28057,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 855828268}
+--- !u!114 &1550772717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550772714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1550772718
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28021,12 +28853,13 @@ GameObject:
   - component: {fileID: 1587302252}
   - component: {fileID: 1587302251}
   - component: {fileID: 1587302249}
+  - component: {fileID: 1587302250}
   m_Layer: 0
   m_Name: Cube (45)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1587302248
 Transform:
@@ -28056,6 +28889,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2110768118}
+--- !u!114 &1587302250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587302247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1587302251
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28119,12 +28970,13 @@ GameObject:
   - component: {fileID: 1588507511}
   - component: {fileID: 1588507510}
   - component: {fileID: 1588507508}
+  - component: {fileID: 1588507509}
   m_Layer: 0
   m_Name: Cube (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1588507507
 Transform:
@@ -28154,6 +29006,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1787563416}
+--- !u!114 &1588507509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588507506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1588507510
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28719,12 +29589,13 @@ GameObject:
   - component: {fileID: 1627575301}
   - component: {fileID: 1627575300}
   - component: {fileID: 1627575298}
+  - component: {fileID: 1627575299}
   m_Layer: 0
   m_Name: Cube (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1627575297
 Transform:
@@ -28754,6 +29625,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2019636761}
+--- !u!114 &1627575299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627575296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1627575300
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28888,12 +29777,13 @@ GameObject:
   - component: {fileID: 1634050366}
   - component: {fileID: 1634050365}
   - component: {fileID: 1634050364}
+  - component: {fileID: 1634050367}
   m_Layer: 0
   m_Name: Cube (57)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1634050363
 Transform:
@@ -28974,6 +29864,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634050362}
   m_Mesh: {fileID: 1141263175}
+--- !u!114 &1634050367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634050362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!4 &1640425379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4297903458205092, guid: 57773861b8b99924486a674d4083d435,
@@ -30270,12 +31178,13 @@ GameObject:
   - component: {fileID: 1696205558}
   - component: {fileID: 1696205557}
   - component: {fileID: 1696205555}
+  - component: {fileID: 1696205556}
   m_Layer: 0
   m_Name: Cube (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1696205554
 Transform:
@@ -30305,6 +31214,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1655090312}
+--- !u!114 &1696205556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696205553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1696205557
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30398,12 +31325,13 @@ GameObject:
   - component: {fileID: 1699263685}
   - component: {fileID: 1699263684}
   - component: {fileID: 1699263682}
+  - component: {fileID: 1699263683}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &1699263682
 MeshCollider:
@@ -30419,6 +31347,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1382745126}
+--- !u!114 &1699263683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699263681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1699263684
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31606,12 +32552,13 @@ GameObject:
   - component: {fileID: 1782881271}
   - component: {fileID: 1782881270}
   - component: {fileID: 1782881268}
+  - component: {fileID: 1782881269}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1782881267
 Transform:
@@ -31641,6 +32588,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 692228780}
+--- !u!114 &1782881269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782881266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1782881270
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32312,12 +33277,13 @@ GameObject:
   - component: {fileID: 1837836250}
   - component: {fileID: 1837836249}
   - component: {fileID: 1837836247}
+  - component: {fileID: 1837836248}
   m_Layer: 0
   m_Name: Cube (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1837836246
 Transform:
@@ -32347,6 +33313,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 170073221}
+--- !u!114 &1837836248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837836245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1837836249
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32612,12 +33596,13 @@ GameObject:
   - component: {fileID: 1851526175}
   - component: {fileID: 1851526174}
   - component: {fileID: 1851526172}
+  - component: {fileID: 1851526173}
   m_Layer: 0
   m_Name: Cube (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1851526171
 Transform:
@@ -32647,6 +33632,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 84161326}
+--- !u!114 &1851526173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851526170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1851526174
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33717,12 +34720,13 @@ GameObject:
   - component: {fileID: 1949138028}
   - component: {fileID: 1949138027}
   - component: {fileID: 1949138025}
+  - component: {fileID: 1949138026}
   m_Layer: 0
   m_Name: Cube (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1949138024
 Transform:
@@ -33752,6 +34756,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 768565367}
+--- !u!114 &1949138026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949138023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1949138027
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33916,12 +34938,13 @@ GameObject:
   - component: {fileID: 1958448471}
   - component: {fileID: 1958448470}
   - component: {fileID: 1958448468}
+  - component: {fileID: 1958448469}
   m_Layer: 0
   m_Name: Cube (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1958448467
 Transform:
@@ -33951,6 +34974,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1794609592}
+--- !u!114 &1958448469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958448466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &1958448470
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35393,12 +36434,13 @@ GameObject:
   - component: {fileID: 2022245934}
   - component: {fileID: 2022245933}
   - component: {fileID: 2022245931}
+  - component: {fileID: 2022245932}
   m_Layer: 0
   m_Name: Cube (42)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2022245930
 Transform:
@@ -35428,6 +36470,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10781935}
+--- !u!114 &2022245932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022245929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &2022245933
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35521,12 +36581,13 @@ GameObject:
   - component: {fileID: 2029150400}
   - component: {fileID: 2029150399}
   - component: {fileID: 2029150397}
+  - component: {fileID: 2029150398}
   m_Layer: 0
   m_Name: Cube (52)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2029150396
 Transform:
@@ -35556,6 +36617,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1311458800}
+--- !u!114 &2029150398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029150395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &2029150399
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36201,12 +37280,13 @@ GameObject:
   - component: {fileID: 2083808143}
   - component: {fileID: 2083808142}
   - component: {fileID: 2083808140}
+  - component: {fileID: 2083808141}
   m_Layer: 0
   m_Name: Cube (55)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2083808139
 Transform:
@@ -36236,6 +37316,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2144201458}
+--- !u!114 &2083808141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083808138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &2083808142
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36329,12 +37427,13 @@ GameObject:
   - component: {fileID: 2086655818}
   - component: {fileID: 2086655817}
   - component: {fileID: 2086655815}
+  - component: {fileID: 2086655816}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2086655814
 Transform:
@@ -36364,6 +37463,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 481660340}
+--- !u!114 &2086655816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086655813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59158e82fdcb14f3d9bd2474ca93cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halloweenMaterial: {fileID: 2100000, guid: 0dfb4a4a18c24441faef568b3a810e7a, type: 2}
+  halloweenTopMaterial: {fileID: 2100000, guid: da46c7d7fbdff42f18f7f89100a2dcde,
+    type: 2}
+  christmasMaterial: {fileID: 2100000, guid: fd44ad079ae3e45bca754d7739b6ccb6, type: 2}
+  christmasTopMaterial: {fileID: 2100000, guid: 1ded910bbc95142c4b581749070db567,
+    type: 2}
 --- !u!23 &2086655817
 MeshRenderer:
   m_ObjectHideFlags: 0

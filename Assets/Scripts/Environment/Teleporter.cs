@@ -1,19 +1,20 @@
 ﻿using UnityEngine;
 
-public class Teleporter : MonoBehaviour
+namespace Environment
 {
-	[SerializeField] private Transform teleportTo;
-
-	private void OnTriggerEnter(Collider other)
+	public class Teleporter : MonoBehaviour
 	{
-		if (other.gameObject.tag.Equals(Tags.PLAYER))
-		{
-			Vector3 position = new Vector3(teleportTo.position.x, other.transform.position.y, teleportTo.position.z);
+		[SerializeField] private Transform teleportTo;
 
-			other.gameObject.transform.position= position;
-			other.gameObject.transform.rotation = teleportTo.rotation;
+		private void OnTriggerEnter(Collider other)
+		{
+			if (other.gameObject.tag.Equals(Tags.PLAYER))
+			{
+				Vector3 position = new Vector3(teleportTo.position.x, other.transform.position.y, teleportTo.position.z);
+
+				other.gameObject.transform.position = position;
+				other.gameObject.transform.rotation = teleportTo.rotation;
+			}
 		}
 	}
 }
-
-

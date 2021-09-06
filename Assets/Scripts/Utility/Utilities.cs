@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Utility
@@ -62,6 +63,16 @@ namespace Utility
 			}
 
 			return newName;
+		}
+
+		public static bool isOctober()
+		{
+			return DateTime.Now.Month == 10;
+		}
+
+		public static bool isDecember()
+		{
+			return DateTime.Now.Month == 12;
 		}
 	}
 }

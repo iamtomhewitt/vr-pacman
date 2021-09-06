@@ -9,8 +9,6 @@
 <p align="center">Built with ❤︎ by <a href="https://github.com/iamtomhewitt">Tom Hewitt</a></p>
 <p align="center">Become a Beta Tester <a href="https://play.google.com/apps/testing/com.SwivelChairGames.VRPacman">here</a>!</p>
 
-------------
-
-## Getting Started 🛠
-- Install [Unity Hub](https://unity.com/) and open the project with latest version of Unity.
-- If you want to test on an Android device you will need to install the Android module.
+<p align="center">
+	<img width="800px" src="Google Play Store/Screenshots/Feature Graphic.png"/>
+</p>

@@ -1,3 +1,12 @@
+## 2.15.0 (06/09/2021) 
+
+
+### Issues in this release:
+
+* [#133](https://github.com/iamtomhewitt/vr-pacman/issues/133) - Christmas and Halloween themes
+
+
+
 ## 2.14.1 (18/07/2021) 
 
 
