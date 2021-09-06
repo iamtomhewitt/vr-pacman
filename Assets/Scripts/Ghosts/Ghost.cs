@@ -9,25 +9,31 @@ namespace Ghosts
 {
 	public class Ghost : MonoBehaviour
 	{
-		[SerializeField] private Material originalColour;
-
-		[SerializeField] private bool edible = false;
-		[SerializeField] private bool eaten = false;
-		[SerializeField] private bool runningHome = false;
-		[SerializeField] private float speed;
-		[SerializeField] private float movingSpeed;
-		[SerializeField] private float flashingSpeed;
-		[SerializeField] private float eatenSpeed;
-		[SerializeField] private float speedIncrease;
-		[SerializeField] private MeshRenderer[] colouredBodyParts;
 		[SerializeField] private GameObject[] bodyParts;
+		[SerializeField] private MeshRenderer[] colouredBodyParts;
+		[SerializeField] private GameObject[] halloweenBodyParts;
+		[SerializeField] private GameObject[] christmasBodyParts;
+		[SerializeField] private GameObject eyes;
+		[SerializeField] private GameObject pumpkinEyes;
+		[SerializeField] private GameObject christmasAdditionalParts;
+		[SerializeField] private Material originalColour;
+		[SerializeField] private Material originalHalloweenColour;
+		[SerializeField] private Material originalChristmasColour;
+		[SerializeField] private bool eaten = false;
+		[SerializeField] private bool edible = false;
+		[SerializeField] private bool runningHome = false;
+		[SerializeField] private float eatenSpeed;
+		[SerializeField] private float flashingSpeed;
+		[SerializeField] private float movingSpeed;
+		[SerializeField] private float speed;
+		[SerializeField] private float speedIncrease;
 
+		private AudioManager audioManager;
+		private Coroutine flashRoutine;
+		private Debugger debugger;
 		private GhostPath path;
 		private Rigidbody rb;
-		private Debugger debugger;
-		private Coroutine flashRoutine;
 		private Vector3 originalPosition;
-		private AudioManager audioManager;
 
 		private void Start()
 		{
@@ -39,6 +45,8 @@ namespace Ghosts
 
 			path = GetRandomPath();
 			debugger.Info("has selected path: " + path.gameObject.name);
+
+			ShowBody();
 		}
 
 		private void FixedUpdate()
@@ -108,7 +116,8 @@ namespace Ghosts
 
 			flashRoutine = StartCoroutine(Flash(Color.blue, Color.white));
 			yield return flashRoutine;
-			SetGhostColour(originalColour);
+
+			SetGhostColour(Utilities.isOctober() ? originalHalloweenColour : Utilities.isDecember() ? originalChristmasColour : originalColour);
 
 			edible = false;
 
@@ -152,7 +161,7 @@ namespace Ghosts
 			edible = false;
 			runningHome = false;
 			ShowBody();
-			SetGhostColour(originalColour);
+			SetGhostColour(Utilities.isOctober() ? originalHalloweenColour : Utilities.isDecember() ? originalChristmasColour : originalColour);
 			speed = movingSpeed;
 
 			if (flashRoutine != null)
@@ -244,17 +253,51 @@ namespace Ghosts
 
 		private void SetGhostColour(Material colour)
 		{
-			foreach (MeshRenderer part in colouredBodyParts)
+			if (Utilities.isOctober())
 			{
-				part.material = colour;
+				foreach (GameObject o in halloweenBodyParts)
+				{
+					o.GetComponent<MeshRenderer>().material = colour;
+				}
+			}
+			else if (Utilities.isDecember())
+			{
+				foreach (GameObject o in christmasBodyParts)
+				{
+					o.GetComponent<MeshRenderer>().material = colour;
+				}
+			}
+			else
+			{
+				foreach (MeshRenderer part in colouredBodyParts)
+				{
+					part.material = colour;
+				}
 			}
 		}
 
 		private void SetGhostColour(Color colour)
 		{
-			foreach (MeshRenderer part in colouredBodyParts)
+			if (Utilities.isOctober())
 			{
-				part.material.color = colour;
+				foreach (GameObject o in halloweenBodyParts)
+				{
+					o.GetComponent<MeshRenderer>().material.color = colour;
+				}
+			}
+			else if (Utilities.isDecember())
+			{
+				foreach (GameObject o in christmasBodyParts)
+				{
+					o.GetComponent<MeshRenderer>().material.color = colour;
+				}
+			}
+			else
+			{
+				foreach (MeshRenderer part in colouredBodyParts)
+				{
+					part.material.color = colour;
+				}
 			}
 		}
 
@@ -264,13 +307,51 @@ namespace Ghosts
 			{
 				part.SetActive(false);
 			}
+
+			foreach (GameObject part in halloweenBodyParts)
+			{
+				part.SetActive(false);
+			}
+
+			foreach (GameObject part in christmasBodyParts)
+			{
+				part.SetActive(false);
+			}
 		}
 
 		private void ShowBody()
 		{
-			foreach (GameObject part in bodyParts)
+			HideBody();
+
+			if (Utilities.isOctober())
 			{
-				part.SetActive(true);
+				eyes.SetActive(false);
+				pumpkinEyes.SetActive(true);
+				christmasAdditionalParts.SetActive(false);
+				foreach (GameObject part in halloweenBodyParts)
+				{
+					part.SetActive(true);
+				}
+			}
+			else if (Utilities.isDecember())
+			{
+				eyes.SetActive(false);
+				pumpkinEyes.SetActive(false);
+				christmasAdditionalParts.SetActive(true);
+				foreach (GameObject part in christmasBodyParts)
+				{
+					part.SetActive(true);
+				}
+			}
+			else
+			{
+				eyes.SetActive(true);
+				pumpkinEyes.SetActive(false);
+				christmasAdditionalParts.SetActive(false);
+				foreach (GameObject part in bodyParts)
+				{
+					part.SetActive(true);
+				}
 			}
 		}
 	}

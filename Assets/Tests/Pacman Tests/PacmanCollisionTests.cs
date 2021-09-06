@@ -1,4 +1,5 @@
-﻿using Ghosts;
+﻿using Environment;
+using Ghosts;
 using Manager;
 using NUnit.Framework;
 using Pacman;
