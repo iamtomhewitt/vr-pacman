@@ -1,3 +1,12 @@
+## 2.15.1 (02/06/2022) 
+
+
+### Issues in this release:
+
+* [#139](https://github.com/iamtomhewitt/vr-pacman/issues/139) - Fix dates when sending highscores
+
+
+
 ## 2.15.0 (06/09/2021) 
 
 
