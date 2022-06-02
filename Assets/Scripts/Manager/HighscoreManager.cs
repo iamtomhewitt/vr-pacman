@@ -12,6 +12,7 @@ namespace Manager
 	public class HighscoreManager : MonoBehaviour
 	{
 		public static HighscoreManager instance;
+		private string datetime;
 
 		private void Awake()
 		{
@@ -61,12 +62,14 @@ namespace Manager
 		/// </summary>
 		private IEnumerator UploadNewHighscoreRoutine(string username, int score)
 		{
+			yield return GetDateFromInternet();
+
 			HighscoreDisplayHelper displayHelper = FindObjectOfType<HighscoreDisplayHelper>();
 
 			string url = Config.instance.GetConfig()["firebase"];
 
 			JSONObject body = new JSONObject();
-			body.Add("date", System.DateTime.Now.ToString());
+			body.Add("date", this.datetime);
 			body.Add("name", username);
 			body.Add("score", score);
 
@@ -134,6 +137,14 @@ namespace Manager
 
 				displayHelper.DisplayHighscores(highscores);
 			}
+		}
+
+		private IEnumerator GetDateFromInternet() 
+		{
+			UnityWebRequest request = UnityWebRequest.Get("https://worldtimeapi.org/api/timezone/Europe/London");
+			yield return request.SendWebRequest();
+			JSONNode json = JSON.Parse(request.downloadHandler.text);
+			this.datetime = json["datetime"];
 		}
 	}
 }
