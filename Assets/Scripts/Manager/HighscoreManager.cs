@@ -73,7 +73,7 @@ namespace Manager
 			body.Add("name", username);
 			body.Add("score", score);
 
-			UnityWebRequest request = UnityWebRequest.Post(url, "POST");
+			UnityWebRequest request = UnityWebRequest.PostWwwForm(url, "POST");
 			byte[] bytes = Encoding.UTF8.GetBytes(body.ToString());
 
 			request.uploadHandler = new UploadHandlerRaw(bytes);
